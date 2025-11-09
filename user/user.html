@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Perfil de Usuario - FigurApp</title>
+    <link rel="stylesheet" href="user.css" />
+  </head>
+
+  <body>
+    <section class="perfil_usuario">
+      <div class="bienvenida">
+        <div><p>Bienvenido</p></div>
+        <div><p id="usernameDisplay"></p></div>
+        <div>
+          <img src="../img/icons/fotoPerfilDefault.png" alt="Foto de perfil" />
+        </div>
+      </div>
+
+      <div>
+        <h2>INFORMACIÓN PERSONAL</h2>
+      </div>
+      <div>
+        <p>
+          Gestiona tu información, la privacidad y la seguridad para mejorar tu
+          experiencia en FigurApp.
+        </p>
+      </div>
+
+      <div class="informacion_personal">
+        <form class="form_usuario">
+          <label>Nombre de usuario</label>
+          <div class="dato_actual" id="currentUsername"></div>
+          <div>
+            <input type="text" id="usernameInput" placeholder="Nuevo nombre" />
+          </div>
+          <div>
+            <button type="button" id="usernameBtn">
+              <img src="../img/icons/btn_modificar.png" alt="Modificar" />
+            </button>
+          </div>
+        </form>
+
+        <form class="form_usuario">
+          <label>Correo de usuario</label>
+          <div class="dato_actual" id="currentEmail"></div>
+          <div>
+            <input type="email" id="emailInput" placeholder="Nuevo correo" />
+          </div>
+          <div>
+            <button type="button" id="emailBtn">
+              <img src="../img/icons/btn_modificar.png" alt="Modificar" />
+            </button>
+          </div>
+        </form>
+
+        <form class="form_usuario">
+          <label>Contraseña</label>
+          <div class="dato_actual" id="currentPassword"></div>
+          <div>
+            <input
+              type="password"
+              id="passwordInput"
+              placeholder="Nueva contraseña"
+            />
+          </div>
+          <div>
+            <button type="button" id="passwordBtn">
+              <img src="../img/icons/btn_modificar.png" alt="Modificar" />
+            </button>
+          </div>
+        </form>
+
+        <form class="form_usuario">
+          <label>ELIMINAR CUENTA</label>
+          <div>
+            <select id="deleteReason">
+              <option value="" disabled selected>Seleccionar motivo</option>
+              <option value="privacidad">Preocupación por la privacidad</option>
+              <option value="no_usar">No utilizo la cuenta</option>
+              <option value="problemas_tecnicos">Problemas técnicos</option>
+              <option value="otra">Otro</option>
+            </select>
+          </div>
+
+          <div>
+            <button type="button" id="deleteBtn">
+              <img src="../img/icons/btn_alerta.png" alt="Eliminar cuenta" />
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="btn_interactivos">
+        <div>
+          <button type="button" id="btnCartera">
+            <img src="../img/icons/btn_cartera.png" alt="Cartera" />
+          </button>
+        </div>
+        <div>
+          <button type="button" id="btnAlbum">
+            <img src="../img/icons/btn_album.png" alt="Álbum" />
+          </button>
+        </div>
+        <div>
+          <button type="button" id="btnRuleta">
+            <img src="../img/icons/btn_ruleta.png" alt="Ruleta" />
+          </button>
+        </div>
+      </div>
+    </section>
+    <script src="../js/user.js"></script>
+  </body>
+</html>
