@@ -10,16 +10,17 @@ window.addEventListener("DOMContentLoaded", function () {
     var usernameDisplay = document.getElementById("usernameDisplay");
     if (usernameDisplay)
         usernameDisplay.textContent = usuario.nombre;
-    // Mostrar datos actuales en los campos correspondientes
-    var currentUsername = document.getElementById("currentUsername");
-    var currentEmail = document.getElementById("currentEmail");
-    var currentPassword = document.getElementById("currentPassword");
-    if (currentUsername)
-        currentUsername.textContent = usuario.nombre;
-    if (currentEmail)
-        currentEmail.textContent = usuario.email;
-    if (currentPassword)
-        currentPassword.textContent = "********"; // Nunca mostrar la contraseña real
+    // Seleccionar inputs
+    var usernameInput = document.getElementById("usernameInput");
+    var emailInput = document.getElementById("emailInput");
+    var passwordInput = document.getElementById("passwordInput");
+    // Asignar datos actuales como placeholder
+    if (usernameInput)
+        usernameInput.placeholder = usuario.nombre;
+    if (emailInput)
+        emailInput.placeholder = usuario.email;
+    if (passwordInput)
+        passwordInput.placeholder = "********"; // nunca mostrar contraseña real
 });
 // Función general para manejar alert de actualización
 function alertActualizado() {

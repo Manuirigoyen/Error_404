@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Perfil de Usuario - FigurApp</title>
+    <link rel="stylesheet" href="user/user.css" />
+  </head>
+
+  <body>
+    <section class="perfil_usuario">
+      <div class="bienvenida">
+        <p>Bienvenido</p>
+        <p id="usernameDisplay"></p>
+        <div class="foto_perfil_wrapper">
+          <img
+            src="img/icons/fotoPerfilDefault.png"
+            alt="Foto de perfil"
+            class="foto_perfil"
+          />
+        </div>
+        <img
+          src="img/icons/btn_camara.png"
+          alt="Modificar"
+          class="camara_icon"
+        />
+      </div>
+      <h2>INFORMACIÓN PERSONAL</h2>
+      <p>
+        Gestiona tu información, la privacidad y la seguridad para mejorar tu
+        experiencia en FigurApp.
+      </p>
+      <div class="informacion_personal">
+        <form class="form_usuario">
+          <label>Nombre de usuario</label>
+          <div>
+            <input
+              type="text"
+              id="usernameInput"
+              placeholder="usuario temporal"
+            />
+          </div>
+          <button type="button" id="usernameBtn">
+            <img src="img/icons/btn_modificar.png" alt="Modificar" />
+          </button>
+        </form>
+
+        <form class="form_usuario">
+          <label>Correo de usuario</label>
+          <div>
+            <input
+              type="email"
+              id="emailInput"
+              placeholder="temporal@email.com"
+            />
+          </div>
+          <button type="button" id="emailBtn">
+            <img src="img/icons/btn_modificar.png" alt="Modificar" />
+          </button>
+        </form>
+
+        <form class="form_usuario">
+          <label>Nueva contraseña</label>
+          <div>
+            <input type="password" id="passwordInput" placeholder="********" />
+          </div>
+          <button type="button" id="passwordBtn">
+            <img src="img/icons/btn_modificar.png" alt="Modificar" />
+          </button>
+        </form>
+
+        <form class="form_usuario">
+          <label>Eliminar cuenta</label>
+          <div>
+            <select id="deleteReason">
+              <option value="" disabled selected>Seleccionar motivo</option>
+              <option value="privacidad">Preocupación por la privacidad</option>
+              <option value="no_usar">No utilizo la cuenta</option>
+              <option value="problemas_tecnicos">Problemas técnicos</option>
+              <option value="otra">Otro</option>
+            </select>
+          </div>
+
+          <button type="button" id="deleteBtn">
+            <img src="img/icons/btn_alerta.png" alt="Eliminar cuenta" />
+          </button>
+        </form>
+      </div>
+
+      <div class="btn_interactivos">
+        <div>
+          <button type="button" id="btnCartera">
+            <img src="img/icons/btn_cartera.png" alt="Cartera" />
+          </button>
+        </div>
+        <div>
+          <button type="button" id="btnAlbum">
+            <img src="img/icons/btn_album.png" alt="Álbum" />
+          </button>
+        </div>
+        <div>
+          <button type="button" id="btnRuleta">
+            <img src="img/icons/btn_ruleta.png" alt="Ruleta" />
+          </button>
+        </div>
+      </div>
+    </section>
+    <script src="js/user.js"></script>
+  </body>
+</html>
