@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Perfil de Usuario - FigurApp</title>
     <link rel="stylesheet" href="user/user.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body>
@@ -30,60 +31,69 @@
         experiencia en FigurApp.
       </p>
       <div class="informacion_personal">
-        <form class="form_usuario">
-          <label>Nombre de usuario</label>
-          <div>
-            <input
-              type="text"
-              id="usernameInput"
-              placeholder="usuario temporal"
-            />
-          </div>
-          <button type="button" id="usernameBtn">
-            <img src="img/icons/btn_modificar.png" alt="Modificar" />
-          </button>
-        </form>
+        <div class="form-group">
+          <form class="form_usuario">
+            <label>Usuario</label>
+            <div>
+              <input
+                type="text"
+                id="usernameInput"
+                placeholder="usuario temporal"
+              />
+            </div>
+            <button type="button" id="usernameBtn">
+              <img src="img/icons/btn_modificar.png" alt="Modificar" />
+            </button>
+          </form>
 
-        <form class="form_usuario">
-          <label>Correo de usuario</label>
-          <div>
-            <input
-              type="email"
-              id="emailInput"
-              placeholder="temporal@email.com"
-            />
-          </div>
-          <button type="button" id="emailBtn">
-            <img src="img/icons/btn_modificar.png" alt="Modificar" />
-          </button>
-        </form>
+          <form class="form_usuario">
+            <label>Correo</label>
+            <div>
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="temporal@email.com"
+              />
+            </div>
+            <button type="button" id="emailBtn">
+              <img src="img/icons/btn_modificar.png" alt="Modificar" />
+            </button>
+          </form>
+        </div>
 
-        <form class="form_usuario">
-          <label>Nueva contraseña</label>
-          <div>
-            <input type="password" id="passwordInput" placeholder="********" />
-          </div>
-          <button type="button" id="passwordBtn">
-            <img src="img/icons/btn_modificar.png" alt="Modificar" />
-          </button>
-        </form>
+        <div class="form-group">
+          <form class="form_usuario">
+            <label>Contraseña</label>
+            <div>
+              <input
+                type="password"
+                id="passwordInput"
+                placeholder="********"
+              />
+            </div>
+            <button type="button" id="passwordBtn">
+              <img src="img/icons/btn_modificar.png" alt="Modificar" />
+            </button>
+          </form>
 
-        <form class="form_usuario">
-          <label>Eliminar cuenta</label>
-          <div>
-            <select id="deleteReason">
-              <option value="" disabled selected>Seleccionar motivo</option>
-              <option value="privacidad">Preocupación por la privacidad</option>
-              <option value="no_usar">No utilizo la cuenta</option>
-              <option value="problemas_tecnicos">Problemas técnicos</option>
-              <option value="otra">Otro</option>
-            </select>
-          </div>
-
-          <button type="button" id="deleteBtn">
-            <img src="img/icons/btn_alerta.png" alt="Eliminar cuenta" />
-          </button>
-        </form>
+          <form class="form_usuario">
+            <label>Eliminar cuenta</label>
+            <div>
+              <select id="deleteReason">
+                <option value="" disabled selected>Motivo</option>
+                <option value="privacidad">
+                  Preocupación por la privacidad
+                </option>
+                <option value="no_usar">No utilizo la cuenta</option>
+                <option value="problemas_tecnicos">Problemas técnicos</option>
+                <option value="otra">Otro</option>
+              </select>
+            </div>
+            <button type="button" id="deleteBtn">
+              <img src="img/icons/btn_alerta.png" alt="Eliminar cuenta" />
+            </button>
+          </form>
+        </div>
       </div>
 
       <div class="btn_interactivos">
