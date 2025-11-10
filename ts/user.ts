@@ -1,19 +1,15 @@
-// Datos de prueba
 const usuario = {
   nombre: "usuario temporal",
   email: "temporal@email.com",
   password: "12345678",
 };
 
-// Cargar datos automáticamente al inicio
 window.addEventListener("DOMContentLoaded", () => {
-  // Mostrar nombre de usuario en bienvenida
   const usernameDisplay = document.getElementById(
     "usernameDisplay"
   ) as HTMLParagraphElement | null;
   if (usernameDisplay) usernameDisplay.textContent = usuario.nombre;
 
-  // Seleccionar inputs
   const usernameInput = document.getElementById(
     "usernameInput"
   ) as HTMLInputElement | null;
@@ -24,18 +20,15 @@ window.addEventListener("DOMContentLoaded", () => {
     "passwordInput"
   ) as HTMLInputElement | null;
 
-  // Asignar datos actuales como placeholder
   if (usernameInput) usernameInput.placeholder = usuario.nombre;
   if (emailInput) emailInput.placeholder = usuario.email;
-  if (passwordInput) passwordInput.placeholder = "********"; // nunca mostrar contraseña real
+  if (passwordInput) passwordInput.placeholder = "********";
 });
 
-// Función general para manejar alert de actualización
 function alertActualizado() {
   alert("Dato actualizado");
 }
 
-// Asociar botones de modificar con alert
 const usernameBtn = document.getElementById(
   "usernameBtn"
 ) as HTMLButtonElement | null;
@@ -64,7 +57,6 @@ deleteBtn?.addEventListener("click", () => {
   }
 });
 
-// Botones inferiores
 const btnCartera = document.getElementById(
   "btnCartera"
 ) as HTMLButtonElement | null;
