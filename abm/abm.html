@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios ABM</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="abm.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <section>
+      <h1>Listar Figuritas</h1>
+      <p>
+        Se pueden buscar figuritas por su ID y el nombre del sobre al que
+        pertenecen.
+      </p>
+
+      <form class="form_listar">
+        <div>
+          <label for="id_figurita">Id de la figurita seleccionada</label>
+        </div>
+        <div>
+          <input type="number" id="id_figurita" required />
+        </div>
+        <div>
+          <label for="sobre_figurita">Nombre del sobre seleccionado</label>
+        </div>
+        <div>
+          <select id="sobre_figurita"></select>
+        </div>
+        <div>
+          <button type="submit">Listar</button>
+        </div>
+      </form>
+
+      <h1>Listar Sobres</h1>
+      <p>
+        Se pueden buscar sobres por su ID y el nombre del álbum al que
+        pertenecen.
+      </p>
+
+      <form class="form_listar">
+        <div>
+          <label for="id_sobre">Id del sobre seleccionado</label>
+        </div>
+        <div>
+          <input type="number" id="id_sobre" required />
+        </div>
+        <div>
+          <label for="album_sobre">Nombre del álbum</label>
+        </div>
+        <div>
+          <select id="album_sobre"></select>
+        </div>
+        <div>
+          <button type="submit">Listar</button>
+        </div>
+      </form>
+
+      <h1>Listar Álbum</h1>
+      <p>Se pueden buscar álbums por su ID.</p>
+
+      <form class="form_listar">
+        <div>
+          <label for="id_album">Id del álbum seleccionado</label>
+        </div>
+        <div>
+          <input type="number" id="id_album" required />
+        </div>
+        <div>
+          <button type="submit">Listar</button>
+        </div>
+      </form>
+
+      <h1>Listar Usuarios</h1>
+      <p>Se pueden buscar usuarios por su ID.</p>
+
+      <form class="form_listar">
+        <div>
+          <label for="id_usuario">Id del usuario seleccionado</label>
+        </div>
+        <div>
+          <input type="number" id="id_usuario" required />
+        </div>
+        <div>
+          <button type="submit">Listar</button>
+        </div>
+      </form>
+
+      <h1>Eliminar Figurita</h1>
+      <p>
+        Se pueden eliminar figuritas por su ID y el nombre del sobre al que
+        pertenecen.
+      </p>
+
+      <form class="form_listar">
+        <div>
+          <label for="sobre_figurita_eliminar"
+            >Nombre del sobre seleccionado</label
+          >
+        </div>
+        <div>
+          <select id="sobre_figurita_eliminar"></select>
+        </div>
+        <div>
+          <label for="id_figurita_eliminar"
+            >Id de la figurita seleccionada</label
+          >
+        </div>
+        <div>
+          <input type="number" id="id_figurita_eliminar" required />
+        </div>
+        <div>
+          <button type="submit">Eliminar</button>
+        </div>
+      </form>
+
+      <h1>Eliminar Sobre</h1>
+      <p>
+        Se pueden eliminar sobres por su ID y el nombre del álbum al que
+        pertenecen.
+      </p>
+
+      <form class="form_listar">
+        <div>
+          <label for="album_sobre_eliminar"
+            >Nombre del álbum seleccionado</label
+          >
+        </div>
+        <div>
+          <select id="album_sobre_eliminar"></select>
+        </div>
+        <div>
+          <label for="id_sobre_eliminar">Id del sobre seleccionado</label>
+        </div>
+        <div>
+          <input type="number" id="id_sobre_eliminar" required />
+        </div>
+        <div>
+          <button type="submit">Eliminar</button>
+        </div>
+      </form>
+
+      <h1>Eliminar Álbum</h1>
+      <p>Se pueden eliminar álbums por su ID.</p>
+
+      <form class="form_listar">
+        <div>
+          <label for="id_album_eliminar">Id del álbum seleccionado</label>
+        </div>
+        <div>
+          <input type="number" id="id_album_eliminar" required />
+        </div>
+        <div>
+          <button type="submit">Eliminar</button>
+        </div>
+      </form>
+
+      <h1>Eliminar Usuario</h1>
+      <p>Se pueden eliminar usuarios por su ID.</p>
+
+      <form class="form_listar">
+        <div>
+          <label for="id_usuario_eliminar">Id del usuario seleccionado</label>
+        </div>
+        <div>
+          <input type="number" id="id_usuario_eliminar" required />
+        </div>
+        <div>
+          <button type="submit">Eliminar</button>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>

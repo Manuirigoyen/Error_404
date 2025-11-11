@@ -1,0 +1,65 @@
+body {
+  background-image: url("../img/fondoAbmMobile.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  color: #2c3e50;
+}
+
+.form_listar input,
+.form_listar select {
+  height: 1.5rem;
+  padding: 0 1rem;
+}
+
+p,
+label,
+button {
+  text-align: center;
+  font-weight: bold;
+}
+
+.form_listar {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  margin-bottom: 2%;
+}
+
+button {
+  font-size: 0.8rem;
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 0.5rem;
+}
+
+.form_listar input {
+  width: 200px;
+}
+
+.form_listar select {
+  width: 200px;
+}
+
+@media (max-width: 360px) {
+  .form_listar div {
+    margin: 0.7rem 10%;
+  }
+
+  .form_listar input {
+    width: 90%;
+  }
+
+  .form_listar select {
+    width: 102%;
+  }
+
+  .form_listar {
+    display: block;
+  }
+
+  button {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+}

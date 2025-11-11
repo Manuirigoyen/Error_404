@@ -1,37 +1,8 @@
-@font-face {
-  font-family: "Quicksand";
-  src: url("fonts/static/Quicksand-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Quicksand";
-  src: url("fonts/static/Quicksand-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Quicksand";
-  src: url("fonts/static/Quicksand-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Quicksand";
-  src: url("fonts/static/Quicksand-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
 body {
   background-image: url("../img/fondoPrincipal.png");
   background-repeat: repeat;
   background-position: center;
   background-size: cover;
-  font-family: "Quicksand", sans-serif;
 }
 
 .perfil_usuario,
@@ -116,14 +87,14 @@ body {
   font-size: 1.5rem;
 }
 
-.bienvenida div {
+.bienvenida div img {
   height: 6rem;
 }
 
 .camara_icon {
   position: absolute;
-  bottom: 64%;
-  right: 47%;
+  bottom: 16%;
+  right: 46%;
   width: 20px;
   height: 20px;
   object-fit: contain;
@@ -165,7 +136,7 @@ body {
   }
 
   .camara_icon {
-    bottom: 25%;
+    bottom:29%;
     right: 39%;
   }
 

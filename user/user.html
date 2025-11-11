@@ -3,91 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <title>Perfil de Usuario - FigurApp</title>
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="user.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
- 
+
   <body>
     <section class="perfil_usuario">
       <div class="bienvenida">
-        <div><p>Bienvenido</p></div>
-        <div><p id="usernameDisplay"></p></div>
-        <div>
-          <img src="../img/icons/fotoPerfilDefault.png" alt="Foto de perfil" />
+        <p>Bienvenido</p>
+        <p id="usernameDisplay"></p>
+        <div class="foto_perfil_wrapper">
+          <img
+            src="../img/icons/fotoPerfilDefault.png"
+            alt="Foto de perfil"
+            class="foto_perfil"
+          />
         </div>
+        <img
+          src="../img/icons/btn_camara.png"
+          alt="Modificar"
+          class="camara_icon"
+        />
       </div>
-
-      <div>
-        <h2>INFORMACIÓN PERSONAL</h2>
-      </div>
-      <div>
-        <p>
-          Gestiona tu información, la privacidad y la seguridad para mejorar tu
-          experiencia en FigurApp.
-        </p>
-      </div>
-
+      <h2>INFORMACIÓN PERSONAL</h2>
+      <p>
+        Gestiona tu información, la privacidad y la seguridad para mejorar tu
+        experiencia en FigurApp.
+      </p>
       <div class="informacion_personal">
-        <form class="form_usuario">
-          <label>Nombre de usuario</label>
-          <div class="dato_actual" id="currentUsername"></div>
-          <div>
-            <input type="text" id="usernameInput" placeholder="Nuevo nombre" />
-          </div>
-          <div>
+        <div class="form-group">
+          <form class="form_usuario">
+            <label>Usuario</label>
+            <div>
+              <input
+                type="text"
+                id="usernameInput"
+                placeholder="usuario temporal"
+              />
+            </div>
             <button type="button" id="usernameBtn">
               <img src="../img/icons/btn_modificar.png" alt="Modificar" />
             </button>
-          </div>
-        </form>
+          </form>
 
-        <form class="form_usuario">
-          <label>Correo de usuario</label>
-          <div class="dato_actual" id="currentEmail"></div>
-          <div>
-            <input type="email" id="emailInput" placeholder="Nuevo correo" />
-          </div>
-          <div>
+          <form class="form_usuario">
+            <label>Correo</label>
+            <div>
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="temporal@email.com"
+              />
+            </div>
             <button type="button" id="emailBtn">
               <img src="../img/icons/btn_modificar.png" alt="Modificar" />
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
 
-        <form class="form_usuario">
-          <label>Contraseña</label>
-          <div class="dato_actual" id="currentPassword"></div>
-          <div>
-            <input
-              type="password"
-              id="passwordInput"
-              placeholder="Nueva contraseña"
-            />
-          </div>
-          <div>
+        <div class="form-group">
+          <form class="form_usuario">
+            <label>Contraseña</label>
+            <div>
+              <input
+                type="password"
+                id="passwordInput"
+                placeholder="********"
+              />
+            </div>
             <button type="button" id="passwordBtn">
               <img src="../img/icons/btn_modificar.png" alt="Modificar" />
             </button>
-          </div>
-        </form>
+          </form>
 
-        <form class="form_usuario">
-          <label>ELIMINAR CUENTA</label>
-          <div>
-            <select id="deleteReason">
-              <option value="" disabled selected>Seleccionar motivo</option>
-              <option value="privacidad">Preocupación por la privacidad</option>
-              <option value="no_usar">No utilizo la cuenta</option>
-              <option value="problemas_tecnicos">Problemas técnicos</option>
-              <option value="otra">Otro</option>
-            </select>
-          </div>
-
-          <div>
+          <form class="form_usuario">
+            <label>Eliminar cuenta</label>
+            <div>
+              <select id="deleteReason">
+                <option value="" disabled selected>Motivo</option>
+                <option value="privacidad">
+                  Preocupación por la privacidad
+                </option>
+                <option value="no_usar">No utilizo la cuenta</option>
+                <option value="problemas_tecnicos">Problemas técnicos</option>
+                <option value="otra">Otro</option>
+              </select>
+            </div>
             <button type="button" id="deleteBtn">
               <img src="../img/icons/btn_alerta.png" alt="Eliminar cuenta" />
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
 
       <div class="btn_interactivos">
@@ -108,6 +115,6 @@
         </div>
       </div>
     </section>
-    <script src="../js/user.js"></script>
+    <script src="js/user.js"></script>
   </body>
 </html>
