@@ -10,13 +10,31 @@ const albums = [
   { id: 3, nombre: "Álbum 3" },
 ];
 
+const paises = [
+  { id: 1, nombre: "Argentina" },
+  { id: 2, nombre: "Brasil" },
+  { id: 3, nombre: "Chile" },
+];
+
 function llenarSelect(
   selectId: string,
-  opciones: { id: number; nombre: string }[]
-) {
-  const selectElement = document.getElementById(selectId) as HTMLSelectElement;
+  opciones: { id: number; nombre: string }[],
+  placeholder: string
+): void {
+  const selectElement = document.getElementById(
+    selectId
+  ) as HTMLSelectElement | null;
+  if (!selectElement) {
+    console.warn(`⚠️ No se encontró el select con id="${selectId}"`);
+    return;
+  }
   selectElement.innerHTML = "";
-
+  const placeholderOption = document.createElement("option");
+  placeholderOption.value = "";
+  placeholderOption.textContent = placeholder;
+  placeholderOption.disabled = true;
+  placeholderOption.selected = true;
+  selectElement.appendChild(placeholderOption);
   opciones.forEach((opcion) => {
     const optionElement = document.createElement("option");
     optionElement.value = opcion.id.toString();
@@ -25,9 +43,14 @@ function llenarSelect(
   });
 }
 
-window.onload = () => {
-  llenarSelect("sobre_figurita", sobres);
-  llenarSelect("album_sobre", albums);
-  llenarSelect("sobre_figurita_eliminar", sobres);
-  llenarSelect("album_sobre_eliminar", albums);
-};
+document.addEventListener("DOMContentLoaded", () => {
+  llenarSelect("sobre_figurita", sobres, "Seleccione un sobre");
+  llenarSelect("sobre_figurita_eliminar", sobres, "Seleccione un sobre");
+  llenarSelect("album_sobre_eliminar", albums, "Seleccione un álbum");
+  llenarSelect("sobre_figurita_agregar", sobres, "Seleccione un sobre");
+  llenarSelect("album_sobre_agregar", albums, "Seleccione un álbum");
+  llenarSelect("pais_album_agregar", paises, "Seleccione un país");
+  llenarSelect("sobre_figurita_modificar", sobres, "Seleccione un sobre");
+  llenarSelect("album_sobre_modificar", albums, "Seleccione un álbum");
+  llenarSelect("pais_album_modificar", paises, "Seleccione un país");
+});

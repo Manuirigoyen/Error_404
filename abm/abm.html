@@ -94,34 +94,27 @@
       <form class="form_modificar">
         <div class="grupo_campos">
           <div>
-            <label for="sobre_figurita_agregar"
-              >Nombre del sobre seleccionado</label
-            >
-            <select id="sobre_figurita_agregar"></select>
+            <label for="sobre_figurita_agregar">Nombre del sobre</label>
           </div>
+          <div><select id="sobre_figurita_agregar"></select></div>
+
           <div>
-            <label for="nombre_figurita">Nombre de la figurita (jugador)</label>
-            <input type="text" id="nombre_figurita" required />
+            <label for="nombre_figurita">Nombre de la figurita</label>
           </div>
+          <div><input type="text" id="nombre_figurita" required /></div>
+        </div>
+
+        <div class="grupo_campos">
+          <div><label for="clase_figurita">Clase de figurita</label></div>
+          <div><input type="text" id="clase_figurita" required /></div>
+          <div><label for="precio_figurita">Precio de figurita</label></div>
+          <div><input type="number" id="precio_figurita" required /></div>
         </div>
         <div class="grupo_campos">
-          <div>
-            <label for="clase_figurita">Clase de figurita</label>
-            <input type="text" id="clase_figurita" required />
-          </div>
-          <div>
-            <label for="precio_figurita">Precio de figurita</label>
-            <input type="number" id="precio_figurita" required />
-          </div>
-        </div>
-        <div class="grupo_campos">
-          <div>
-            <label for="stock_figurita">Stock disponible</label>
-            <input type="number" id="stock_figurita" required />
-          </div>
-          <div>
-            <button type="submit">Agregar</button>
-          </div>
+          <div><label for="stock_figurita">Stock disponible</label></div>
+          <div><input type="number" id="stock_figurita" required /></div>
+
+          <button type="submit">Agregar</button>
         </div>
       </form>
 
@@ -136,18 +129,16 @@
             <label for="album_sobre_agregar"
               >Nombre del álbum seleccionado</label
             >
-            <select id="album_sobre_agregar"></select>
           </div>
-          <div>
-            <label for="clase_sobre">Clase de sobre</label>
-            <input type="text" id="clase_sobre" required />
-          </div>
+          <div><select id="album_sobre_agregar"></select></div>
+
+          <div><label for="clase_sobre">Clase de sobre</label></div>
+          <div><input type="text" id="clase_sobre" required /></div>
         </div>
         <div class="grupo_campos">
-          <div>
-            <label for="stock_sobre">Stock disponible</label>
-            <input type="number" id="stock_sobre" required />
-          </div>
+          <div><label for="stock_sobre">Stock disponible</label></div>
+          <div><input type="number" id="stock_sobre" required /></div>
+
           <div>
             <button type="submit">Agregar</button>
           </div>
@@ -163,22 +154,18 @@
         <div class="grupo_campos">
           <div>
             <label for="pais_album">Nombre del país seleccionado</label>
-            <select id="pais_album"></select>
           </div>
-          <div>
-            <label for="clase_album">Clase de álbum</label>
-            <input type="text" id="clase_album" required />
-          </div>
+          <div><select id="pais_album"></select></div>
+
+          <div><label for="clase_album">Clase de álbum</label></div>
+          <div><input type="text" id="clase_album" required /></div>
         </div>
         <div class="grupo_campos">
-          <div>
-            <label for="precio_album">Precio de álbum</label>
-            <input type="number" id="precio_album" required />
-          </div>
-          <div>
-            <label for="stock_album">Stock disponible</label>
-            <input type="number" id="stock_album" required />
-          </div>
+          <div><label for="precio_album">Precio de álbum</label></div>
+          <div><input type="number" id="precio_album" required /></div>
+
+          <div><label for="stock_album">Stock disponible</label></div>
+          <div><input type="number" id="stock_album" required /></div>
           <div>
             <button type="submit">Agregar</button>
           </div>
@@ -199,36 +186,53 @@
         <div class="grupo_campos">
           <div>
             <label for="id_figurita_modificar">Id de la figurita</label>
+          </div>
+          <div>
             <input type="number" id="id_figurita_modificar" required />
           </div>
+
           <div>
             <label for="sobre_figurita_modificar"
               >Nombre del sobre seleccionado</label
             >
+          </div>
+          <div>
             <select id="sobre_figurita_modificar"></select>
           </div>
         </div>
+
         <div class="grupo_campos">
           <div>
             <label for="nombre_figurita_modificar"
               >Nombre de la figurita (jugador)</label
             >
-            <input type="text" id="nombre_figurita_modificar" required />
           </div>
           <div>
+            <input type="text" id="nombre_figurita_modificar" required />
+          </div>
+
+          <div>
             <label for="clase_figurita_modificar">Clase de figurita</label>
+          </div>
+          <div>
             <input type="text" id="clase_figurita_modificar" required />
           </div>
         </div>
         <div class="grupo_campos">
           <div>
             <label for="precio_figurita_modificar">Precio de figurita</label>
-            <input type="number" id="precio_figurita_modificar" required />
           </div>
           <div>
+            <input type="number" id="precio_figurita_modificar" required />
+          </div>
+
+          <div>
             <label for="stock_figurita_modificar">Stock disponible</label>
+          </div>
+          <div>
             <input type="number" id="stock_figurita_modificar" required />
           </div>
+
           <div>
             <button type="submit">Modificar</button>
           </div>
@@ -242,24 +246,24 @@
       </p>
       <form class="form_modificar">
         <div class="grupo_campos">
-          <div>
-            <label for="id_sobre_modificar">Id del sobre</label>
-            <input type="number" id="id_sobre_modificar" required />
-          </div>
+          <div><label for="id_sobre_modificar">Id del sobre</label></div>
+          <div><input type="number" id="id_sobre_modificar" required /></div>
+
           <div>
             <label for="album_sobre_modificar"
               >Nombre del álbum seleccionado</label
             >
-            <select id="album_sobre_modificar"></select>
           </div>
+          <div><select id="album_sobre_modificar"></select></div>
         </div>
         <div class="grupo_campos">
-          <div>
-            <label for="clase_sobre_modificar">Clase de sobre</label>
-            <input type="text" id="clase_sobre_modificar" required />
-          </div>
+          <div><label for="clase_sobre_modificar">Clase de sobre</label></div>
+          <div><input type="text" id="clase_sobre_modificar" required /></div>
+
           <div>
             <label for="stock_sobre_modificar">Stock disponible</label>
+          </div>
+          <div>
             <input type="number" id="stock_sobre_modificar" required />
           </div>
           <div>
@@ -275,32 +279,35 @@
       </p>
       <form class="form_modificar">
         <div class="grupo_campos">
-          <div>
-            <label for="id_album_modificar">Id del álbum</label>
-            <input type="number" id="id_album_modificar" required />
-          </div>
+          <div><label for="id_album_modificar">Id del álbum</label></div>
+          <div><input type="number" id="id_album_modificar" required /></div>
+
           <div>
             <label for="pais_album_modificar"
               >Nombre del país seleccionado</label
             >
-            <select id="pais_album_modificar"></select>
           </div>
+          <div><select id="pais_album_modificar"></select></div>
         </div>
         <div class="grupo_campos">
-          <div>
-            <label for="clase_album_modificar">Clase de álbum</label>
-            <input type="text" id="clase_album_modificar" required />
-          </div>
+          <div><label for="clase_album_modificar">Clase de álbum</label></div>
+          <div><input type="text" id="clase_album_modificar" required /></div>
+
           <div>
             <label for="precio_album_modificar">Precio de álbum</label>
+          </div>
+          <div>
             <input type="number" id="precio_album_modificar" required />
           </div>
         </div>
         <div class="grupo_campos">
           <div>
             <label for="stock_album_modificar">Stock disponible</label>
+          </div>
+          <div>
             <input type="number" id="stock_album_modificar" required />
           </div>
+
           <div>
             <button type="submit">Modificar</button>
           </div>

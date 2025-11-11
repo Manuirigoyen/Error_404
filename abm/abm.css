@@ -2,14 +2,12 @@ body {
   background-image: url("../img/fondoAbmMobile.png");
   background-repeat: repeat;
   background-position: center;
-  background-size: cover;
+
   color: #2c3e50;
 }
 
-.form_listar input,
-.form_listar select,
-.form_agregar input,
-.form_agregar select {
+input,
+select {
   height: 1.5rem;
   padding: 0 1rem;
 }
@@ -23,7 +21,7 @@ button {
 
 .form_listar,
 .form_agregar,
-.grupo_campos {
+.form_modificar .grupo_campos {
   display: flex;
   justify-content: space-around;
   align-items: baseline;
@@ -60,19 +58,23 @@ h2,
 }
 
 @media (max-width: 360px) {
-  .form_listar div {
+  .form_listar div,
+  .form_agregar div,
+  .form_modificar div {
     margin: 0.7rem 10%;
   }
 
-  .form_listar input {
+  input {
     width: 90%;
   }
 
-  .form_listar select {
+  select {
     width: 102%;
   }
 
-  .form_listar {
+  .form_listar,
+  .form_agregar,
+  .form_modificar .grupo_campos {
     display: block;
   }
 
