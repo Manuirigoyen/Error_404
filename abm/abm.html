@@ -6,16 +6,16 @@
     <title>Formularios ABM</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="abm.css" />
-    <script src="app.js" defer></script>
   </head>
   <body>
     <section>
-      <h1>Listar Figuritas</h1>
+      <h1 class="titulo_general">Listar</h1>
+
+      <h2>Listar Figuritas</h2>
       <p>
         Se pueden buscar figuritas por su ID y el nombre del sobre al que
         pertenecen.
       </p>
-
       <form class="form_listar">
         <div>
           <label for="id_figurita">Id de la figurita seleccionada</label>
@@ -34,12 +34,11 @@
         </div>
       </form>
 
-      <h1>Listar Sobres</h1>
+      <h2>Listar Sobres</h2>
       <p>
         Se pueden buscar sobres por su ID y el nombre del álbum al que
         pertenecen.
       </p>
-
       <form class="form_listar">
         <div>
           <label for="id_sobre">Id del sobre seleccionado</label>
@@ -58,9 +57,8 @@
         </div>
       </form>
 
-      <h1>Listar Álbum</h1>
+      <h2>Listar Álbums</h2>
       <p>Se pueden buscar álbums por su ID.</p>
-
       <form class="form_listar">
         <div>
           <label for="id_album">Id del álbum seleccionado</label>
@@ -73,9 +71,8 @@
         </div>
       </form>
 
-      <h1>Listar Usuarios</h1>
+      <h2>Listar Usuarios</h2>
       <p>Se pueden buscar usuarios por su ID.</p>
-
       <form class="form_listar">
         <div>
           <label for="id_usuario">Id del usuario seleccionado</label>
@@ -87,13 +84,241 @@
           <button type="submit">Listar</button>
         </div>
       </form>
+      <h1 class="titulo_general">Agregar</h1>
 
-      <h1>Eliminar Figurita</h1>
+      <h2>Agregar Figurita</h2>
+      <p>
+        Se pueden agregar figuritas indicando el nombre del sobre al que
+        pertenecen y sus detalles asociados.
+      </p>
+      <form class="form_modificar">
+        <div class="grupo_campos">
+          <div>
+            <label for="sobre_figurita_agregar"
+              >Nombre del sobre seleccionado</label
+            >
+            <select id="sobre_figurita_agregar"></select>
+          </div>
+          <div>
+            <label for="nombre_figurita">Nombre de la figurita (jugador)</label>
+            <input type="text" id="nombre_figurita" required />
+          </div>
+        </div>
+        <div class="grupo_campos">
+          <div>
+            <label for="clase_figurita">Clase de figurita</label>
+            <input type="text" id="clase_figurita" required />
+          </div>
+          <div>
+            <label for="precio_figurita">Precio de figurita</label>
+            <input type="number" id="precio_figurita" required />
+          </div>
+        </div>
+        <div class="grupo_campos">
+          <div>
+            <label for="stock_figurita">Stock disponible</label>
+            <input type="number" id="stock_figurita" required />
+          </div>
+          <div>
+            <button type="submit">Agregar</button>
+          </div>
+        </div>
+      </form>
+
+      <h2>Agregar Sobre</h2>
+      <p>
+        Se pueden agregar sobres indicando el nombre del álbum al que pertenecen
+        y sus detalles asociados.
+      </p>
+      <form class="form_modificar">
+        <div class="grupo_campos">
+          <div>
+            <label for="album_sobre_agregar"
+              >Nombre del álbum seleccionado</label
+            >
+            <select id="album_sobre_agregar"></select>
+          </div>
+          <div>
+            <label for="clase_sobre">Clase de sobre</label>
+            <input type="text" id="clase_sobre" required />
+          </div>
+        </div>
+        <div class="grupo_campos">
+          <div>
+            <label for="stock_sobre">Stock disponible</label>
+            <input type="number" id="stock_sobre" required />
+          </div>
+          <div>
+            <button type="submit">Agregar</button>
+          </div>
+        </div>
+      </form>
+
+      <h2>Agregar Álbum</h2>
+      <p>
+        Se pueden agregar álbums indicando el nombre del país al que pertenecen
+        y sus detalles asociados.
+      </p>
+      <form class="form_modificar">
+        <div class="grupo_campos">
+          <div>
+            <label for="pais_album">Nombre del país seleccionado</label>
+            <select id="pais_album"></select>
+          </div>
+          <div>
+            <label for="clase_album">Clase de álbum</label>
+            <input type="text" id="clase_album" required />
+          </div>
+        </div>
+        <div class="grupo_campos">
+          <div>
+            <label for="precio_album">Precio de álbum</label>
+            <input type="number" id="precio_album" required />
+          </div>
+          <div>
+            <label for="stock_album">Stock disponible</label>
+            <input type="number" id="stock_album" required />
+          </div>
+          <div>
+            <button type="submit">Agregar</button>
+          </div>
+        </div>
+      </form>
+
+      <h2>Agregar Usuario</h2>
+      <p>Se pueden agregar usuarios nuevos indicando sus detalles asociados.</p>
+
+      <h1 class="titulo_general">Modificar</h1>
+
+      <h2>Modificar Figurita</h2>
+      <p>
+        Se pueden modificar figuritas indicando su ID, el nombre del sobre al
+        que pertenecen y sus detalles asociados.
+      </p>
+      <form class="form_modificar">
+        <div class="grupo_campos">
+          <div>
+            <label for="id_figurita_modificar">Id de la figurita</label>
+            <input type="number" id="id_figurita_modificar" required />
+          </div>
+          <div>
+            <label for="sobre_figurita_modificar"
+              >Nombre del sobre seleccionado</label
+            >
+            <select id="sobre_figurita_modificar"></select>
+          </div>
+        </div>
+        <div class="grupo_campos">
+          <div>
+            <label for="nombre_figurita_modificar"
+              >Nombre de la figurita (jugador)</label
+            >
+            <input type="text" id="nombre_figurita_modificar" required />
+          </div>
+          <div>
+            <label for="clase_figurita_modificar">Clase de figurita</label>
+            <input type="text" id="clase_figurita_modificar" required />
+          </div>
+        </div>
+        <div class="grupo_campos">
+          <div>
+            <label for="precio_figurita_modificar">Precio de figurita</label>
+            <input type="number" id="precio_figurita_modificar" required />
+          </div>
+          <div>
+            <label for="stock_figurita_modificar">Stock disponible</label>
+            <input type="number" id="stock_figurita_modificar" required />
+          </div>
+          <div>
+            <button type="submit">Modificar</button>
+          </div>
+        </div>
+      </form>
+
+      <h2>Modificar Sobre</h2>
+      <p>
+        Se pueden modificar sobres indicando su ID, el nombre del álbum al que
+        pertenecen y sus detalles asociados.
+      </p>
+      <form class="form_modificar">
+        <div class="grupo_campos">
+          <div>
+            <label for="id_sobre_modificar">Id del sobre</label>
+            <input type="number" id="id_sobre_modificar" required />
+          </div>
+          <div>
+            <label for="album_sobre_modificar"
+              >Nombre del álbum seleccionado</label
+            >
+            <select id="album_sobre_modificar"></select>
+          </div>
+        </div>
+        <div class="grupo_campos">
+          <div>
+            <label for="clase_sobre_modificar">Clase de sobre</label>
+            <input type="text" id="clase_sobre_modificar" required />
+          </div>
+          <div>
+            <label for="stock_sobre_modificar">Stock disponible</label>
+            <input type="number" id="stock_sobre_modificar" required />
+          </div>
+          <div>
+            <button type="submit">Modificar</button>
+          </div>
+        </div>
+      </form>
+
+      <h2>Modificar Álbum</h2>
+      <p>
+        Se pueden modificar álbums indicando su ID, el nombre del país al que
+        pertenecen y sus detalles asociados.
+      </p>
+      <form class="form_modificar">
+        <div class="grupo_campos">
+          <div>
+            <label for="id_album_modificar">Id del álbum</label>
+            <input type="number" id="id_album_modificar" required />
+          </div>
+          <div>
+            <label for="pais_album_modificar"
+              >Nombre del país seleccionado</label
+            >
+            <select id="pais_album_modificar"></select>
+          </div>
+        </div>
+        <div class="grupo_campos">
+          <div>
+            <label for="clase_album_modificar">Clase de álbum</label>
+            <input type="text" id="clase_album_modificar" required />
+          </div>
+          <div>
+            <label for="precio_album_modificar">Precio de álbum</label>
+            <input type="number" id="precio_album_modificar" required />
+          </div>
+        </div>
+        <div class="grupo_campos">
+          <div>
+            <label for="stock_album_modificar">Stock disponible</label>
+            <input type="number" id="stock_album_modificar" required />
+          </div>
+          <div>
+            <button type="submit">Modificar</button>
+          </div>
+        </div>
+      </form>
+
+      <h2>Modificar Usuario</h2>
+      <p>
+        Se pueden modificar usuarios indicando su ID y sus detalles asociados.
+      </p>
+
+      <h1 class="titulo_general">Eliminar</h1>
+
+      <h2>Eliminar Figurita</h2>
       <p>
         Se pueden eliminar figuritas por su ID y el nombre del sobre al que
         pertenecen.
       </p>
-
       <form class="form_listar">
         <div>
           <label for="sobre_figurita_eliminar"
@@ -116,12 +341,11 @@
         </div>
       </form>
 
-      <h1>Eliminar Sobre</h1>
+      <h2>Eliminar Sobre</h2>
       <p>
         Se pueden eliminar sobres por su ID y el nombre del álbum al que
         pertenecen.
       </p>
-
       <form class="form_listar">
         <div>
           <label for="album_sobre_eliminar"
@@ -142,9 +366,8 @@
         </div>
       </form>
 
-      <h1>Eliminar Álbum</h1>
+      <h2>Eliminar Álbum</h2>
       <p>Se pueden eliminar álbums por su ID.</p>
-
       <form class="form_listar">
         <div>
           <label for="id_album_eliminar">Id del álbum seleccionado</label>
@@ -157,9 +380,8 @@
         </div>
       </form>
 
-      <h1>Eliminar Usuario</h1>
+      <h2>Eliminar Usuario</h2>
       <p>Se pueden eliminar usuarios por su ID.</p>
-
       <form class="form_listar">
         <div>
           <label for="id_usuario_eliminar">Id del usuario seleccionado</label>
@@ -172,5 +394,6 @@
         </div>
       </form>
     </section>
+    <script src="../js/abm.js"></script>
   </body>
 </html>

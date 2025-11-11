@@ -7,7 +7,9 @@ body {
 }
 
 .form_listar input,
-.form_listar select {
+.form_listar select,
+.form_agregar input,
+.form_agregar select {
   height: 1.5rem;
   padding: 0 1rem;
 }
@@ -19,11 +21,14 @@ button {
   font-weight: bold;
 }
 
-.form_listar {
+.form_listar,
+.form_agregar,
+.grupo_campos {
   display: flex;
   justify-content: space-around;
   align-items: baseline;
   margin-bottom: 2%;
+  margin-top: 2%;
 }
 
 button {
@@ -33,12 +38,25 @@ button {
   padding: 0.5rem;
 }
 
-.form_listar input {
+input {
   width: 200px;
 }
 
-.form_listar select {
+select {
   width: 200px;
+}
+
+.titulo_general {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h2,
+.titulo_general {
+  text-align: center;
 }
 
 @media (max-width: 360px) {
