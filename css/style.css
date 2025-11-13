@@ -40,7 +40,8 @@ input,
 select,
 button {
   border-radius: 6px;
-  text-align: left;
+  text-align: center;
+  font-weight: bold;
   border: 0.5px solid #000000;
 }
 

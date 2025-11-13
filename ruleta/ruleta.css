@@ -1,0 +1,251 @@
+.ruleta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../img/fondoRuleta.png");
+  background-size: cover;
+  background-position: center;
+  padding-top: 30px;
+  position: relative;
+  border-radius: 6px;
+  border: 2px solid black;
+}
+
+.ruleta_contenedor,
+.premios_circulo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cabecera_contenedor {
+  position: absolute;
+  top: 0px;
+  margin: auto;
+  z-index: 3;
+}
+
+.cabecera_contenedor img {
+  width: 560px;
+  height: 150px;
+  position: relative;
+  z-index: 1;
+  left: 10%;
+}
+
+.ruleta div {
+  text-align: center;
+}
+
+.ruleta_contenedor {
+  position: relative;
+  width: 335px;
+  height: 335px;
+}
+
+.ruleta_img {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  z-index: 1;
+  margin-top: 32%;
+  left: 17%;
+}
+
+.ruleta_img,
+.premios_circulo {
+  animation-name: girar;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.premios_circulo {
+  position: absolute;
+  top: 0;
+  left: 24%;
+  right: 0;
+  bottom: 0;
+  width: 85%;
+  height: 85%;
+  margin: auto;
+  z-index: 2;
+  margin-top: 22%;
+}
+
+.premio_contenedor {
+  position: absolute;
+}
+
+.premio_1 {
+  transform: rotate(0deg) translateY(-85px);
+}
+
+.premio_1 img {
+  width: 64px;
+  height: 64px;
+}
+
+.premio_2 {
+  transform: rotate(45deg) translateY(-85px);
+}
+
+.premio_2 img,
+.premio_4 img,
+.premio_6 img,
+.premio_8 img {
+  width: 58px;
+  height: 58px;
+}
+
+.premio_3 {
+  transform: rotate(90deg) translateY(-85px);
+}
+
+.premio_3 img {
+  width: 60px;
+  height: 60px;
+}
+
+.premio_4 {
+  transform: rotate(135deg) translateY(-85px);
+}
+
+.premio_5 {
+  transform: rotate(180deg) translateY(-85px);
+}
+
+.premio_5 img {
+  width: 86px;
+  height: 57px;
+}
+
+.premio_6 {
+  transform: rotate(225deg) translateY(-85px);
+}
+
+.premio_7 {
+  transform: rotate(270deg) translateY(-85px);
+}
+
+.premio_7 img {
+  width: 54px;
+  height: 49px;
+}
+
+.premio_8 {
+  transform: rotate(315deg) translateY(-85px);
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn_opcion,
+.btn_girar {
+  width: 121px;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.btn_opcion,
+.btn_girar,
+.btn_girar_contenedor {
+  z-index: 4;
+}
+
+.btn_girar_contenedor {
+  padding: 10px;
+}
+
+.btn_opcion {
+  background-color: #000;
+  color: #fdba12;
+  border: 0.5px solid #fdba12;
+}
+
+.btn_girar {
+  background-color: #fdba12;
+  border: 0.5px solid black;
+}
+
+.btn_opcion:hover {
+  background-color: #fdba12;
+  color: #000;
+  border-color: #000;
+  transform: scale(1.08);
+}
+
+.btn_girar:hover {
+  background-color: #000;
+  color: #fdba12;
+  border-color: #fdba12;
+  transform: scale(1.08);
+}
+
+.ruletaDesktop {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10%;
+  position: relative;
+}
+
+.botones_giros {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30%;
+}
+
+.fila_botones {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn_girar {
+  margin-top: 0;
+}
+
+@media (max-width: 360px) {
+  .ruletaDesktop {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .botones_giros {
+    order: 2;
+    margin-top: 20px;
+  }
+
+  .fila_botones {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .btn_girar_contenedor {
+    order: 3;
+    margin-top: 15px;
+  }
+
+  .btn_opcion,
+  .btn_girar {
+    width: 100px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .ruleta_img,
+  .premios_circulo,
+  .cabecera_contenedor img {
+    left: 0;
+  }
+}
