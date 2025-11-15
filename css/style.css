@@ -26,23 +26,64 @@
   font-style: normal;
 }
 
-body,
-select,
-input {
-  font-family: "Quicksand", sans-serif;
+* {
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
-h1 {
-  text-align: center;
+body,
+button,
+select option,
+input {
+  font-family: "Quicksand";
+  font-weight: 700;
+}
+
+h1,
+label,
+button,
+strong {
+  color: #ffffff;
+  text-shadow:
+    -1.8px -1.8px 0 #000000,
+    1.8px -1.8px 0 #000000,
+    -1.8px 1.8px 0 #000000,
+    1.8px 1.8px 0 #000000;
+}
+
+h2,
+p {
+  color: #ffd700;
+  text-shadow:
+    -1.8px -1.8px 0 #2c3e50,
+    1.8px -1.8px 0 #2c3e50,
+    -1.8px 1.8px 0 #2c3e50,
+    1.8px 1.8px 0 #2c3e50;
 }
 
 input,
 select,
-button {
+button,
+#fechaActual {
   border-radius: 6px;
-  text-align: center;
-  font-weight: bold;
-  border: 0.5px solid #000000;
+}
+
+input,
+select,
+#fechaActual {
+  padding: 2px;
+  margin: 0px 8px;
+  background-color: #ffffff;
+  border: 2px solid #2c3e50;
+  color: #696666;
+  text-align: left;
+  font-size: 12px;
+  width: 170px;
+  height: 30px;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  box-sizing: border-box;
+  font-weight: 700;
 }
 
 button {

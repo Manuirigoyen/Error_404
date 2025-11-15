@@ -9,7 +9,49 @@
   </head>
   <body>
     <section>
-      <h1 class="titulo_general">Listar</h1>
+      <header>
+        <h1>Administración</h1>
+        <button id="btn_hamburguesa" class="hamburger_btn">☰</button>
+      </header>
+
+      <nav id="menu_principal">
+        <button id="menu_listar_btn" class="btn_menu">Listar</button>
+        <button id="menu_agregar_btn" class="btn_menu">Agregar</button>
+        <button id="menu_modificar_btn" class="btn_menu">Modificar</button>
+        <button id="menu_eliminar_btn" class="btn_menu">Eliminar</button>
+      </nav>
+
+      <nav id="menu_secundario">
+        <ul id="menu_listar" class="submenu">
+          <li><a href="#listar_figuritas">Listar Figuritas</a></li>
+          <li><a href="#listar_sobres">Listar Sobres</a></li>
+          <li><a href="#listar_albums">Listar Álbums</a></li>
+          <li><a href="#listar_usuarios">Listar Usuarios</a></li>
+        </ul>
+
+        <ul id="menu_agregar" class="submenu">
+          <li><a href="#agregar_figurita">Agregar Figurita</a></li>
+          <li><a href="#agregar_sobre">Agregar Sobre</a></li>
+          <li><a href="#agregar_album">Agregar Álbum</a></li>
+          <li><a href="#agregar_usuario">Agregar Usuario</a></li>
+        </ul>
+
+        <ul id="menu_modificar" class="submenu">
+          <li><a href="#modificar_figurita">Modificar Figurita</a></li>
+          <li><a href="#modificar_sobre">Modificar Sobre</a></li>
+          <li><a href="#modificar_album">Modificar Álbum</a></li>
+          <li><a href="#modificar_usuario">Modificar Usuario</a></li>
+        </ul>
+
+        <ul id="menu_eliminar" class="submenu">
+          <li><a href="#eliminar_figurita">Eliminar Figurita</a></li>
+          <li><a href="#eliminar_sobre">Eliminar Sobre</a></li>
+          <li><a href="#eliminar_album">Eliminar Álbum</a></li>
+          <li><a href="#eliminar_usuario">Eliminar Usuario</a></li>
+        </ul>
+      </nav>
+
+      <h1>Listar</h1>
 
       <h2>Listar Figuritas</h2>
       <p>
@@ -47,7 +89,7 @@
           <input type="number" id="id_sobre" required />
         </div>
         <div>
-          <label for="album_sobre">Nombre del álbum</label>
+          <label for="album_sobre">Nombre del álbum seleccionado </label>
         </div>
         <div>
           <select id="album_sobre"></select>
@@ -84,6 +126,7 @@
           <button type="submit">Listar</button>
         </div>
       </form>
+
       <h1 class="titulo_general">Agregar</h1>
 
       <h2>Agregar Figurita</h2>
@@ -94,19 +137,22 @@
       <form class="form_modificar">
         <div class="grupo_campos">
           <div>
-            <label for="sobre_figurita_agregar">Nombre del sobre</label>
+            <label for="sobre_figurita_agregar"
+              >Nombre del sobre seleccionado
+            </label>
           </div>
           <div><select id="sobre_figurita_agregar"></select></div>
 
           <div>
-            <label for="nombre_figurita">Nombre de la figurita</label>
+            <label for="nombre_figurita">Nombre de la figurita (jugador)</label>
           </div>
           <div><input type="text" id="nombre_figurita" required /></div>
         </div>
 
         <div class="grupo_campos">
           <div><label for="clase_figurita">Clase de figurita</label></div>
-          <div><input type="text" id="clase_figurita" required /></div>
+          <div><select id="clase_figurita"></select></div>
+
           <div><label for="precio_figurita">Precio de figurita</label></div>
           <div><input type="number" id="precio_figurita" required /></div>
         </div>
@@ -133,7 +179,7 @@
           <div><select id="album_sobre_agregar"></select></div>
 
           <div><label for="clase_sobre">Clase de sobre</label></div>
-          <div><input type="text" id="clase_sobre" required /></div>
+          <div><select id="clase_sobre"></select></div>
         </div>
         <div class="grupo_campos">
           <div><label for="stock_sobre">Stock disponible</label></div>
@@ -158,7 +204,7 @@
           <div><select id="pais_album"></select></div>
 
           <div><label for="clase_album">Clase de álbum</label></div>
-          <div><input type="text" id="clase_album" required /></div>
+          <div><select id="clase_album"></select></div>
         </div>
         <div class="grupo_campos">
           <div><label for="precio_album">Precio de álbum</label></div>
@@ -174,6 +220,62 @@
 
       <h2>Agregar Usuario</h2>
       <p>Se pueden agregar usuarios nuevos indicando sus detalles asociados.</p>
+
+      <form class="form_modificar">
+        <div class="grupo_campos">
+          <div>
+            <label for="usuario_nombre">Nombre de usuario</label>
+          </div>
+          <div>
+            <input type="text" id="usuario_nombre" required />
+          </div>
+
+          <div>
+            <label for="usuario_contra">Contraseña</label>
+          </div>
+          <div>
+            <input type="password" id="usuario_contra" required />
+          </div>
+        </div>
+
+        <div class="grupo_campos">
+          <div>
+            <label for="usuario_correo">Correo electrónico</label>
+          </div>
+          <div>
+            <input type="email" id="usuario_correo" required />
+          </div>
+
+          <div>
+            <label for="usuario_telefono">Número de teléfono</label>
+          </div>
+          <div>
+            <input type="tel" id="usuario_telefono" required />
+          </div>
+        </div>
+
+        <div class="grupo_campos">
+          <div>
+            <label for="usuario_pais">País de origen</label>
+          </div>
+          <div>
+            <select id="usuario_pais"></select>
+          </div>
+
+          <div>
+            <label for="usuario_fecha">Fecha de nacimiento</label>
+          </div>
+          <div>
+            <input type="date" id="usuario_fecha" required />
+          </div>
+        </div>
+
+        <div class="grupo_campos">
+          <div>
+            <button type="submit">Agregar</button>
+          </div>
+        </div>
+      </form>
 
       <h1 class="titulo_general">Modificar</h1>
 
@@ -215,7 +317,7 @@
             <label for="clase_figurita_modificar">Clase de figurita</label>
           </div>
           <div>
-            <input type="text" id="clase_figurita_modificar" required />
+            <select id="clase_figurita_modificar"></select>
           </div>
         </div>
         <div class="grupo_campos">
@@ -258,7 +360,7 @@
         </div>
         <div class="grupo_campos">
           <div><label for="clase_sobre_modificar">Clase de sobre</label></div>
-          <div><input type="text" id="clase_sobre_modificar" required /></div>
+          <div><select id="clase_sobre_modificar"></select></div>
 
           <div>
             <label for="stock_sobre_modificar">Stock disponible</label>
@@ -291,7 +393,7 @@
         </div>
         <div class="grupo_campos">
           <div><label for="clase_album_modificar">Clase de álbum</label></div>
-          <div><input type="text" id="clase_album_modificar" required /></div>
+          <div><select id="clase_album_modificar"></select></div>
 
           <div>
             <label for="precio_album_modificar">Precio de álbum</label>
@@ -318,6 +420,37 @@
       <p>
         Se pueden modificar usuarios indicando su ID y sus detalles asociados.
       </p>
+
+      <form class="form_modificar">
+        <div class="grupo_campos">
+          <div><label for="usuario_id_mod">Id del usuario</label></div>
+          <div><input type="number" id="usuario_id_mod" required /></div>
+          <div><label for="usuario_nombre_mod">Nombre de usuario</label></div>
+          <div><input type="text" id="usuario_nombre_mod" required /></div>
+        </div>
+        <div class="grupo_campos">
+          <div><label for="usuario_contra_mod">Contraseña</label></div>
+          <div><input type="password" id="usuario_contra_mod" required /></div>
+
+          <div><label for="usuario_correo_mod">Correo electrónico</label></div>
+          <div><input type="email" id="usuario_correo_mod" required /></div>
+        </div>
+        <div class="grupo_campos">
+          <div>
+            <label for="usuario_telefono_mod">Número de teléfono</label>
+          </div>
+          <div><input type="tel" id="usuario_telefono_mod" required /></div>
+
+          <div><label for="usuario_pais_mod">País de origen</label></div>
+          <div><select id="usuario_pais_mod"></select></div>
+        </div>
+        <div class="grupo_campos">
+          <div><label for="usuario_fecha_mod">Fecha de nacimiento</label></div>
+          <div><input type="date" id="usuario_fecha_mod" required /></div>
+
+          <div><button type="submit">Modificar</button></div>
+        </div>
+      </form>
 
       <h1 class="titulo_general">Eliminar</h1>
 

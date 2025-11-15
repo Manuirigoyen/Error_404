@@ -11,7 +11,7 @@
   <body>
     <section class="perfil_usuario">
       <div class="bienvenida">
-        <p>Bienvenido</p>
+        <h2>Datos de usuario</h2>
         <p id="usernameDisplay"></p>
         <div class="foto_perfil_wrapper">
           <img
@@ -26,73 +26,112 @@
           class="camara_icon"
         />
       </div>
-      <h2>INFORMACIÓN PERSONAL</h2>
+
       <p>
         Gestiona tu información, la privacidad y la seguridad para mejorar tu
         experiencia en FigurApp.
       </p>
+
       <div class="informacion_personal">
-        <div class="form-group">
+        <div class="form_group">
           <form class="form_usuario">
-            <label>Usuario</label>
+            <label>Nombre</label>
             <div>
-              <input
-                type="text"
-                id="usernameInput"
-                placeholder="usuario temporal"
-              />
+              <input type="text" id="nameInput" placeholder="Nombre actual" />
+              <button type="button" id="nameBtn">
+                <img src="../img/icons/btn_modificar.png" alt="Modificar" />
+              </button>
             </div>
-            <button type="button" id="usernameBtn">
-              <img src="../img/icons/btn_modificar.png" alt="Modificar" />
-            </button>
           </form>
 
           <form class="form_usuario">
-            <label>Correo</label>
+            <label>Correo Electrónico</label>
             <div>
-              <input
-                type="email"
-                id="emailInput"
-                placeholder="temporal@email.com"
-              />
+              <input type="email" id="emailInput" placeholder="Correo actual" />
+
+              <button type="button" id="emailBtn">
+                <img src="../img/icons/btn_modificar.png" alt="Modificar" />
+              </button>
             </div>
-            <button type="button" id="emailBtn">
-              <img src="../img/icons/btn_modificar.png" alt="Modificar" />
-            </button>
           </form>
         </div>
 
-        <div class="form-group">
+        <div class="form_group">
           <form class="form_usuario">
-            <label>Contraseña</label>
+            <label>Número de Teléfono</label>
             <div>
-              <input
-                type="password"
-                id="passwordInput"
-                placeholder="********"
-              />
+              <input type="tel" id="phoneInput" placeholder="Número actual" />
+
+              <button type="button" id="phoneBtn">
+                <img src="../img/icons/btn_modificar.png" alt="Modificar" />
+              </button>
             </div>
-            <button type="button" id="passwordBtn">
-              <img src="../img/icons/btn_modificar.png" alt="Modificar" />
-            </button>
           </form>
 
           <form class="form_usuario">
+            <label>País de Origen</label>
+            <div>
+              <select id="countrySelect"></select>
+
+              <button type="button" id="countryBtn">
+                <img src="../img/icons/btn_modificar.png" alt="Modificar" />
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="form_group">
+          <form class="form_usuario">
+            <div class="form_group">
+              <label>Contraseña Actual</label>
+              <div>
+                <input
+                  type="password"
+                  id="currentPasswordInput"
+                  placeholder="********"
+                />
+              </div>
+              <div>
+                <input
+                  type="password"
+                  id="confirmPasswordInput"
+                  placeholder="Confirmar contraseña"
+                />
+                <button type="button" id="confirmPasswordBtn">
+                  <img src="../img/icons/btn_modificar.png" alt="Modificar" />
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="form_group">
+          <form class="form_usuario">
+            <div class="form_group">
+              <label>Fecha de Nacimiento</label>
+              <div>
+                <div id="fechaActual">Fecha actual</div>
+              </div>
+              <div>
+                <input type="date" id="birthDateInput" />
+                <button type="button" id="birthDateBtn">
+                  <img src="../img/icons/btn_modificar.png" alt="Modificar" />
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="form_group">
+          <form class="form_usuario">
             <label>Eliminar cuenta</label>
             <div>
-              <select id="deleteReason">
-                <option value="" disabled selected>Motivo</option>
-                <option value="privacidad">
-                  Preocupación por la privacidad
-                </option>
-                <option value="no_usar">No utilizo la cuenta</option>
-                <option value="problemas_tecnicos">Problemas técnicos</option>
-                <option value="otra">Otro</option>
-              </select>
+              <select id="deleteReason"></select>
+
+              <button type="button" id="deleteBtn">
+                <img src="../img/icons/btn_alerta.png" alt="Eliminar cuenta" />
+              </button>
             </div>
-            <button type="button" id="deleteBtn">
-              <img src="../img/icons/btn_alerta.png" alt="Eliminar cuenta" />
-            </button>
           </form>
         </div>
       </div>

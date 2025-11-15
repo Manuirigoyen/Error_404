@@ -1,25 +1,23 @@
 body {
-  background-image: url("../img/fondoPrincipal.png");
-  background-repeat: repeat;
+  background-image: url("../img/fondoEstadioDesktop.png");
   background-position: center;
   background-size: cover;
 }
 
-.perfil_usuario,
-.form_usuario input {
+.perfil_usuario {
   text-align: center;
 }
 
 .form_usuario,
-.form-group {
+.form_group {
   display: flex;
 }
 
 .btn_interactivos {
   display: block;
   position: absolute;
-  top: 0%;
-  left: 70%;
+  bottom: 60%;
+  left: 61%;
 }
 
 .perfil_usuario {
@@ -27,10 +25,10 @@ body {
 }
 
 .form_usuario,
-.form-group,
+.form_group,
 .btn_interactivos {
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .perfil_usuario button,
@@ -41,46 +39,33 @@ body {
   cursor: pointer;
 }
 
-.form_usuario input,
-.form_usuario select {
-  border-radius: 6px;
-  text-align: left;
-  border: 0.5px solid #000000;
-}
-
 .form_usuario button:hover img,
 .btn_interactivos button:hover img,
 .camara_icon:hover {
   transform: scale(1.2);
 }
 
-.form_usuario select {
-  color: #999;
+.form_usuario div {
+  margin: 0 5px;
 }
 
-.form_usuario div {
-  margin: 0.6875rem 5%;
+.form_usuario {
+  margin: 0px 10px;
 }
 
 .btn_interactivos div {
-  margin: 0.6875rem 7%;
+  margin: 7px 7%;
 }
 
-.bienvenida p {
-  font-size: 2rem;
-  margin: 0;
+.bienvenida {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 10px;
   padding: 0;
-}
-
-.perfil_usuario > p {
-  font-size: 1.2rem;
-}
-
-.form_usuario input,
-.form_usuario select,
-.form_usuario button {
-  height: 1.5rem;
-  padding: 0 1rem;
+  font-size: 18px;
 }
 
 #usernameDisplay {
@@ -88,15 +73,15 @@ body {
 }
 
 .bienvenida div img {
-  height: 6rem;
+  height: 9rem;
 }
 
 .camara_icon {
   position: absolute;
-  bottom: 16%;
-  right: 46%;
-  width: 20px;
-  height: 20px;
+  bottom: 20%;
+  right: 44%;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   cursor: pointer;
 }
@@ -112,42 +97,40 @@ body {
   height: 100%;
 }
 
-.form_usuario input {
-  width: 200px;
+input,
+select,
+#fechaActual {
+  width: 250px;
 }
 
-.form_usuario select {
-  width: 200px;
+.form_usuario div {
+  align-items: baseline;
 }
 
 @media (max-width: 360px) {
+  body {
+    background-image: url("../img/fondoEstadioMobile.png");
+  }
+
   .form_usuario,
-  .btn_interactivos {
-    align-items: center;
-    justify-content: flex-end;
+  .form_group {
+    display: block;
+    text-align: left;
   }
 
-  .form_usuario input {
-    width: 130px;
-  }
-
-  .form_usuario select {
-    width: 130px;
+  section {
+    margin-top: 25%;
   }
 
   .camara_icon {
-    bottom:29%;
-    right: 39%;
-  }
-
-  .form-group {
-    display: block;
+    bottom: 34%;
+    right: 34%;
   }
 
   .btn_interactivos {
     display: flex;
     position: relative;
-    top: 0%;
+    bottom: 0%;
     left: 0%;
   }
 }
