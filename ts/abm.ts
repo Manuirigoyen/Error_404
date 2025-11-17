@@ -1,56 +1,124 @@
-const sobres = [
-  { id: 1, nombre: "Sobre 1" },
-  { id: 2, nombre: "Sobre 2" },
-  { id: 3, nombre: "Sobre 3" },
-];
+document.addEventListener("DOMContentLoaded", function () {
+  const clases_figurita = ["Comun", "Especial", "Legendaria"];
+  const clases_sobre = ["Gris", "Dorado", "Premium"];
+  const clases_album = ["Mundial", "Continental", "Nacional", "Local"];
+  const paises = [
+    "Argentina",
+    "Brasil",
+    "Uruguay",
+    "Chile",
+    "Paraguay",
+    "Bolivia",
+    "Peru",
+    "Ecuador",
+    "Colombia",
+    "Venezuela",
+    "Mexico",
+    "España",
+    "Francia",
+    "Alemania",
+    "Italia",
+    "Portugal",
+    "Inglaterra",
+    "Paises Bajos",
+    "Belgica",
+    "Croacia",
+  ];
 
-const albums = [
-  { id: 1, nombre: "Álbum 1" },
-  { id: 2, nombre: "Álbum 2" },
-  { id: 3, nombre: "Álbum 3" },
-];
-
-const paises = [
-  { id: 1, nombre: "Argentina" },
-  { id: 2, nombre: "Brasil" },
-  { id: 3, nombre: "Chile" },
-];
-
-function llenarSelect(
-  selectId: string,
-  opciones: { id: number; nombre: string }[],
-  placeholder: string
-): void {
-  const selectElement = document.getElementById(
-    selectId
-  ) as HTMLSelectElement | null;
-  if (!selectElement) {
-    console.warn(`⚠️ No se encontró el select con id="${selectId}"`);
-    return;
+  function cargarOption(select: HTMLSelectElement, array: string[]): void {
+    for (let i = 0; i < array.length; i++) {
+      const option = document.createElement("option");
+      option.value = array[i];
+      option.textContent = array[i];
+      select.appendChild(option);
+    }
   }
-  selectElement.innerHTML = "";
-  const placeholderOption = document.createElement("option");
-  placeholderOption.value = "";
-  placeholderOption.textContent = placeholder;
-  placeholderOption.disabled = true;
-  placeholderOption.selected = true;
-  selectElement.appendChild(placeholderOption);
-  opciones.forEach((opcion) => {
-    const optionElement = document.createElement("option");
-    optionElement.value = opcion.id.toString();
-    optionElement.textContent = opcion.nombre;
-    selectElement.appendChild(optionElement);
-  });
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-  llenarSelect("sobre_figurita", sobres, "Seleccione un sobre");
-  llenarSelect("sobre_figurita_eliminar", sobres, "Seleccione un sobre");
-  llenarSelect("album_sobre_eliminar", albums, "Seleccione un álbum");
-  llenarSelect("sobre_figurita_agregar", sobres, "Seleccione un sobre");
-  llenarSelect("album_sobre_agregar", albums, "Seleccione un álbum");
-  llenarSelect("pais_album_agregar", paises, "Seleccione un país");
-  llenarSelect("sobre_figurita_modificar", sobres, "Seleccione un sobre");
-  llenarSelect("album_sobre_modificar", albums, "Seleccione un álbum");
-  llenarSelect("pais_album_modificar", paises, "Seleccione un país");
+  function cargarSelects(): void {
+    const selects_sobre =
+      document.querySelectorAll<HTMLSelectElement>(".cls_sobre");
+    const selects_album =
+      document.querySelectorAll<HTMLSelectElement>(".cls_album");
+    const selects_figurita =
+      document.querySelectorAll<HTMLSelectElement>(".cls_figurita");
+    const selects_pais =
+      document.querySelectorAll<HTMLSelectElement>(".cls_pais");
+
+    for (let i = 0; i < selects_sobre.length; i++)
+      cargarOption(selects_sobre[i], clases_sobre);
+    for (let i = 0; i < selects_album.length; i++)
+      cargarOption(selects_album[i], clases_album);
+    for (let i = 0; i < selects_figurita.length; i++)
+      cargarOption(selects_figurita[i], clases_figurita);
+    for (let i = 0; i < selects_pais.length; i++)
+      cargarOption(selects_pais[i], paises);
+  }
+
+  const btn_listar = document.getElementById("btn_listar") as HTMLButtonElement;
+  const btn_agregar = document.getElementById(
+    "btn_agregar"
+  ) as HTMLButtonElement;
+  const btn_modificar = document.getElementById(
+    "btn_modificar"
+  ) as HTMLButtonElement;
+  const btn_eliminar = document.getElementById(
+    "btn_eliminar"
+  ) as HTMLButtonElement;
+
+  const submenu_listar = document.getElementById(
+    "submenu_listar"
+  ) as HTMLElement;
+  const submenu_agregar = document.getElementById(
+    "submenu_agregar"
+  ) as HTMLElement;
+  const submenu_modificar = document.getElementById(
+    "submenu_modificar"
+  ) as HTMLElement;
+  const submenu_eliminar = document.getElementById(
+    "submenu_eliminar"
+  ) as HTMLElement;
+
+  const hamburgerBtn =
+    document.querySelector<HTMLButtonElement>(".hamburger_btn")!;
+  const menuPrincipal = document.querySelector<HTMLElement>("#menu_principal")!;
+
+  btn_listar.addEventListener("click", function () {
+    toggleSubmenu(submenu_listar);
+  });
+  btn_agregar.addEventListener("click", function () {
+    toggleSubmenu(submenu_agregar);
+  });
+  btn_modificar.addEventListener("click", function () {
+    toggleSubmenu(submenu_modificar);
+  });
+  btn_eliminar.addEventListener("click", function () {
+    toggleSubmenu(submenu_eliminar);
+  });
+
+  function toggleSubmenu(submenu: HTMLElement): void {
+    const submenus = document.querySelectorAll<HTMLElement>(
+      "#menu_secundario ul"
+    );
+
+    for (let i = 0; i < submenus.length; i++) {
+      if (submenus[i] === submenu) {
+        submenus[i].classList.toggle("submenuOculto");
+      } else {
+        submenus[i].classList.add("submenuOculto");
+      }
+    }
+  }
+
+  hamburgerBtn.addEventListener("click", function () {
+    menuPrincipal.classList.toggle("menuOculto");
+
+    const submenus = document.querySelectorAll<HTMLElement>(
+      "#menu_secundario ul"
+    );
+    for (let i = 0; i < submenus.length; i++) {
+      submenus[i].classList.add("submenuOculto");
+    }
+  });
+
+  cargarSelects();
 });

@@ -1,46 +1,90 @@
-var sobres = [
-    { id: 1, nombre: "Sobre 1" },
-    { id: 2, nombre: "Sobre 2" },
-    { id: 3, nombre: "Sobre 3" },
-];
-var albums = [
-    { id: 1, nombre: "Álbum 1" },
-    { id: 2, nombre: "Álbum 2" },
-    { id: 3, nombre: "Álbum 3" },
-];
-var paises = [
-    { id: 1, nombre: "Argentina" },
-    { id: 2, nombre: "Brasil" },
-    { id: 3, nombre: "Chile" },
-];
-function llenarSelect(selectId, opciones, placeholder) {
-    var selectElement = document.getElementById(selectId);
-    if (!selectElement) {
-        console.warn("\u26A0\uFE0F No se encontr\u00F3 el select con id=\"".concat(selectId, "\""));
-        return;
-    }
-    selectElement.innerHTML = "";
-    var placeholderOption = document.createElement("option");
-    placeholderOption.value = "";
-    placeholderOption.textContent = placeholder;
-    placeholderOption.disabled = true;
-    placeholderOption.selected = true;
-    selectElement.appendChild(placeholderOption);
-    opciones.forEach(function (opcion) {
-        var optionElement = document.createElement("option");
-        optionElement.value = opcion.id.toString();
-        optionElement.textContent = opcion.nombre;
-        selectElement.appendChild(optionElement);
-    });
-}
 document.addEventListener("DOMContentLoaded", function () {
-    llenarSelect("sobre_figurita", sobres, "Seleccione un sobre");
-    llenarSelect("sobre_figurita_eliminar", sobres, "Seleccione un sobre");
-    llenarSelect("album_sobre_eliminar", albums, "Seleccione un álbum");
-    llenarSelect("sobre_figurita_agregar", sobres, "Seleccione un sobre");
-    llenarSelect("album_sobre_agregar", albums, "Seleccione un álbum");
-    llenarSelect("pais_album_agregar", paises, "Seleccione un país");
-    llenarSelect("sobre_figurita_modificar", sobres, "Seleccione un sobre");
-    llenarSelect("album_sobre_modificar", albums, "Seleccione un álbum");
-    llenarSelect("pais_album_modificar", paises, "Seleccione un país");
+    var clases_figurita = ["Comun", "Especial", "Legendaria"];
+    var clases_sobre = ["Gris", "Dorado", "Premium"];
+    var clases_album = ["Mundial", "Continental", "Nacional", "Local"];
+    var paises = [
+        "Argentina",
+        "Brasil",
+        "Uruguay",
+        "Chile",
+        "Paraguay",
+        "Bolivia",
+        "Peru",
+        "Ecuador",
+        "Colombia",
+        "Venezuela",
+        "Mexico",
+        "España",
+        "Francia",
+        "Alemania",
+        "Italia",
+        "Portugal",
+        "Inglaterra",
+        "Paises Bajos",
+        "Belgica",
+        "Croacia",
+    ];
+    function cargarOption(select, array) {
+        for (var i = 0; i < array.length; i++) {
+            var option = document.createElement("option");
+            option.value = array[i];
+            option.textContent = array[i];
+            select.appendChild(option);
+        }
+    }
+    function cargarSelects() {
+        var selects_sobre = document.querySelectorAll(".cls_sobre");
+        var selects_album = document.querySelectorAll(".cls_album");
+        var selects_figurita = document.querySelectorAll(".cls_figurita");
+        var selects_pais = document.querySelectorAll(".cls_pais");
+        for (var i = 0; i < selects_sobre.length; i++)
+            cargarOption(selects_sobre[i], clases_sobre);
+        for (var i = 0; i < selects_album.length; i++)
+            cargarOption(selects_album[i], clases_album);
+        for (var i = 0; i < selects_figurita.length; i++)
+            cargarOption(selects_figurita[i], clases_figurita);
+        for (var i = 0; i < selects_pais.length; i++)
+            cargarOption(selects_pais[i], paises);
+    }
+    var btn_listar = document.getElementById("btn_listar");
+    var btn_agregar = document.getElementById("btn_agregar");
+    var btn_modificar = document.getElementById("btn_modificar");
+    var btn_eliminar = document.getElementById("btn_eliminar");
+    var submenu_listar = document.getElementById("submenu_listar");
+    var submenu_agregar = document.getElementById("submenu_agregar");
+    var submenu_modificar = document.getElementById("submenu_modificar");
+    var submenu_eliminar = document.getElementById("submenu_eliminar");
+    var hamburgerBtn = document.querySelector(".hamburger_btn");
+    var menuPrincipal = document.querySelector("#menu_principal");
+    btn_listar.addEventListener("click", function () {
+        toggleSubmenu(submenu_listar);
+    });
+    btn_agregar.addEventListener("click", function () {
+        toggleSubmenu(submenu_agregar);
+    });
+    btn_modificar.addEventListener("click", function () {
+        toggleSubmenu(submenu_modificar);
+    });
+    btn_eliminar.addEventListener("click", function () {
+        toggleSubmenu(submenu_eliminar);
+    });
+    function toggleSubmenu(submenu) {
+        var submenus = document.querySelectorAll("#menu_secundario ul");
+        for (var i = 0; i < submenus.length; i++) {
+            if (submenus[i] === submenu) {
+                submenus[i].classList.toggle("submenuOculto");
+            }
+            else {
+                submenus[i].classList.add("submenuOculto");
+            }
+        }
+    }
+    hamburgerBtn.addEventListener("click", function () {
+        menuPrincipal.classList.toggle("menuOculto");
+        var submenus = document.querySelectorAll("#menu_secundario ul");
+        for (var i = 0; i < submenus.length; i++) {
+            submenus[i].classList.add("submenuOculto");
+        }
+    });
+    cargarSelects();
 });

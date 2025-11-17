@@ -1,2 +1,4 @@
-faltan agregar inputs dependiendo el formulario de registro y de compas
-Falta agregar partial render para cargar todo desde el index.html
+//archivos .json para abm
+//archivos .json para user
+//arreglar alineacion de botones del user
+// achicar foto del user para mobile
