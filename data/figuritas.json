@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "idSobre": 1,
+    "nombre": "Lionel Messi",
+    "pais": "Argentina",
+    "claseFigurita": "Legendaria",
+    "precio": 500,
+    "stock": 10
+  },
+  {
+    "id": 2,
+    "idSobre": 2,
+    "nombre": "Ángel Di María",
+    "pais": "Argentina",
+    "claseFigurita": "Especial",
+    "precio": 300,
+    "stock": 15
+  },
+  {
+    "id": 3,
+    "idSobre": 3,
+    "nombre": "Rodrigo De Paul",
+    "pais": "Argentina",
+    "claseFigurita": "Comun",
+    "precio": 100,
+    "stock": 20
+  },
+  {
+    "id": 4,
+    "idSobre": 1,
+    "nombre": "Sergio Ramos",
+    "pais": "España",
+    "claseFigurita": "Legendaria",
+    "precio": 450,
+    "stock": 8
+  },
+  {
+    "id": 5,
+    "idSobre": 2,
+    "nombre": "Lamine Yamal",
+    "pais": "España",
+    "claseFigurita": "Especial",
+    "precio": 350,
+    "stock": 12
+  },
+  {
+    "id": 6,
+    "idSobre": 3,
+    "nombre": "Sergio Busquets",
+    "pais": "España",
+    "claseFigurita": "Comun",
+    "precio": 120,
+    "stock": 18
+  }
+]
+ 
