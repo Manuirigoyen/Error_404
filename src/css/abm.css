@@ -1,5 +1,5 @@
 body {
-  background-image: url("../img/fondoEstadioDesktop.png");
+  background-image: url("../../assets/img/fondos/fondoEstadioDesktop.png");
   text-align: center;
   font-weight: 700;
 }
@@ -38,7 +38,8 @@ li {
 }
 
 .form_listar,
-.form_modificar .grupo_campos,
+.form_eliminar,
+.grupo_campos,
 header,
 nav,
 nav ul {
@@ -84,18 +85,32 @@ nav ul {
   padding-top: 7px;
 }
 
+.btn_activo {
+  background-color: #ffffff;
+  color: #2c3e50;
+  border: 2px solid #2c3e50;
+  text-shadow:
+    -1.2px -1.2px 0 #000000,
+    0 -1.2px 0 #000000,
+    1.2px -1.2px 0 #000000,
+    -1.2px 0 0 #000000,
+    1.2px 0 0 #000000,
+    -1.2px 1.2px 0 #000000,
+    0 1.2px 0 #000000,
+    1.2px 1.2px 0 #000000;
+}
+
 .hamburger_btn {
   font-size: 28px;
 }
 
-.form_listar div,
-.form_modificar div {
+form div {
   margin: 0 7px;
 }
 
 @media (max-width: 360px) {
   body {
-    background-image: url("../img/fondoEstadioMobile.png");
+    background-image: url("../../assets/img/fondos/fondoEstadioMobile.png");
   }
 
   .menuOculto {
@@ -108,12 +123,11 @@ nav ul {
     margin: 0 7px;
   }
 
-  section {
+  header {
     margin-top: 25%;
   }
 
-  .form_listar div,
-  .form_modificar div {
+  form div {
     margin: 0.7rem 5%;
   }
 
@@ -125,7 +139,8 @@ nav ul {
   }
 
   .form_listar,
-  .form_modificar .grupo_campos,
+  .form_eliminar,
+  .grupo_campos,
   .hamburger_btn,
   nav,
   nav ul {
@@ -138,6 +153,6 @@ nav ul {
 
   #menu_principal div button,
   #menu_secundario ul li {
-    width: 85%;
+    width: 75%;
   }
 }

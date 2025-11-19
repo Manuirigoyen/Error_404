@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios ABM</title>
+    <link rel="stylesheet" href="../../src/css/style.css" />
+    <link rel="stylesheet" href="../../src/css/abm.css" />
+  </head>
+  <body>
+    <section>
+      <header>
+        <h1>Administración</h1>
+        <button class="hamburger_btn">☰</button>
+      </header>
+
+      <nav id="menu_principal" class="menuOculto">
+        <div><button id="btn_listar">Listar</button></div>
+        <div><button id="btn_agregar">Agregar</button></div>
+        <div><button id="btn_modificar">Modificar</button></div>
+        <div><button id="btn_eliminar">Eliminar</button></div>
+      </nav>
+
+      <nav id="menu_secundario">
+        <ul id="submenu_listar" class="submenuOculto">
+          <li><a href="#listar_figuritas">Listar Figuritas</a></li>
+          <li><a href="#listar_sobres">Listar Sobres</a></li>
+          <li><a href="#listar_albums">Listar Álbums</a></li>
+          <li><a href="#listar_usuarios">Listar Usuarios</a></li>
+        </ul>
+
+        <ul id="submenu_agregar" class="submenuOculto">
+          <li><a href="#agregar_figurita">Agregar Figurita</a></li>
+          <li><a href="#agregar_sobre">Agregar Sobre</a></li>
+          <li><a href="#agregar_album">Agregar Álbum</a></li>
+          <li><a href="#agregar_usuario">Agregar Usuario</a></li>
+        </ul>
+
+        <ul id="submenu_modificar" class="submenuOculto">
+          <li><a href="#modificar_figurita">Modificar Figurita</a></li>
+          <li><a href="#modificar_sobre">Modificar Sobre</a></li>
+          <li><a href="#modificar_album">Modificar Álbum</a></li>
+          <li><a href="#modificar_usuario">Modificar Usuario</a></li>
+        </ul>
+
+        <ul id="submenu_eliminar" class="submenuOculto">
+          <li><a href="#eliminar_figurita">Eliminar Figurita</a></li>
+          <li><a href="#eliminar_sobre">Eliminar Sobre</a></li>
+          <li><a href="#eliminar_album">Eliminar Álbum</a></li>
+          <li><a href="#eliminar_usuario">Eliminar Usuario</a></li>
+        </ul>
+      </nav>
+
+      <div class="section_listar"></div>
+      <div class="section_alta"></div>
+      <div class="section_modificacion"></div>
+      <div class="section_eliminar"></div>
+    </section>
+    <script src="../../src/js/abm.js"></script>
+  </body>
+</html>

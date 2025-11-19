@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Álbum Mundial Qatar 2022",
+    "claseAlbum": "Mundial",
+    "pais": "Internacional",
+    "precio": 1500,
+    "stock": 25
+  },
+  {
+    "id": 2,
+    "nombre": "Álbum Copa América",
+    "claseAlbum": "Continental",
+    "pais": "Sudamérica",
+    "precio": 1200,
+    "stock": 30
+  },
+  {
+    "id": 3,
+    "nombre": "Álbum Liga Argentina",
+    "claseAlbum": "Nacional",
+    "pais": "Argentina",
+    "precio": 900,
+    "stock": 40
+  }
+]
