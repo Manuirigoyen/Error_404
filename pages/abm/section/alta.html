@@ -1,0 +1,166 @@
+<section>
+  <h1>Agregar</h1>
+
+  <h2 id="agregar_figurita">Agregar Figurita</h2>
+  <p>Se pueden agregar figuritas indicando el sobre, la clase y sus datos.</p>
+
+  <form name="agregar_figurita" class="form_alta">
+    <div class="grupo_campos">
+      <div><label>Clase del sobre seleccionado</label></div>
+      <div><select name="idSobre" class="cls_sobre"></select></div>
+      <div><label>Nombre de la figurita</label></div>
+      <div>
+        <input
+          type="text"
+          name="nombre"
+          required
+          placeholder="(nombre del jugador)"
+        />
+      </div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Clase de figurita</label></div>
+      <div><select name="claseFigurita" class="cls_figurita"></select></div>
+      <div><label>Precio de figurita</label></div>
+      <div>
+        <input type="number" name="precio" required value="0" min="0" />
+      </div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Stock disponible</label></div>
+      <div>
+        <input type="number" name="stock" required value="0" min="0" />
+      </div>
+      <div><label>Imagen de la figurita</label></div>
+      <div><input type="file" name="imagen" accept="image/*" /></div>
+    </div>
+
+    <div class="grupo_campos">
+      <button type="submit">Agregar</button>
+    </div>
+  </form>
+
+  <div id="respuesta_agregar_figurita"></div>
+
+  <h2 id="agregar_sobre">Agregar Sobre</h2>
+  <p>Se pueden agregar sobres indicando el álbum al que pertenecen.</p>
+
+  <form name="agregar_sobre" class="form_alta">
+    <div class="grupo_campos">
+      <div><label>Clase del álbum seleccionado</label></div>
+      <div><select name="idAlbum" class="cls_album"></select></div>
+      <div><label>Clase de sobre</label></div>
+      <div><select name="claseSobre" class="cls_sobre"></select></div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Stock disponible</label></div>
+      <div>
+        <input type="number" name="stock" required value="0" min="0" />
+      </div>
+      <div><label>Imagen del sobre</label></div>
+      <div><input type="file" name="imagen" accept="image/*" /></div>
+    </div>
+
+    <div class="grupo_campos">
+      <button type="submit">Agregar</button>
+    </div>
+  </form>
+
+  <div id="respuesta_agregar_sobre"></div>
+
+  <h2 id="agregar_album">Agregar Álbum</h2>
+  <p>Se pueden agregar álbums indicando país y tipo.</p>
+
+  <form name="agregar_album" class="form_alta">
+    <div class="grupo_campos">
+      <div><label>Nombre del país seleccionado</label></div>
+      <div><select name="pais" class="cls_pais"></select></div>
+      <div><label>Clase de álbum</label></div>
+      <div><select name="clase" class="cls_album"></select></div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Precio del álbum</label></div>
+      <div>
+        <input type="number" name="precio" required value="0" min="0" />
+      </div>
+      <div><label>Stock disponible</label></div>
+      <div>
+        <input type="number" name="stock" required value="0" min="0" />
+      </div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Imagen del álbum</label></div>
+      <div><input type="file" name="imagen" accept="image/*" /></div>
+    </div>
+
+    <div class="grupo_campos">
+      <button type="submit">Agregar</button>
+    </div>
+  </form>
+
+  <div id="respuesta_agregar_album"></div>
+  <h2 id="agregar_usuario">Agregar Usuario</h2>
+  <p>Se pueden agregar usuarios nuevos.</p>
+
+  <form name="agregar_usuario" class="form_alta">
+    <div class="grupo_campos">
+      <div><label>Nombre de usuario</label></div>
+      <div>
+        <input
+          type="text"
+          name="nombre"
+          required
+          placeholder="Nombre de usuario"
+        />
+      </div>
+
+      <div><label>Contraseña</label></div>
+      <div>
+        <input type="password" name="password" required placeholder="****" />
+      </div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Correo electrónico</label></div>
+      <div>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="usuario@gmail.com"
+        />
+      </div>
+
+      <div><label>Número de teléfono</label></div>
+      <div>
+        <input
+          type="tel"
+          name="telefono"
+          required
+          placeholder="5492983548796"
+        />
+      </div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>País de origen</label></div>
+      <div><select name="pais" class="cls_pais"></select></div>
+
+      <div><label>Fecha de nacimiento</label></div>
+      <div><input type="date" name="fechaNacimiento" required /></div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Foto de perfil</label></div>
+      <div><input type="file" name="foto" accept="image/*" /></div>
+      <div><button type="submit">Agregar</button></div>
+    </div>
+  </form>
+
+  <div id="respuesta_agregar_usuario"></div>
+</section>

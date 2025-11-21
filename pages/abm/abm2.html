@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABM</title>
+    <link rel="stylesheet" href="../../src/css/style2.css" />
+    <link rel="stylesheet" href="../../src/css/abm2.css" />
+  </head>
+
+  <body>
+    <section>
+      <header>
+        <div>
+          <h1>Administración</h1>
+        </div>
+        <nav><button class="hamburger_btn">☰</button></nav>
+      </header>
+
+      <nav id="menu_principal" class="menuOculto">
+        <div><button id="btn_listar">Listar</button></div>
+        <div><button id="btn_agregar">Agregar</button></div>
+        <div><button id="btn_modificar">Modificar</button></div>
+        <div><button id="btn_eliminar">Eliminar</button></div>
+      </nav>
+
+      <nav id="menu_secundario">
+        <ul id="submenu_listar" class="submenuOculto">
+          <li>Listar Figuritas</li>
+          <li>Listar Sobres</li>
+          <li>Listar Álbums</li>
+          <li>Listar Usuarios</li>
+        </ul>
+
+        <ul id="submenu_agregar" class="submenuOculto">
+          <li>Agregar Figurita</li>
+          <li>Agregar Sobre</li>
+          <li>Agregar Álbum</li>
+          <li>Agregar Usuario</li>
+        </ul>
+
+        <ul id="submenu_modificar" class="submenuOculto">
+          <li>Modificar Figurita</li>
+          <li>Modificar Sobre</li>
+          <li>Modificar Álbum</li>
+          <li>Modificar Usuario</li>
+        </ul>
+
+        <ul id="submenu_eliminar" class="submenuOculto">
+          <li>Eliminar Figurita</li>
+          <li>Eliminar Sobre</li>
+          <li>Eliminar Álbum</li>
+          <li>Eliminar Usuario</li>
+        </ul>
+      </nav>
+
+      <p>
+        Bienvenido al panel de administración de <strong>figusApp</strong>.
+        Desde esta interfaz, los administradores podrán gestionar de manera
+        completa las secciones del sistema: figuritas, sobres, álbumes y
+        usuarios. Cada sección incluye formularios específicos que permiten
+        agregar, listar, modificar y eliminar registros en la base de datos,
+        garantizando que la información se mantenga actualizada y consistente. A
+        continuación, se detallan las funcionalidades disponibles de cada
+        sección:
+      </p>
+
+      <ul class="introduccion">
+        <li>
+          📄<strong>Listar:</strong> Cuenta con formularios que permiten
+          consultar los registros existentes de Figuritas, Sobres, Álbumes y
+          Usuarios, facilitando su visualización y búsqueda.
+        </li>
+
+        <li>
+          ➕<strong>Agregar:</strong> Cuenta con formularios que permiten crear
+          nuevos registros de Figuritas, Sobres, Álbumes y Usuarios, asegurando
+          que la información se mantenga completa y actualizada.
+        </li>
+
+        <li>
+          ✏️<strong>Modificar:</strong> Cuenta con formularios que permiten
+          actualizar los registros existentes en la base de datos, como
+          Figuritas, Sobres, Álbumes y Usuarios, de manera rápida y segura.
+        </li>
+
+        <li>
+          🗑️<strong>Eliminar:</strong> Cuenta con formularios que permiten
+          eliminar registros existentes en la base de datos, como Figuritas,
+          Sobres, Álbumes y Usuarios, manteniendo la base de datos limpia y
+          organizada.
+        </li>
+      </ul>
+
+      <div class="section"></div>
+    </section>
+
+    <script src="../../src/js/abm2.js"></script>
+  </body>
+</html>

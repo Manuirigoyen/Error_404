@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../assets/fonts/static/Quicksand-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../assets/fonts/static/Quicksand-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../assets/fonts/static/Quicksand-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../assets/fonts/static/Quicksand-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+button,
+select option,
+input {
+  font-family: "Quicksand";
+  font-weight: 700;
+}
+
+input,
+select,
+button,
+#fechaActual {
+  border-radius: 6px;
+}
+
+input,
+select,
+#fechaActual {
+  padding: 2px;
+  margin: 0px 8px;
+  background-color: #ffffff;
+  border: 2px solid #2c3e50;
+  color: #696666;
+  text-align: left;
+  font-size: 12px;
+  width: 170px;
+  height: 30px;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+
+@media (max-width: 360px) {
+  button:hover,
+  img:hover {
+    transform: none;
+  }
+}

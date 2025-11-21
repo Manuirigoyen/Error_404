@@ -1,0 +1,190 @@
+body {
+  background-image: url("../../assets/img/fondos/fondoEstadioDesktop.png");
+}
+
+header,
+#menu_principal,
+#menu_secundario ul,
+.section form,
+.section form .grupo_campos,
+.introduccion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+header div {
+  margin: 4rem 0.7rem;
+}
+
+header {
+  height: 70px;
+}
+
+header div h1 {
+  margin: 0;
+}
+
+button,
+label,
+h1 {
+  color: #ffffff;
+  text-shadow:
+    -1.8px -1.8px 0 #000000,
+    1.8px -1.8px 0 #000000,
+    -1.8px 1.8px 0 #000000,
+    1.8px 1.8px 0 #000000;
+}
+
+header nav button {
+  width: 3rem;
+  height: 3rem;
+}
+
+button {
+  background-color: #2c3e50;
+  border: 2px solid #000000;
+}
+
+#menu_secundario ul li,
+#menu_principal div button.btn_activo {
+  background-color: #ffffff;
+  border: 2px solid #2c3e50;
+}
+
+button,
+#menu_secundario ul li {
+  border-radius: 6px;
+  font-size: 18px;
+  text-align: center;
+}
+
+#menu_principal button {
+  width: 120px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#menu_secundario ul li {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  list-style: none;
+}
+
+.section button {
+  width: 90px;
+  height: 30px;
+}
+
+#menu_principal,
+#menu_secundario ul,
+.introduccion {
+  justify-content: space-around;
+}
+
+#menu_secundario ul li,
+#menu_principal div button.btn_activo,
+li strong {
+  color: #2c3e50;
+  text-decoration: none;
+  text-shadow:
+    -1.8px -1.8px 0 #000000,
+    0 -1.8px 0 #000000,
+    1.8px -1.8px 0 #000000,
+    -1.8px 0 0 #000000,
+    1.8px 0 0 #000000,
+    -1.8px 1.8px 0 #000000,
+    0 1.8px 0 #000000,
+    1.8px 1.8px 0 #000000;
+}
+
+#menu_secundario .submenuOculto,
+header nav button {
+  display: none;
+}
+
+button:hover,
+nav li:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+h2,
+p,
+li {
+  color: #ffd700;
+  text-shadow:
+    -1.8px -1.8px 0 #2c3e50,
+    1.8px -1.8px 0 #2c3e50,
+    -1.8px 1.8px 0 #2c3e50,
+    1.8px 1.8px 0 #2c3e50;
+  text-align: justify;
+  list-style: none;
+  line-height: 1.5;
+}
+
+p {
+  padding: 10px;
+}
+
+.introduccion {
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.section p,
+h1,
+h2,
+.introduccion li {
+  text-align: center;
+}
+
+.section {
+  margin-top: 15px;
+}
+
+@media (max-width: 360px) {
+  body {
+    background-image: url("../../assets/img/fondos/fondoEstadioMobile.png");
+  }
+
+  #menu_principal,
+  header nav button,
+  #menu_secundario ul,
+  .introduccion {
+    display: block;
+  }
+
+  #menu_principal.menuOculto {
+    display: none;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .introduccion li {
+    text-align: justify;
+  }
+
+  #menu_secundario ul li a,
+  #menu_principal div button {
+    width: 100%;
+  }
+
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  button:hover {
+    transform: none;
+  }
+}
