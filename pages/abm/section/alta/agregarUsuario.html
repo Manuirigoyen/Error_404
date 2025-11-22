@@ -1,0 +1,62 @@
+<div id="agregar_usuario">
+  <h1>Agregar</h1>
+  <h2>Agregar Usuario</h2>
+  <p>Se pueden agregar usuarios nuevos.</p>
+
+  <form name="agregar_usuario" class="form_alta">
+    <div class="grupo_campos">
+      <div><label>Nombre de usuario</label></div>
+      <div>
+        <input
+          type="text"
+          name="nombre"
+          required
+          placeholder="Nombre de usuario"
+        />
+      </div>
+
+      <div><label>Contraseña</label></div>
+      <div>
+        <input type="password" name="password" required placeholder="****" />
+      </div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Correo electrónico</label></div>
+      <div>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="usuario@gmail.com"
+        />
+      </div>
+
+      <div><label>Número de teléfono</label></div>
+      <div>
+        <input
+          type="tel"
+          name="telefono"
+          required
+          placeholder="5492983548796"
+        />
+      </div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>País de origen</label></div>
+      <div><select name="pais" class="cls_pais"></select></div>
+
+      <div><label>Fecha de nacimiento</label></div>
+      <div><input type="date" name="fechaNacimiento" required /></div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Foto de perfil</label></div>
+      <div><input type="file" name="foto" accept="image/*" /></div>
+      <div><button type="submit">Agregar</button></div>
+    </div>
+  </form>
+
+  <div id="respuesta_agregar_usuario"></div>
+</div>

@@ -1,0 +1,46 @@
+<div id="modificar_usuario">
+  <h1>Modificar Usuarios</h1>
+
+  <h2>Modificar Usuario</h2>
+  <p>Se pueden modificar usuarios.</p>
+
+  <form name="modificar_usuario" class="form_modificar">
+    <div class="grupo_campos">
+      <div><label>Id del usuario</label></div>
+      <div><input type="number" name="id" required min="1" value="1" /></div>
+
+      <div><label>Nombre de usuario</label></div>
+      <div><input type="text" name="nombreUsuario" required /></div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Contraseña</label></div>
+      <div><input type="password" name="password" required /></div>
+
+      <div><label>Correo electrónico</label></div>
+      <div><input type="email" name="email" required /></div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Número de teléfono</label></div>
+      <div><input type="tel" name="telefono" required /></div>
+
+      <div><label>País de origen</label></div>
+      <div><select name="pais" class="cls_pais"></select></div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Fecha de nacimiento</label></div>
+      <div><input type="date" name="fechaNacimiento" required /></div>
+
+      <div><label>Foto de perfil nueva (opcional)</label></div>
+      <div><input type="file" name="fotoPerfil" accept="image/*" /></div>
+    </div>
+
+    <div class="grupo_campos">
+      <button type="submit">Modificar</button>
+    </div>
+  </form>
+
+  <div id="respuesta_modificar_usuario"></div>
+</div>

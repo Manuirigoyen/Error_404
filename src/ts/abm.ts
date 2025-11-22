@@ -1,9 +1,12 @@
-
-
 document.addEventListener("DOMContentLoaded", async () => {
   await cargarSecciones();
   cargarSelects();
 
+  const hamburgerBtn =
+    document.querySelector<HTMLButtonElement>(".hamburger_btn");
+  const menuPrincipal = document.querySelector<HTMLElement>("#menu_principal");
+
+  // Inicializar menú y submenús después de cargar las secciones
   const btn_listar = document.getElementById("btn_listar") as HTMLButtonElement;
   const btn_agregar = document.getElementById(
     "btn_agregar"
@@ -14,12 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const btn_eliminar = document.getElementById(
     "btn_eliminar"
   ) as HTMLButtonElement;
-
-  const botonesMenu = [btn_listar, btn_agregar, btn_modificar, btn_eliminar];
-
-  const hamburgerBtn =
-    document.querySelector<HTMLButtonElement>(".hamburger_btn");
-  const menuPrincipal = document.querySelector<HTMLElement>("#menu_principal");
 
   const submenu_listar = document.getElementById(
     "submenu_listar"
@@ -34,50 +31,143 @@ document.addEventListener("DOMContentLoaded", async () => {
     "submenu_eliminar"
   ) as HTMLElement;
 
-  const forms = document.querySelectorAll<HTMLFormElement>("form");
-  desactivarForms(forms);
+  const botonesMenu = [btn_listar, btn_agregar, btn_modificar, btn_eliminar];
+  const submenus = [
+    submenu_listar,
+    submenu_agregar,
+    submenu_modificar,
+    submenu_eliminar,
+  ];
 
-  btn_listar.addEventListener("click", () => {
-   // activarBoton(btn_listar, botonesMenu);
-    toggleSubmenu(submenu_listar);
-  });
-
-  btn_agregar.addEventListener("click", () => {
-    //activarBoton(btn_agregar, botonesMenu);
-    toggleSubmenu(submenu_agregar);
-  });
-
-  btn_modificar.addEventListener("click", () => {
-    //activarBoton(btn_modificar, botonesMenu);
-    toggleSubmenu(submenu_modificar);
-  });
-
-  btn_eliminar.addEventListener("click", () => {
-   // activarBoton(btn_eliminar, botonesMenu);
-    toggleSubmenu(submenu_eliminar);
+  botonesMenu.forEach((boton, i) => {
+    boton.addEventListener("click", () => {
+      activarBoton(boton, botonesMenu);
+      toggleSubmenu(submenus[i]);
+    });
   });
 
   hamburgerBtn?.addEventListener("click", () => {
     menuPrincipal?.classList.toggle("menuOculto");
-
-    const submenus = document.querySelectorAll<HTMLElement>(
-      "#menu_secundario ul"
-    );
     submenus.forEach((s) => s.classList.add("submenuOculto"));
     botonesMenu.forEach((b) => b.classList.remove("btn_activo"));
   });
+
+  // Activa el botón seleccionado y desactiva los demás
+  const activarBoton = (
+    btn: HTMLButtonElement,
+    botonesMenu: HTMLButtonElement[]
+  ) => {
+    const activo = btn.classList.contains("btn_activo");
+    botonesMenu.forEach((b) => b.classList.remove("btn_activo"));
+    if (!activo) btn.classList.add("btn_activo");
+  };
+
+  // Muestra u oculta el submenú correspondiente y oculta los demás
+  const toggleSubmenu = (submenu: HTMLElement): void => {
+    submenus.forEach((s) => {
+      s === submenu
+        ? s.classList.toggle("submenuOculto")
+        : s.classList.add("submenuOculto");
+    });
+  };
+
+  const submenuListarItems =
+    document.querySelectorAll<HTMLLIElement>("#submenu_listar li");
+  const submenuAgregarItems = document.querySelectorAll<HTMLLIElement>(
+    "#submenu_agregar li"
+  );
+  const submenuModificarItems = document.querySelectorAll<HTMLLIElement>(
+    "#submenu_modificar li"
+  );
+  const submenuEliminarItems = document.querySelectorAll<HTMLLIElement>(
+    "#submenu_eliminar li"
+  );
+
+  const rutas = {
+    listar: [
+      "section/listado/listarFigurita.html",
+      "section/listado/listarSobre.html",
+      "section/listado/listarAlbum.html",
+      "section/listado/listarUsuario.html",
+    ],
+    agregar: [
+      "section/alta/agregarFigurita.html",
+      "section/alta/agregarSobre.html",
+      "section/alta/agregarAlbum.html",
+      "section/alta/agregarUsuario.html",
+    ],
+    modificar: [
+      "section/modificacion/modificarFigurita.html",
+      "section/modificacion/modificarSobre.html",
+      "section/modificacion/modificarAlbum.html",
+      "section/modificacion/modificarUsuario.html",
+    ],
+    eliminar: [
+      "section/baja/eliminarFigurita.html",
+      "section/baja/eliminarSobre.html",
+      "section/baja/eliminarAlbum.html",
+      "section/baja/eliminarUsuario.html",
+    ],
+  };
+
+  const manejarSubmenu = (
+    items: NodeListOf<HTMLLIElement>,
+    listaRutas: string[]
+  ) => {
+    items.forEach((item, index) => {
+      item.addEventListener("click", async () => {
+        const archivo = listaRutas[index];
+        if (archivo) {
+          await cargarParcial(".section", archivo);
+          cargarSelects();
+        }
+      });
+    });
+  };
+
+  manejarSubmenu(submenuListarItems, rutas.listar);
+  manejarSubmenu(submenuAgregarItems, rutas.agregar);
+  manejarSubmenu(submenuModificarItems, rutas.modificar);
+  manejarSubmenu(submenuEliminarItems, rutas.eliminar);
+
+  // Inicializar eventos de formularios
+  const forms = document.querySelectorAll<HTMLFormElement>("form");
+  desactivarForms(forms);
 });
 
-/*
-Esta función carga los fragmentos HTML correspondientes a cada sección de la pagina.
+const clases_figurita = ["Comun", "Especial", "Legendaria"];
+const clases_sobre = ["Gris", "Dorado", "Premium"];
+const clases_album = ["Mundial", "Continental", "Nacional", "Local"];
+const paises = [
+  "Argentina",
+  "Brasil",
+  "Uruguay",
+  "Chile",
+  "Paraguay",
+  "Bolivia",
+  "Peru",
+  "Ecuador",
+  "Colombia",
+  "Venezuela",
+  "Mexico",
+  "España",
+  "Francia",
+  "Alemania",
+  "Italia",
+  "Portugal",
+  "Inglaterra",
+  "Paises Bajos",
+  "Belgica",
+  "Croacia",
+];
+
+/* Esta función carga los fragmentos HTML correspondientes a cada sección de la pagina.
  * retorna un objeto Promise<void> cuando todas las secciones han sido cargadas correctamente.
- 
+ */
 const cargarSecciones = async (): Promise<void> => {
   try {
-    await cargarParcial(".section_listar", "section/listado.html");
-    await cargarParcial(".section_alta", "section/alta.html");
-    await cargarParcial(".section_modificacion", "section/modificacion.html");
-    await cargarParcial(".section_eliminar", "section/eliminar.html");
+    await cargarParcial(".section", "section/listado/listarFigurita.html");
+    cargarSelects();
   } catch (e) {
     console.error("Error cargando secciones:", e);
   }
@@ -86,33 +176,14 @@ const cargarSecciones = async (): Promise<void> => {
 const cargarParcial = async (seccion: string, ruta: string): Promise<void> => {
   const cont = document.querySelector(seccion);
   if (!cont) return;
-  const res = await fetch(ruta);
-  cont.innerHTML = await res.text();
+  try {
+    const res = await fetch(ruta);
+    cont.innerHTML = await res.text();
+  } catch (err) {
+    console.error("Error cargando parcial:", err);
+  }
 };
 
-//Activa el botón seleccionado y desactiva los demás para evitar conflictos en la interfaz
-/*const activarBoton = (
-  btn: HTMLButtonElement,
-  botonesMenu: HTMLButtonElement[]
-) => {
-  const activo = btn.classList.contains("btn_activo");
-  botonesMenu.forEach((b) => b.classList.remove("btn_activo"));
-  if (!activo) btn.classList.add("btn_activo");
-};
-*/
-
-//Muestra u oculta el submenú correspondiente y oculta los demás para evitar conlifctos en la interfaz.
-const toggleSubmenu = (submenu: HTMLElement): void => {
-  const submenus = document.querySelectorAll<HTMLElement>(
-    "#menu_secundario ul"
-  );
-  submenus.forEach((s) => {
-    s === submenu
-      ? s.classList.toggle("submenuOculto")
-      : s.classList.add("submenuOculto");
-  });
-};
-/*
 //Carga opciones dentro de todos los select de cada formulario dependiendo de su clase.
 const cargarSelects = (): void => {
   cargarGrupoSelect(".cls_sobre", clases_sobre);
@@ -127,6 +198,7 @@ const cargarGrupoSelect = (selector: string, valores: string[]) => {
 };
 
 const cargarOption = (select: HTMLSelectElement, array: string[]): void => {
+  select.innerHTML = "";
   array.forEach((v) => {
     const option = document.createElement("option");
     option.value = v;
@@ -145,7 +217,7 @@ const desactivarForms = (forms: NodeListOf<HTMLFormElement>) => {
     });
   });
 };
-*/
+
 // Procesa un formulario según su name, obteniendo el archivo.json asociado (map) para su posterior procesamiento.
 const procesarFormulario = async (form: HTMLFormElement) => {
   const rutas = new Map<string, string>([
@@ -178,6 +250,7 @@ const procesarFormulario = async (form: HTMLFormElement) => {
   if (!archivo) return;
 
   const data = await getJson(archivo);
+  if (!data || !Array.isArray(data)) return;
 
   switch (true) {
     case form.name.startsWith("listar_"):
@@ -357,7 +430,6 @@ const procesarModificacion = (
   tituloNuevo.textContent = "Datos nuevos";
   contenedor.appendChild(tituloNuevo);
 
-  // mostrar todas las columnas del nuevo objeto (no filtrar con todas las keys del form)
   contenedor.appendChild(crearTabla("modificar", [nuevoObjeto], []));
 
   const mensaje = document.createElement("p");
@@ -376,12 +448,14 @@ const filtrarDatos = (formData: FormData, data: any[]): any[] => {
 
   const valorID = Number(formData.get(campoID));
   if (isNaN(valorID)) return [];
+
   const campoLimite = Array.from(formData.keys()).find((key) =>
     key.toLowerCase().startsWith("limite")
   );
 
   const limite = campoLimite ? Number(formData.get(campoLimite)) : 1;
-  const resultados = data.filter((item) => item[campoID] === valorID);
+
+  const resultados = data.filter((item) => Number(item[campoID]) === valorID);
   return resultados.slice(0, limite);
 };
 
@@ -396,7 +470,12 @@ const registroExistente = (formData: FormData, data: any[]): boolean => {
   const valorNombre = formData.get(campoNombre);
   if (!valorNombre) return false;
 
-  const encontrado = data.some((item) => item[campoNombre] === valorNombre);
+  const encontrado = data.some(
+    (item) =>
+      String(item[campoNombre]).toLowerCase() ===
+      String(valorNombre).toLowerCase()
+  );
+
   return encontrado;
 };
 
