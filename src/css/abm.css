@@ -1,111 +1,228 @@
 body {
   background-image: url("../../assets/img/fondos/fondoEstadioDesktop.png");
-  text-align: center;
-  font-weight: 700;
 }
 
 header,
-nav,
-h1,
-form {
-  margin-top: 15px;
+#menu_principal,
+#menu_secundario ul,
+.form_listar,
+.form_eliminar,
+.section form .grupo_campos,
+.introduccion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h2,
-p {
-  margin-top: 10px;
+section {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-nav button {
-  width: 100px;
-  height: 40px;
+header div {
+  margin: 4rem 0.7rem;
 }
 
+header {
+  height: 70px;
+}
+
+header div h1 {
+  margin: 0;
+}
+
+.section form .grupo_campos div {
+  margin: 0.1rem 5px;
+}
+
+button,
 label,
-p,
-button,
-li {
-  font-size: 18px;
+h1 {
+  color: #ffffff;
+  text-shadow:
+    -1.8px -1.8px 0 #000000,
+    1.8px -1.8px 0 #000000,
+    -1.8px 1.8px 0 #000000,
+    1.8px 1.8px 0 #000000;
 }
 
-button,
-li {
-  width: 90px;
-  height: 30px;
+header nav button {
+  width: 3rem;
+  height: 3rem;
+}
+
+button {
   background-color: #2c3e50;
-  font-size: 18px;
   border: 2px solid #000000;
 }
 
-.form_listar,
-.form_eliminar,
-.grupo_campos,
-header,
-nav,
-nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
+#menu_secundario ul li,
+#menu_principal div button.btn_activo {
+  background-color: #ffffff;
+  border: 2px solid #2c3e50;
 }
 
-nav,
-nav ul {
-  justify-content: space-around;
+button,
+#menu_secundario ul li {
+  border-radius: 6px;
+  font-size: 18px;
+  text-align: center;
 }
 
-.submenuOculto,
-.hamburger_btn {
-  display: none;
-}
-
-#menu_secundario ul {
-  list-style: none;
-  width: 100%;
-}
-
-#menu_secundario ul li a {
-  color: #2c3e50;
-  text-decoration: none;
-  text-shadow:
-    -1.2px -1.2px 0 #000000,
-    0 -1.2px 0 #000000,
-    1.2px -1.2px 0 #000000,
-    -1.2px 0 0 #000000,
-    1.2px 0 0 #000000,
-    -1.2px 1.2px 0 #000000,
-    0 1.2px 0 #000000,
-    1.2px 1.2px 0 #000000;
+#menu_principal button {
+  width: 120px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 #menu_secundario ul li {
-  background-color: #ffffff;
-  border-radius: 6px;
-  border-color: #2c3e50;
-  width: 165px;
-  padding-top: 7px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  list-style: none;
 }
 
-.btn_activo {
-  background-color: #ffffff;
+.section button {
+  width: 90px;
+  height: 30px;
+}
+
+#menu_principal,
+#menu_secundario ul,
+.introduccion {
+  justify-content: space-around;
+}
+
+#menu_secundario ul li,
+#menu_principal div button.btn_activo,
+li strong {
   color: #2c3e50;
-  border: 2px solid #2c3e50;
+  text-decoration: none;
   text-shadow:
-    -1.2px -1.2px 0 #000000,
-    0 -1.2px 0 #000000,
-    1.2px -1.2px 0 #000000,
-    -1.2px 0 0 #000000,
-    1.2px 0 0 #000000,
-    -1.2px 1.2px 0 #000000,
-    0 1.2px 0 #000000,
-    1.2px 1.2px 0 #000000;
+    -1.8px -1.8px 0 #000000,
+    0 -1.8px 0 #000000,
+    1.8px -1.8px 0 #000000,
+    -1.8px 0 0 #000000,
+    1.8px 0 0 #000000,
+    -1.8px 1.8px 0 #000000,
+    0 1.8px 0 #000000,
+    1.8px 1.8px 0 #000000;
 }
 
-.hamburger_btn {
-  font-size: 28px;
+#menu_secundario .submenuOculto,
+header nav button {
+  display: none;
 }
 
-form div {
-  margin: 0 7px;
+button:hover,
+nav li:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+h2,
+p,
+li {
+  color: #ffd700;
+  text-shadow:
+    -1.8px -1.8px 0 #2c3e50,
+    1.8px -1.8px 0 #2c3e50,
+    -1.8px 1.8px 0 #2c3e50,
+    1.8px 1.8px 0 #2c3e50;
+  text-align: justify;
+  list-style: none;
+  line-height: 1.5;
+}
+
+p {
+  padding: 10px;
+}
+
+.introduccion {
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.section p,
+h1,
+h2,
+.introduccion li {
+  text-align: center;
+}
+
+.section {
+  margin-top: 15px;
+}
+
+.section table {
+  width: 95%;
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.section table caption {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffd700;
+  padding: 0.8rem;
+  text-shadow:
+    -1.8px -1.8px 0 #2c3e50,
+    1.8px -1.8px 0 #2c3e50,
+    -1.8px 1.8px 0 #2c3e50,
+    1.8px 1.8px 0 #2c3e50;
+}
+
+.section table thead th {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffd700;
+  padding: 0.6rem;
+  border-bottom: 2px solid #2c3e50;
+  text-shadow:
+    -1.8px -1.8px 0 #2c3e50,
+    1.8px -1.8px 0 #2c3e50,
+    -1.8px 1.8px 0 #2c3e50,
+    1.8px 1.8px 0 #2c3e50;
+}
+
+.section table td {
+  padding: 0.5rem;
+  color: #ffd700;
+  text-shadow:
+    -1.8px -1.8px 0 #2c3e50,
+    1.8px -1.8px 0 #2c3e50,
+    -1.8px 1.8px 0 #2c3e50,
+    1.8px 1.8px 0 #2c3e50;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.section table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.section table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  transform: scale(1.02);
+  transition: 0.1s ease-in-out;
+}
+
+.section p.exito,
+.section p.error {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.section p.exito {
+  color: #00ff88;
+}
+
+.section p.error {
+  color: #ff4f4f;
 }
 
 @media (max-width: 360px) {
@@ -113,22 +230,49 @@ form div {
     background-image: url("../../assets/img/fondos/fondoEstadioMobile.png");
   }
 
-  .menuOculto {
+  #menu_principal,
+  header nav button,
+  #menu_secundario ul,
+  .introduccion {
+    display: block;
+  }
+
+  .form_listar,
+  .form_eliminar,
+  .section form .grupo_campos,
+  .hamburger_btn,
+  nav,
+  nav ul {
+    display: block;
+  }
+
+  #menu_principal.menuOculto {
     display: none;
   }
 
-  header button {
-    width: 50px;
-    height: 50px;
-    margin: 0 7px;
+  p,
+  .grupo_campos,
+  .form_listar,
+  .form_eliminar {
+    text-align: center;
   }
 
   header {
-    margin-top: 25%;
+    padding-top: 2.5rem;
   }
 
-  form div {
-    margin: 0.7rem 5%;
+  .introduccion li {
+    text-align: justify;
+    margin-top: 1rem;
+  }
+
+  #menu_secundario ul li a,
+  #menu_principal div button {
+    width: 100%;
+  }
+
+  button:hover {
+    transform: none;
   }
 
   input,
@@ -138,21 +282,7 @@ form div {
     margin-top: 0;
   }
 
-  .form_listar,
-  .form_eliminar,
-  .grupo_campos,
-  .hamburger_btn,
-  nav,
-  nav ul {
-    display: block;
-  }
-
-  #menu_principal div {
-    margin-top: 2%;
-  }
-
-  #menu_principal div button,
-  #menu_secundario ul li {
-    width: 75%;
+  form div {
+    margin: 0.7rem 5%;
   }
 }

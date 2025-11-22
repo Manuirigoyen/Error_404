@@ -1,14 +1,143 @@
+document.addEventListener("DOMContentLoaded", async () => {
+  await cargarSecciones();
+  cargarSelects();
+
+  const hamburgerBtn =
+    document.querySelector<HTMLButtonElement>(".hamburger_btn");
+  const menuPrincipal = document.querySelector<HTMLElement>("#menu_principal");
+
+  // Inicializar menú y submenús después de cargar las secciones
+  const btn_listar = document.getElementById("btn_listar") as HTMLButtonElement;
+  const btn_agregar = document.getElementById(
+    "btn_agregar"
+  ) as HTMLButtonElement;
+  const btn_modificar = document.getElementById(
+    "btn_modificar"
+  ) as HTMLButtonElement;
+  const btn_eliminar = document.getElementById(
+    "btn_eliminar"
+  ) as HTMLButtonElement;
+
+  const submenu_listar = document.getElementById(
+    "submenu_listar"
+  ) as HTMLElement;
+  const submenu_agregar = document.getElementById(
+    "submenu_agregar"
+  ) as HTMLElement;
+  const submenu_modificar = document.getElementById(
+    "submenu_modificar"
+  ) as HTMLElement;
+  const submenu_eliminar = document.getElementById(
+    "submenu_eliminar"
+  ) as HTMLElement;
+
+  const botonesMenu = [btn_listar, btn_agregar, btn_modificar, btn_eliminar];
+  const submenus = [
+    submenu_listar,
+    submenu_agregar,
+    submenu_modificar,
+    submenu_eliminar,
+  ];
+
+  botonesMenu.forEach((boton, i) => {
+    boton.addEventListener("click", () => {
+      activarBoton(boton, botonesMenu);
+      toggleSubmenu(submenus[i]);
+    });
+  });
+
+  hamburgerBtn?.addEventListener("click", () => {
+    menuPrincipal?.classList.toggle("menuOculto");
+    submenus.forEach((s) => s.classList.add("submenuOculto"));
+    botonesMenu.forEach((b) => b.classList.remove("btn_activo"));
+  });
+
+  // Activa el botón seleccionado y desactiva los demás
+  const activarBoton = (
+    btn: HTMLButtonElement,
+    botonesMenu: HTMLButtonElement[]
+  ) => {
+    const activo = btn.classList.contains("btn_activo");
+    botonesMenu.forEach((b) => b.classList.remove("btn_activo"));
+    if (!activo) btn.classList.add("btn_activo");
+  };
+
+  // Muestra u oculta el submenú correspondiente y oculta los demás
+  const toggleSubmenu = (submenu: HTMLElement): void => {
+    submenus.forEach((s) => {
+      s === submenu
+        ? s.classList.toggle("submenuOculto")
+        : s.classList.add("submenuOculto");
+    });
+  };
+
+  const submenuListarItems =
+    document.querySelectorAll<HTMLLIElement>("#submenu_listar li");
+  const submenuAgregarItems = document.querySelectorAll<HTMLLIElement>(
+    "#submenu_agregar li"
+  );
+  const submenuModificarItems = document.querySelectorAll<HTMLLIElement>(
+    "#submenu_modificar li"
+  );
+  const submenuEliminarItems = document.querySelectorAll<HTMLLIElement>(
+    "#submenu_eliminar li"
+  );
+
+  const rutas = {
+    listar: [
+      "section/listado/listarFigurita.html",
+      "section/listado/listarSobre.html",
+      "section/listado/listarAlbum.html",
+      "section/listado/listarUsuario.html",
+    ],
+    agregar: [
+      "section/alta/agregarFigurita.html",
+      "section/alta/agregarSobre.html",
+      "section/alta/agregarAlbum.html",
+      "section/alta/agregarUsuario.html",
+    ],
+    modificar: [
+      "section/modificacion/modificarFigurita.html",
+      "section/modificacion/modificarSobre.html",
+      "section/modificacion/modificarAlbum.html",
+      "section/modificacion/modificarUsuario.html",
+    ],
+    eliminar: [
+      "section/baja/eliminarFigurita.html",
+      "section/baja/eliminarSobre.html",
+      "section/baja/eliminarAlbum.html",
+      "section/baja/eliminarUsuario.html",
+    ],
+  };
+
+  const manejarSubmenu = (
+    items: NodeListOf<HTMLLIElement>,
+    listaRutas: string[]
+  ) => {
+    items.forEach((item, index) => {
+      item.addEventListener("click", async () => {
+        const archivo = listaRutas[index];
+        if (archivo) {
+          await cargarParcial(".section", archivo);
+          cargarSelects();
+        }
+      });
+    });
+  };
+
+  manejarSubmenu(submenuListarItems, rutas.listar);
+  manejarSubmenu(submenuAgregarItems, rutas.agregar);
+  manejarSubmenu(submenuModificarItems, rutas.modificar);
+  manejarSubmenu(submenuEliminarItems, rutas.eliminar);
+
+  // Inicializar eventos de formularios
+  const forms = document.querySelectorAll<HTMLFormElement>("form");
+  desactivarForms(forms);
+});
+
 const clases_figurita = ["Comun", "Especial", "Legendaria"];
 const clases_sobre = ["Gris", "Dorado", "Premium"];
-
-/**
- * Lista de tipos de álbumes disponibles.
- */
 const clases_album = ["Mundial", "Continental", "Nacional", "Local"];
-
-/**
- * Lista de países disponibles para selección.
- */
 const paises = [
   "Argentina",
   "Brasil",
@@ -32,83 +161,13 @@ const paises = [
   "Croacia",
 ];
 
-document.addEventListener("DOMContentLoaded", async () => {
-  await cargarSecciones();
-  cargarSelects();
-
-  const btn_listar = document.getElementById("btn_listar") as HTMLButtonElement;
-  const btn_agregar = document.getElementById(
-    "btn_agregar"
-  ) as HTMLButtonElement;
-  const btn_modificar = document.getElementById(
-    "btn_modificar"
-  ) as HTMLButtonElement;
-  const btn_eliminar = document.getElementById(
-    "btn_eliminar"
-  ) as HTMLButtonElement;
-
-  const botonesMenu = [btn_listar, btn_agregar, btn_modificar, btn_eliminar];
-
-  const hamburgerBtn =
-    document.querySelector<HTMLButtonElement>(".hamburger_btn");
-  const menuPrincipal = document.querySelector<HTMLElement>("#menu_principal");
-
-  const submenu_listar = document.getElementById(
-    "submenu_listar"
-  ) as HTMLElement;
-  const submenu_agregar = document.getElementById(
-    "submenu_agregar"
-  ) as HTMLElement;
-  const submenu_modificar = document.getElementById(
-    "submenu_modificar"
-  ) as HTMLElement;
-  const submenu_eliminar = document.getElementById(
-    "submenu_eliminar"
-  ) as HTMLElement;
-
-  const forms = document.querySelectorAll<HTMLFormElement>("form");
-  desactivarForms(forms);
-
-  btn_listar.addEventListener("click", () => {
-    activarBoton(btn_listar, botonesMenu);
-    toggleSubmenu(submenu_listar);
-  });
-
-  btn_agregar.addEventListener("click", () => {
-    activarBoton(btn_agregar, botonesMenu);
-    toggleSubmenu(submenu_agregar);
-  });
-
-  btn_modificar.addEventListener("click", () => {
-    activarBoton(btn_modificar, botonesMenu);
-    toggleSubmenu(submenu_modificar);
-  });
-
-  btn_eliminar.addEventListener("click", () => {
-    activarBoton(btn_eliminar, botonesMenu);
-    toggleSubmenu(submenu_eliminar);
-  });
-
-  hamburgerBtn?.addEventListener("click", () => {
-    menuPrincipal?.classList.toggle("menuOculto");
-
-    const submenus = document.querySelectorAll<HTMLElement>(
-      "#menu_secundario ul"
-    );
-    submenus.forEach((s) => s.classList.add("submenuOculto"));
-    botonesMenu.forEach((b) => b.classList.remove("btn_activo"));
-  });
-});
-
 /* Esta función carga los fragmentos HTML correspondientes a cada sección de la pagina.
  * retorna un objeto Promise<void> cuando todas las secciones han sido cargadas correctamente.
  */
 const cargarSecciones = async (): Promise<void> => {
   try {
-    await cargarParcial(".section_listar", "section/listado.html");
-    await cargarParcial(".section_alta", "section/alta.html");
-    await cargarParcial(".section_modificacion", "section/modificacion.html");
-    await cargarParcial(".section_eliminar", "section/eliminar.html");
+    await cargarParcial(".section", "section/listado/listarFigurita.html");
+    cargarSelects();
   } catch (e) {
     console.error("Error cargando secciones:", e);
   }
@@ -117,30 +176,12 @@ const cargarSecciones = async (): Promise<void> => {
 const cargarParcial = async (seccion: string, ruta: string): Promise<void> => {
   const cont = document.querySelector(seccion);
   if (!cont) return;
-  const res = await fetch(ruta);
-  cont.innerHTML = await res.text();
-};
-
-//Activa el botón seleccionado y desactiva los demás para evitar conflictos en la interfaz
-const activarBoton = (
-  btn: HTMLButtonElement,
-  botonesMenu: HTMLButtonElement[]
-) => {
-  const activo = btn.classList.contains("btn_activo");
-  botonesMenu.forEach((b) => b.classList.remove("btn_activo"));
-  if (!activo) btn.classList.add("btn_activo");
-};
-
-//Muestra u oculta el submenú correspondiente y oculta los demás para evitar conlifctos en la interfaz.
-const toggleSubmenu = (submenu: HTMLElement): void => {
-  const submenus = document.querySelectorAll<HTMLElement>(
-    "#menu_secundario ul"
-  );
-  submenus.forEach((s) => {
-    s === submenu
-      ? s.classList.toggle("submenuOculto")
-      : s.classList.add("submenuOculto");
-  });
+  try {
+    const res = await fetch(ruta);
+    cont.innerHTML = await res.text();
+  } catch (err) {
+    console.error("Error cargando parcial:", err);
+  }
 };
 
 //Carga opciones dentro de todos los select de cada formulario dependiendo de su clase.
@@ -157,6 +198,7 @@ const cargarGrupoSelect = (selector: string, valores: string[]) => {
 };
 
 const cargarOption = (select: HTMLSelectElement, array: string[]): void => {
+  select.innerHTML = "";
   array.forEach((v) => {
     const option = document.createElement("option");
     option.value = v;
@@ -208,6 +250,7 @@ const procesarFormulario = async (form: HTMLFormElement) => {
   if (!archivo) return;
 
   const data = await getJson(archivo);
+  if (!data || !Array.isArray(data)) return;
 
   switch (true) {
     case form.name.startsWith("listar_"):
@@ -228,6 +271,10 @@ const procesarFormulario = async (form: HTMLFormElement) => {
   }
 };
 
+/*
+ * Procesa una operación de listar, filtrando los datos según los
+ * campos enviados en formDate y mostrando los resultados obtenidos en una tabla.
+ */
 const procesarListado = (
   name: string,
   formData: FormData,
@@ -245,6 +292,10 @@ const procesarListado = (
     return;
   }
 
+  const clavesFiltro = claves.filter(
+    (k) => k.startsWith("id") || k.toLowerCase().startsWith("limite")
+  );
+
   const datosFiltrados = filtrarDatos(formData, data);
 
   if (datosFiltrados.length === 0) {
@@ -255,23 +306,139 @@ const procesarListado = (
     return;
   }
 
-  contenedor.appendChild(crearTabla(tipo, datosFiltrados, claves));
+  contenedor.appendChild(crearTabla(tipo, datosFiltrados, clavesFiltro));
 };
 
-const procesarAlta = (id: string, formData: FormData, data: any): void => {};
-
-const procesarModificacion = (
-  id: string,
-  formData: FormData,
-  data: any
-): void => {};
-
+// Procesa una operación de baja, mostrando los elementos que fueron eliminados.
 const procesarEliminacion = (
   id: string,
   formData: FormData,
   data: any
-): void => {};
+): void => {
+  const contenedor = document.getElementById("respuesta_" + id);
+  if (!contenedor) return;
+  contenedor.innerHTML = "";
 
+  const claves = Array.from(formData.keys());
+
+  if (claves.length === 0) {
+    contenedor.appendChild(errorDeFormulario("eliminar"));
+    return;
+  }
+
+  const clavesFiltro = claves.filter(
+    (k) => k.startsWith("id") || k.toLowerCase().startsWith("limite")
+  );
+
+  const datosFiltrados = filtrarDatos(formData, data);
+
+  if (datosFiltrados.length === 0) {
+    const p = document.createElement("p");
+    p.classList.add("error");
+    p.textContent = `No se encontraron resultados para los datos ingresados.`;
+    contenedor.appendChild(p);
+    return;
+  }
+
+  const tabla = crearTabla("eliminar", datosFiltrados, clavesFiltro);
+  contenedor.appendChild(tabla);
+
+  const mensaje = document.createElement("p");
+  mensaje.classList.add("exito");
+  mensaje.textContent = "Los elementos fueron eliminados correctamente.";
+  contenedor.appendChild(mensaje);
+};
+
+// Procesa una operación de alta, validando que no exista un registro repetido,
+const procesarAlta = (id: string, formData: FormData, data: any[]): void => {
+  const contenedor = document.getElementById("respuesta_" + id);
+  if (!contenedor) return;
+  contenedor.innerHTML = "";
+
+  const claves = Array.from(formData.keys());
+  if (claves.length === 0) {
+    contenedor.appendChild(errorDeFormulario("alta"));
+    return;
+  }
+
+  const existe = registroExistente(formData, data);
+  if (existe) {
+    const p = document.createElement("p");
+    p.classList.add("error");
+    p.textContent = "El elemento ya existe y no se puede agregar.";
+    contenedor.appendChild(p);
+    return;
+  }
+
+  const nuevoObjeto: any = {};
+  claves.forEach((key) => {
+    nuevoObjeto[key] = formData.get(key);
+  });
+
+  contenedor.appendChild(crearTabla("alta", [nuevoObjeto], []));
+
+  const mensaje = document.createElement("p");
+  mensaje.classList.add("exito");
+  mensaje.textContent = "El elemento se agregó correctamente.";
+  contenedor.appendChild(mensaje);
+};
+
+// Procesa una operación de modificacion, mostrando los datos originales y los nuevos en dos tablas distintas.
+const procesarModificacion = (
+  id: string,
+  formData: FormData,
+  data: any[]
+): void => {
+  const contenedor = document.getElementById("respuesta_" + id);
+  if (!contenedor) return;
+  contenedor.innerHTML = "";
+
+  const claves = Array.from(formData.keys());
+  if (claves.length === 0) {
+    contenedor.appendChild(errorDeFormulario("modificar"));
+    return;
+  }
+
+  const datosOriginales = filtrarDatos(formData, data);
+
+  if (datosOriginales.length === 0) {
+    const p = document.createElement("p");
+    p.classList.add("error");
+    p.textContent = "No se encontró el elemento indicado para su modificación.";
+    contenedor.appendChild(p);
+    return;
+  }
+
+  const nuevoObjeto: any = {};
+  claves.forEach((key) => {
+    nuevoObjeto[key] = formData.get(key);
+  });
+
+  const clavesFiltro = claves.filter(
+    (k) => k.startsWith("id") || k.toLowerCase().startsWith("limite")
+  );
+
+  const tituloOriginal = document.createElement("h3");
+  tituloOriginal.textContent = "Datos originales";
+  contenedor.appendChild(tituloOriginal);
+
+  contenedor.appendChild(
+    crearTabla("modificar", datosOriginales, clavesFiltro)
+  );
+
+  const tituloNuevo = document.createElement("h3");
+  tituloNuevo.textContent = "Datos nuevos";
+  contenedor.appendChild(tituloNuevo);
+
+  contenedor.appendChild(crearTabla("modificar", [nuevoObjeto], []));
+
+  const mensaje = document.createElement("p");
+  mensaje.classList.add("exito");
+  mensaje.textContent = "El elemento fue modificado correctamente.";
+  contenedor.appendChild(mensaje);
+};
+
+// Filtra datos del JSON según el campo ID enviado en el formDate y un límite opcional.
 const filtrarDatos = (formData: FormData, data: any[]): any[] => {
   const campoID = Array.from(formData.keys()).find((key) =>
     key.startsWith("id")
@@ -281,15 +448,38 @@ const filtrarDatos = (formData: FormData, data: any[]): any[] => {
 
   const valorID = Number(formData.get(campoID));
   if (isNaN(valorID)) return [];
+
   const campoLimite = Array.from(formData.keys()).find((key) =>
     key.toLowerCase().startsWith("limite")
   );
 
   const limite = campoLimite ? Number(formData.get(campoLimite)) : 1;
-  const resultados = data.filter((item) => item[campoID] === valorID);
+
+  const resultados = data.filter((item) => Number(item[campoID]) === valorID);
   return resultados.slice(0, limite);
 };
 
+// Determina si un registro ya existe comparando campos que deben tener valores unicos y comienzan con "nombre".
+const registroExistente = (formData: FormData, data: any[]): boolean => {
+  const campoNombre = Array.from(formData.keys()).find((key) =>
+    key.startsWith("nombre")
+  );
+
+  if (!campoNombre) return false;
+
+  const valorNombre = formData.get(campoNombre);
+  if (!valorNombre) return false;
+
+  const encontrado = data.some(
+    (item) =>
+      String(item[campoNombre]).toLowerCase() ===
+      String(valorNombre).toLowerCase()
+  );
+
+  return encontrado;
+};
+
+// Crea un mensaje de error para indicar que no se seleccionó ningún campo.
 const errorDeFormulario = (accion: string): HTMLElement => {
   const p = document.createElement("p");
   p.classList.add("error");
@@ -297,10 +487,11 @@ const errorDeFormulario = (accion: string): HTMLElement => {
   return p;
 };
 
+// Crea una tabla HTML basada en una lista de objetos JSON con sus claves y valores asociados.
 const crearTabla = (
   titulo: string,
   data: any[],
-  clavesFiltro: string[]
+  clavesFiltro: string[] = []
 ): HTMLTableElement => {
   const tabla = document.createElement("table");
   const caption = document.createElement("caption");
@@ -344,6 +535,7 @@ const crearTabla = (
   return tabla;
 };
 
+// Carga un archivo JSON desde la carpeta /data y lo retorna como una promesa.
 const getJson = async (nombreArchivo: string): Promise<any> => {
   try {
     const response = await fetch(`../../data/${nombreArchivo}`);

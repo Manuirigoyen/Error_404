@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("../img/fondoRuleta.png");
+  background-image: url("../../assets/img/fondos/fondoRuleta.png");
   background-size: cover;
   background-position: center;
   padding-top: 30px;

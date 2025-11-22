@@ -1,0 +1,33 @@
+<div id="agregar_album">
+  <h1>Agregar</h1>
+  <h2>Agregar Álbum</h2>
+  <p>Se pueden agregar álbums indicando país y tipo.</p>
+
+  <form name="agregar_album" class="form_alta">
+    <div class="grupo_campos">
+      <div><label>Nombre del país seleccionado</label></div>
+      <div><select name="pais" class="cls_pais"></select></div>
+      <div><label>Clase de álbum</label></div>
+      <div><select name="clase" class="cls_album"></select></div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Precio del álbum</label></div>
+      <div>
+        <input type="number" name="precio" required value="0" min="0" />
+      </div>
+      <div><label>Stock disponible</label></div>
+      <div>
+        <input type="number" name="stock" required value="0" min="0" />
+      </div>
+    </div>
+
+    <div class="grupo_campos">
+      <div><label>Imagen del álbum</label></div>
+      <div><input type="file" name="imagen" accept="image/*" /></div>
+      <div><button type="submit">Agregar</button></div>
+    </div>
+  </form>
+
+  <div id="respuesta_agregar_album"></div>
+</div>
