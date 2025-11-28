@@ -44,14 +44,14 @@ document.querySelectorAll('.team').forEach(team => {
           if (img) {
             const teamId = team.id;
             if (teamId === 'argentina') {
-              img.src = '/img/Argentina/10.jpg';
-              img.alt = 'Lionel Messi';
+              img.src = '/assets/img/fondos/Argentina/15.jpg';
+              img.alt = 'Maradona';
             } else if (teamId === 'brasil') {
-              img.src = '/img/Brasil/10.jpg';
-              img.alt = 'Jugador Brasil';
+              img.src = '/assets/img/fondos/Brasil/15.jpg';
+              img.alt = 'Pele';
             } else if (teamId === 'francia') {
-              img.src = '/img/Francia/10.jpg';
-              img.alt = 'Jugador Francia';
+              img.src = '/assets/img/fondos/Francia/15.jpg';
+              img.alt = 'Zidane';
             }
           }
         }
@@ -80,13 +80,13 @@ function desbloquearCardPorId(teamId, index1Base) {
       const img = card.querySelector('img');
       if (img) {
         if (teamId === 'argentina') {
-          img.src = '/img/Argentina/10.jpg';
+          img.src = '/assets/img/fondos/Argentina/15.jpg';
           img.alt = 'Maradona';
         } else if (teamId === 'brasil') {
-          img.src = '/img/Brasil/10.jpg';
+          img.src = '/assets/img/fondos/Brasil/15.jpg';
           img.alt = 'Pele';
         } else if (teamId === 'francia') {
-          img.src = '/img/Francia/10.jpg';
+          img.src = '/assets/img/fondos/Francia/15.jpg';
           img.alt = 'Zidane';
         }
       }
