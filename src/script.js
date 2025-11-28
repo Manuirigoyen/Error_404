@@ -26,25 +26,21 @@ function actualizarProgresoEquipo(team) {
   const completadas = Array.from(cards).filter(c => c.classList.contains('completa')).length;
   const porcentaje = Math.round((completadas / totalCards) * 100);
 
-  // Actualizar barra de progreso
   progressBar.style.width = porcentaje + '%';
   progressText.textContent = `Progreso: ${porcentaje}%`;
 
-  // Cambiar color de la barra según porcentaje
   if (porcentaje <= 33) {
-    progressBar.style.background = '#e53935'; // rojo
+    progressBar.style.background = '#e53935';
   } else if (porcentaje <= 66) {
-    progressBar.style.background = '#fdd835'; // amarillo
+    progressBar.style.background = '#fdd835';
   } else {
-    progressBar.style.background = '#43a047'; // verde
+    progressBar.style.background = '#43a047';
   }
 
-  // Mostrar bandera a color si se completa el álbum
   if (completadas === totalCards && !bandera.classList.contains('color')) {
     bandera.classList.add('color');
   }
 
-  // Verificar estado general del álbum
   mostrarMensajeFinal();
 }
 
@@ -63,6 +59,7 @@ function desbloquearCardPorId(teamId, index1Base) {
     }
 
     actualizarProgresoEquipo(team);
+    // No guardamos en la billetera aquí (es el primer “click”)
   }
 }
 
@@ -95,15 +92,50 @@ function mostrarMensajeFinal() {
   }
 }
 
+// -------------------- FUNCIÓN: guardar en billetera --------------------
+function guardarEnBilletera(card) {
+  const id = card.dataset.id;
+  let img = card.style.backgroundImage;
+
+  if (!img || img === 'none') {
+    const imgTag = card.querySelector('img');
+    if (imgTag) img = `url("${imgTag.src}")`;
+  }
+
+  const billetera = JSON.parse(localStorage.getItem('billetera')) || {};
+
+  // Cada llamada suma una figurita (puede ser repetida)
+  billetera[id] = billetera[id] || { count: 0, img };
+  billetera[id].count++;
+  localStorage.setItem('billetera', JSON.stringify(billetera));
+}
+
+// -------------------- RESET (opcional) --------------------
+function resetAlbum() {
+  document.querySelectorAll('.card.completa').forEach(c => c.classList.remove('completa'));
+  document.querySelectorAll('.progress-bar').forEach(p => p.style.width = '0%');
+  document.querySelectorAll('.progress-text').forEach(t => t.textContent = 'Progreso: 0%');
+  document.querySelectorAll('.bandera').forEach(b => b.classList.remove('color'));
+}
+
 // Ejecutar al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
+  const billeteraContenedor = document.getElementById('billetera-contenedor');
+
+  // Si NO estamos en billetera.html → es el álbum
+  if (!billeteraContenedor) {
+    localStorage.removeItem('billetera');
+    resetAlbum();
+    mostrarMensajeFinal();
+  }
+
   // Inicializar progreso por equipo
   document.querySelectorAll('.team').forEach(team => {
     const cards = team.querySelectorAll('.card');
 
-    // Marcar figurita como completada al hacer clic
     cards.forEach(card => {
       card.addEventListener('click', () => {
+        // Primer clic: marcar como completa
         if (!card.classList.contains('completa')) {
           card.classList.add('completa');
 
@@ -112,93 +144,68 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           actualizarProgresoEquipo(team);
+          // NO guardamos en la billetera en el primer clic
+        } else {
+          // Clic siguiente: ya está completa → guardar en billetera
+          guardarEnBilletera(card);
         }
       });
     });
 
-    // Estado inicial
     actualizarProgresoEquipo(team);
   });
 
-  // Mostrar mensaje final inicial
   mostrarMensajeFinal();
 
-  // Billetera
-  const billeteraContenedor = document.getElementById('billetera-contenedor');
-
+  // -------------------- BILLETERA --------------------
   if (billeteraContenedor) {
-    // Estamos en billetera.html → mostrar figus repetidas
     const billetera = JSON.parse(localStorage.getItem('billetera')) || {};
 
     Object.entries(billetera).forEach(([id, data]) => {
-      if (data.count > 1) {
-        const figu = document.createElement('div');
-        figu.className = 'figu-repetida';
-        figu.dataset.id = id;
-        figu.style.backgroundImage = data.img;
+      // Mostrar TODAS las figuritas (count >= 1)
+      const figu = document.createElement('div');
+      figu.className = 'figu-repetida';
+      figu.dataset.id = id;
+      figu.style.backgroundImage = data.img;
 
-        // Contador
-        const contador = document.createElement('div');
-        contador.className = 'contador';
-        contador.textContent = `x${data.count}`;
-        figu.appendChild(contador);
+      const contador = document.createElement('div');
+      contador.className = 'contador';
+      contador.textContent = `x${data.count}`;
+      figu.appendChild(contador);
 
-        // Botones
-        const botones = document.createElement('div');
-        botones.className = 'botones-billetera';
+      const botones = document.createElement('div');
+      botones.className = 'botones-billetera';
 
-        const btnEliminar = document.createElement('button');
-        btnEliminar.className = 'btn-eliminar';
-        btnEliminar.textContent = 'Eliminar';
-        btnEliminar.addEventListener('click', () => {
-          if (billetera[id].count > 1) {
-            billetera[id].count--;
-            localStorage.setItem('billetera', JSON.stringify(billetera));
-            contador.textContent = `x${billetera[id].count}`;
-          } else {
-            delete billetera[id];
-            localStorage.setItem('billetera', JSON.stringify(billetera));
-            figu.remove();
-          }
-        });
-
-        const btnIntercambiar = document.createElement('button');
-        btnIntercambiar.className = 'btn-intercambiar';
-        btnIntercambiar.textContent = 'Intercambiar';
-
-        botones.appendChild(btnEliminar);
-        botones.appendChild(btnIntercambiar);
-        figu.appendChild(botones);
-
-        billeteraContenedor.appendChild(figu);
-      }
-    });
-
-  } else {
-    // Estamos en index.html → contar clics en figus
-    const billetera = JSON.parse(localStorage.getItem('billetera')) || {};
-
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('click', () => {
-        const id = card.dataset.id;
-        let img = card.style.backgroundImage;
-
-        if (!img || img === 'none') {
-          const imgTag = card.querySelector('img');
-          if (imgTag) {
-            img = `url("${imgTag.src}")`;
-          }
+      const btnEliminar = document.createElement('button');
+      btnEliminar.className = 'btn-eliminar';
+      btnEliminar.textContent = 'Eliminar';
+      btnEliminar.addEventListener('click', () => {
+        if (billetera[id].count > 1) {
+          // Solo decrementa el contador
+          billetera[id].count--;
+          localStorage.setItem('billetera', JSON.stringify(billetera));
+          contador.textContent = `x${billetera[id].count}`;
+        } else {
+          // Última unidad → elimina el registro completo
+          delete billetera[id];
+          localStorage.setItem('billetera', JSON.stringify(billetera));
+          figu.remove();
         }
-
-        billetera[id] = billetera[id] || { count: 0, img };
-        billetera[id].count++;
-
-        localStorage.setItem('billetera', JSON.stringify(billetera));
       });
+
+      const btnIntercambiar = document.createElement('button');
+      btnIntercambiar.className = 'btn-intercambiar';
+      btnIntercambiar.textContent = 'Intercambiar';
+
+      botones.appendChild(btnEliminar);
+      botones.appendChild(btnIntercambiar);
+      figu.appendChild(botones);
+
+      billeteraContenedor.appendChild(figu);
     });
   }
 
-  // Menú hamburguesa
+  // -------------------- MENÚ HAMBURGUESA --------------------
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
 
