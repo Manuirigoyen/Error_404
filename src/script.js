@@ -1,69 +1,52 @@
-// Progreso individual por equipo con color dinámico y bandera en color al completar
-document.querySelectorAll('.team').forEach(team => {
+// Función auxiliar: asignar imagen especial según equipo
+function asignarImagenEspecial(card, teamId) {
+  const img = card.querySelector('img');
+  if (!img) return;
+
+  const imagenes = {
+    argentina: { src: '/assets/img/fondos/Argentina/15.jpg', alt: 'Maradona' },
+    brasil: { src: '/assets/img/fondos/Brasil/15.jpg', alt: 'Pele' },
+    francia: { src: '/assets/img/fondos/Francia/15.jpg', alt: 'Zidane' }
+  };
+
+  if (imagenes[teamId]) {
+    img.src = imagenes[teamId].src;
+    img.alt = imagenes[teamId].alt;
+  }
+}
+
+// Función auxiliar: actualizar progreso de un equipo
+function actualizarProgresoEquipo(team) {
   const cards = team.querySelectorAll('.card');
   const bandera = team.querySelector('.bandera');
   const progressBar = team.querySelector('.progress-bar');
   const progressText = team.querySelector('.progress-text');
   const totalCards = cards.length;
 
-  function actualizarProgresoEquipo() {
-    const completadas = Array.from(cards).filter(c => c.classList.contains('completa')).length;
-    const porcentaje = Math.round((completadas / totalCards) * 100);
+  const completadas = Array.from(cards).filter(c => c.classList.contains('completa')).length;
+  const porcentaje = Math.round((completadas / totalCards) * 100);
 
-    // Actualizar barra de progreso
-    progressBar.style.width = porcentaje + '%';
-    progressText.textContent = `Progreso: ${porcentaje}%`;
+  // Actualizar barra de progreso
+  progressBar.style.width = porcentaje + '%';
+  progressText.textContent = `Progreso: ${porcentaje}%`;
 
-    // Cambiar color de la barra según el porcentaje
-    if (porcentaje <= 33) {
-      progressBar.style.background = '#e53935'; // rojo
-    } else if (porcentaje <= 66) {
-      progressBar.style.background = '#fdd835'; // amarillo
-    } else {
-      progressBar.style.background = '#43a047'; // verde
-    }
-
-    // Mostrar bandera a color si se completa el álbum
-    if (completadas === totalCards && !bandera.classList.contains('color')) {
-      bandera.classList.add('color');
-    }
-
-    // Verificar estado general del álbum
-    mostrarMensajeFinal();
+  // Cambiar color de la barra según porcentaje
+  if (porcentaje <= 33) {
+    progressBar.style.background = '#e53935'; // rojo
+  } else if (porcentaje <= 66) {
+    progressBar.style.background = '#fdd835'; // amarillo
+  } else {
+    progressBar.style.background = '#43a047'; // verde
   }
 
-  // Marcar figurita como completada al hacer clic
-  cards.forEach((card, index) => {
-    card.addEventListener('click', () => {
-      if (!card.classList.contains('completa')) {
-        card.classList.add('completa');
+  // Mostrar bandera a color si se completa el álbum
+  if (completadas === totalCards && !bandera.classList.contains('color')) {
+    bandera.classList.add('color');
+  }
 
-        // Si es una figurita especial, cambiar la imagen
-        if (card.classList.contains('especial')) {
-          const img = card.querySelector('img');
-          if (img) {
-            const teamId = team.id;
-            if (teamId === 'argentina') {
-              img.src = '/assets/img/fondos/Argentina/15.jpg';
-              img.alt = 'Maradona';
-            } else if (teamId === 'brasil') {
-              img.src = '/assets/img/fondos/Brasil/15.jpg';
-              img.alt = 'Pele';
-            } else if (teamId === 'francia') {
-              img.src = '/assets/img/fondos/Francia/15.jpg';
-              img.alt = 'Zidane';
-            }
-          }
-        }
-
-        actualizarProgresoEquipo();
-      }
-    });
-  });
-
-  // Inicializar estado al cargar
-  actualizarProgresoEquipo();
-});
+  // Verificar estado general del álbum
+  mostrarMensajeFinal();
+}
 
 // Función opcional para desbloquear una figurita desde backend
 function desbloquearCardPorId(teamId, index1Base) {
@@ -75,51 +58,18 @@ function desbloquearCardPorId(teamId, index1Base) {
   if (card && !card.classList.contains('completa')) {
     card.classList.add('completa');
 
-    // Si es una figurita especial, cambiar la imagen
     if (card.classList.contains('especial')) {
-      const img = card.querySelector('img');
-      if (img) {
-        if (teamId === 'argentina') {
-          img.src = '/assets/img/fondos/Argentina/15.jpg';
-          img.alt = 'Maradona';
-        } else if (teamId === 'brasil') {
-          img.src = '/assets/img/fondos/Brasil/15.jpg';
-          img.alt = 'Pele';
-        } else if (teamId === 'francia') {
-          img.src = '/assets/img/fondos/Francia/15.jpg';
-          img.alt = 'Zidane';
-        }
-      }
+      asignarImagenEspecial(card, teamId);
     }
 
-    const progressBar = team.querySelector('.progress-bar');
-    const progressText = team.querySelector('.progress-text');
-    const bandera = team.querySelector('.bandera');
-    const totalCards = cards.length;
-    const completadas = Array.from(cards).filter(c => c.classList.contains('completa')).length;
-    const porcentaje = Math.round((completadas / totalCards) * 100);
-
-    // Actualizar barra
-    progressBar.style.width = porcentaje + '%';
-    progressText.textContent = `Progreso: ${porcentaje}%`;
-    if (porcentaje <= 33) progressBar.style.background = '#e53935';
-    else if (porcentaje <= 66) progressBar.style.background = '#fdd835';
-    else progressBar.style.background = '#43a047';
-
-    // Bandera a color cuando se completa el álbum
-    if (completadas === totalCards && !bandera.classList.contains('color')) {
-      bandera.classList.add('color');
-    }
-
-    // Verificar estado general del álbum
-    mostrarMensajeFinal();
+    actualizarProgresoEquipo(team);
   }
 }
 
 // Verifica si todos los álbumes están completos y actualiza el mensaje final
 function mostrarMensajeFinal() {
   const equipos = document.querySelectorAll('.team');
-  if (!equipos.length) return; // Evita errores si no hay equipos
+  if (!equipos.length) return;
 
   let todosCompletos = true;
 
@@ -147,10 +97,33 @@ function mostrarMensajeFinal() {
 
 // Ejecutar al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
-  mostrarMensajeFinal();
-});
+  // Inicializar progreso por equipo
+  document.querySelectorAll('.team').forEach(team => {
+    const cards = team.querySelectorAll('.card');
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Marcar figurita como completada al hacer clic
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        if (!card.classList.contains('completa')) {
+          card.classList.add('completa');
+
+          if (card.classList.contains('especial')) {
+            asignarImagenEspecial(card, team.id);
+          }
+
+          actualizarProgresoEquipo(team);
+        }
+      });
+    });
+
+    // Estado inicial
+    actualizarProgresoEquipo(team);
+  });
+
+  // Mostrar mensaje final inicial
+  mostrarMensajeFinal();
+
+  // Billetera
   const billeteraContenedor = document.getElementById('billetera-contenedor');
 
   if (billeteraContenedor) {
@@ -224,11 +197,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-});
 
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
+  // Menú hamburguesa
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
 });
