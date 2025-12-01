@@ -1,4 +1,3 @@
-// Función auxiliar: asignar imagen especial según equipo
 function asignarImagenEspecial(card, teamId) {
   const img = card.querySelector('img');
   if (!img) return;
@@ -15,7 +14,6 @@ function asignarImagenEspecial(card, teamId) {
   }
 }
 
-// Función auxiliar: actualizar progreso de un equipo
 function actualizarProgresoEquipo(team) {
   const cards = team.querySelectorAll('.card');
   const bandera = team.querySelector('.bandera');
@@ -44,7 +42,6 @@ function actualizarProgresoEquipo(team) {
   mostrarMensajeFinal();
 }
 
-// Función opcional para desbloquear una figurita desde backend
 function desbloquearCardPorId(teamId, index1Base) {
   const team = document.getElementById(teamId);
   if (!team) return;
@@ -59,11 +56,9 @@ function desbloquearCardPorId(teamId, index1Base) {
     }
 
     actualizarProgresoEquipo(team);
-    // No guardamos en la billetera aquí (es el primer “click”)
   }
 }
 
-// Verifica si todos los álbumes están completos y actualiza el mensaje final
 function mostrarMensajeFinal() {
   const equipos = document.querySelectorAll('.team');
   if (!equipos.length) return;
@@ -92,7 +87,6 @@ function mostrarMensajeFinal() {
   }
 }
 
-// -------------------- FUNCIÓN: guardar en billetera --------------------
 function guardarEnBilletera(card) {
   const id = card.dataset.id;
   let img = card.style.backgroundImage;
@@ -104,13 +98,11 @@ function guardarEnBilletera(card) {
 
   const billetera = JSON.parse(localStorage.getItem('billetera')) || {};
 
-  // Cada llamada suma una figurita (puede ser repetida)
   billetera[id] = billetera[id] || { count: 0, img };
   billetera[id].count++;
   localStorage.setItem('billetera', JSON.stringify(billetera));
 }
 
-// -------------------- RESET (opcional) --------------------
 function resetAlbum() {
   document.querySelectorAll('.card.completa').forEach(c => c.classList.remove('completa'));
   document.querySelectorAll('.progress-bar').forEach(p => p.style.width = '0%');
@@ -118,24 +110,20 @@ function resetAlbum() {
   document.querySelectorAll('.bandera').forEach(b => b.classList.remove('color'));
 }
 
-// Ejecutar al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
   const billeteraContenedor = document.getElementById('billetera-contenedor');
 
-  // Si NO estamos en billetera.html → es el álbum
   if (!billeteraContenedor) {
     localStorage.removeItem('billetera');
     resetAlbum();
     mostrarMensajeFinal();
   }
 
-  // Inicializar progreso por equipo
   document.querySelectorAll('.team').forEach(team => {
     const cards = team.querySelectorAll('.card');
 
     cards.forEach(card => {
       card.addEventListener('click', () => {
-        // Primer clic: marcar como completa
         if (!card.classList.contains('completa')) {
           card.classList.add('completa');
 
@@ -144,9 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           actualizarProgresoEquipo(team);
-          // NO guardamos en la billetera en el primer clic
         } else {
-          // Clic siguiente: ya está completa → guardar en billetera
           guardarEnBilletera(card);
         }
       });
@@ -162,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const billetera = JSON.parse(localStorage.getItem('billetera')) || {};
 
     Object.entries(billetera).forEach(([id, data]) => {
-      // Mostrar TODAS las figuritas (count >= 1)
       const figu = document.createElement('div');
       figu.className = 'figu-repetida';
       figu.dataset.id = id;
@@ -181,12 +166,10 @@ document.addEventListener('DOMContentLoaded', () => {
       btnEliminar.textContent = 'Eliminar';
       btnEliminar.addEventListener('click', () => {
         if (billetera[id].count > 1) {
-          // Solo decrementa el contador
           billetera[id].count--;
           localStorage.setItem('billetera', JSON.stringify(billetera));
           contador.textContent = `x${billetera[id].count}`;
         } else {
-          // Última unidad → elimina el registro completo
           delete billetera[id];
           localStorage.setItem('billetera', JSON.stringify(billetera));
           figu.remove();

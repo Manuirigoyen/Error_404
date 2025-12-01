@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
-/* GENERAL */
 body {
   margin: 80px 0px 4px 0px;
   font-family: Arial, sans-serif;
@@ -39,7 +38,6 @@ h1 {
   box-sizing: border-box;
 }
 
-/* HEADER */
 header {
   position: fixed;
   top: 0;
@@ -99,7 +97,6 @@ header {
   vertical-align: middle;
 }
 
-/* Layout horizontal: contenido a la izquierda, bandera a la derecha */
 .album-layout {
   display: flex;
   justify-content: space-between;
@@ -222,7 +219,6 @@ header {
   }
 }
 
-/* Cards */
 .cards {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -251,7 +247,6 @@ header {
   border-color: gold;
 }
 
-/* Imagen interna para cards especiales */
 .card img {
   width: 100%;
   height: 100%;
@@ -266,7 +261,6 @@ header {
   filter: grayscale(0%);
 }
 
-/* Barra de progreso individual */
 .progress-container {
   width: 95%;
   background: #ddd;
@@ -348,7 +342,7 @@ header {
   width: 100%;
   height: 600px;
   margin-top: 30px;
-  background-image: url(/assets/img/fondos/pelotapremio.png); /* usa el fondo compartido */
+  background-image: url(/assets/img/fondos/pelotapremio.png); 
   background-size: cover;
   background-position: center;
   padding: 40px 20px;
@@ -452,11 +446,8 @@ header {
 .svg-curvo {
   width: 400px;
   height: 300px;
-
-  /* Centrado con posicionamiento absoluto */
   position: absolute;
-  top: 75%;          /* Mueve el borde superior al 50% de la altura de la pantalla */
-  left: 43%;         /* Mueve el borde izquierdo al 50% de la anchura de la pantalla */
+  top: 75%;         
 }
 
 .svg-curvo path {
@@ -656,18 +647,18 @@ header {
   margin: 10px;
   z-index: 2;
   overflow: visible;
-  transform: translateY(-10px); /* 👈 sube la figu visualmente */
+  transform: translateY(-10px); 
 }
 
 .figu-repetida::after {
   content: '';
   position: absolute;
   bottom: -55px;
-  left: 51%; /* 👈 corre la billetera hacia la derecha */
+  left: 51%;
   transform: translateX(-50%) scale(1.4);
   width: 80px;
   height: 72px;
-  background-image: url(/assets/img/iconos/billetera.png); /* tu imagen */
+  background-image: url(/assets/img/iconos/billetera.png); 
   filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
   background-size: contain;
   background-repeat: no-repeat;
@@ -726,16 +717,11 @@ html {
   background-color: #1976d2;
 }
 
-/* Agrega esto al final de tu archivo styles.css */
 
-/* Pantallas grandes (desktops) */
 @media (min-width: 1200px) {
-  /* Estilos para pantallas grandes */
 }
 
-/* Pantallas medianas (tablets y laptops) */
 @media (max-width: 1199px) and (min-width: 768px) {
-  /* Estilos para pantallas medianas */
   .album {
     flex-direction: column;
   }
@@ -760,7 +746,6 @@ h1 {
   }
 }
 
-/* Ícono hamburguesa oculto por defecto */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -773,7 +758,6 @@ h1 {
   margin: 5px 0;
 }
 
-/* Mostrar menú hamburguesa a partir de 815 px */
 @media (max-width: 815px) {
   .nav-links {
     display: none;
@@ -795,29 +779,26 @@ h1 {
 }
 
 @media (max-width: 769px) {
-  /* 1️⃣  Mantener el layout de tarjetas como estaba (5 columnas) */
   .cards {
     grid-template-columns: repeat(5, 1fr);
   }
 
-  /* 2️⃣  Apilar contenido y bandera */
   .album-layout {
     flex-direction: column;
     align-items: center;
   }
 
   .contenido-album {
-    order: 1;                 /* tarjetas primero */
+    order: 1;              
   }
 
   .contenedor-band-desc {
-    order: 2;                 /* bloque bandera+desc después */
+    order: 2;                 
     width: auto;
     height: auto;
     transform: rotate(90deg);
   }
 
-  /* 3️⃣  Ajustar la bandera para que no quede gigante */
   .bandera {
     width: auto;
     height: auto;
@@ -825,8 +806,6 @@ h1 {
     padding: 0px;
   }
 
-  /* 4️⃣  La descripción ya está posicionada dentro del wrapper,
-        solo reducimos el tamaño para que quepa bien */
   .contenedor-band-desc .descripcion {
     width: auto;
     height: auto;
