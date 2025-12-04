@@ -1,0 +1,12 @@
+{
+  "name": "figusapp",
+  "version": "1.0.0",
+  "description": "Aplicación frontend de figusApp desarrollada con TypeScript y Bootstrap",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.0"
+  }
+}

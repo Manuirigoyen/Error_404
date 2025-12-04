@@ -1,0 +1,266 @@
+<div class="d-flex panel-height">
+  <button id="toggleSidebar" class="sidebar-toggle-btn" aria-label="Abrir menú">
+    ⮜
+  </button>
+  <aside class="bg-light border-end px-3 py-3 pb-5 sidebar-width">
+    <div class="profile-wrapper text-center mb-4">
+      <div class="img-container">
+        <button id="btn-album" class="profile-icon">📓</button>
+        <img
+          src="assets/img/icons/fotoPerfilDefault.png"
+          alt="Foto de perfil"
+          class="rounded-circle mb-2"
+        />
+      </div>
+      <h6>admin@example.com</h6>
+      <button class="btn btn-danger btn-sm w-100">Cerrar sesión</button>
+    </div>
+    <h5 class="text-center mb-3">Administración</h5>
+    <ul class="list-unstyled">
+      <li class="mb-2">
+        <button
+          class="btn btn-outline-primary w-100"
+          data-bs-toggle="collapse"
+          data-bs-target="#submenuListar"
+        >
+          Listar
+        </button>
+        <div class="collapse" id="submenuListar">
+          <ul class="list-unstyled mt-2">
+            <li>
+              <button
+                id="btn-listar-figuritas"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Listar figuritas
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-listar-sobres"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Listar sobres
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-listar-albumes"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Listar álbumes
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-listar-usuarios"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Listar usuarios
+              </button>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-2">
+        <button
+          class="btn btn-outline-primary w-100"
+          data-bs-toggle="collapse"
+          data-bs-target="#submenuAgregar"
+        >
+          Agregar
+        </button>
+        <div class="collapse" id="submenuAgregar">
+          <ul class="list-unstyled mt-2">
+            <li>
+              <button
+                id="btn-agregar-figuritas"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Agregar figuritas
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-agregar-sobres"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Agregar sobres
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-agregar-albumes"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Agregar álbumes
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-agregar-usuarios"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Agregar usuarios
+              </button>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-2">
+        <button
+          class="btn btn-outline-primary w-100"
+          data-bs-toggle="collapse"
+          data-bs-target="#submenuModificar"
+        >
+          Modificar
+        </button>
+        <div class="collapse" id="submenuModificar">
+          <ul class="list-unstyled mt-2">
+            <li>
+              <button
+                id="btn-modificar-figuritas"
+                class="btn btn-outline-primary w-100 mb-2 px-0"
+              >
+                Modificar figuritas
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-modificar-sobres"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Modificar sobres
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-modificar-albumes"
+                class="btn btn-outline-primary w-100 mb-2 px-0"
+              >
+                Modificar álbumes
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-modificar-usuarios"
+                class="btn btn-outline-primary w-100 mb-2 px-0"
+              >
+                Modificar usuarios
+              </button>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-2">
+        <button
+          class="btn btn-outline-primary w-100"
+          data-bs-toggle="collapse"
+          data-bs-target="#submenuEliminar"
+        >
+          Eliminar
+        </button>
+        <div class="collapse" id="submenuEliminar">
+          <ul class="list-unstyled mt-2">
+            <li>
+              <button
+                id="btn-eliminar-figuritas"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Eliminar figuritas
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-eliminar-sobres"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Eliminar sobres
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-eliminar-albumes"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Eliminar álbumes
+              </button>
+            </li>
+            <li>
+              <button
+                id="btn-eliminar-usuarios"
+                class="btn btn-outline-primary w-100 mb-2"
+              >
+                Eliminar usuarios
+              </button>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </aside>
+  <div class="flex-grow-1 p-4">
+    <h4 class="mb-4 text-center">
+      Bienvenido al panel de administración de <strong>FigusApp</strong>
+    </h4>
+    <p class="intro-paragraph mb-5">
+      Desde esta interfaz, los administradores podrán gestionar las secciones
+      del sistema: figuritas, sobres, álbumes y usuarios. Cada sección incluye
+      herramientas que permiten agregar, listar, modificar y eliminar registros
+      en la base de datos para asegurar que la información se mantenga
+      actualizada y organizada.
+    </p>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col">
+        <div
+          class="p-3 bg-light border rounded h-100 d-flex flex-column column-card"
+        >
+          <h5>Listar</h5>
+          <p class="mb-0">
+            Cuenta con formularios que permiten consultar los registros
+            existentes de Figuritas, Sobres, Álbumes y Usuarios, facilitando su
+            visualización y búsqueda.
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div
+          class="p-3 bg-light border rounded h-100 d-flex flex-column column-card"
+        >
+          <h5>Agregar</h5>
+          <p class="mb-0">
+            Cuenta con formularios que permiten crear nuevos registros de
+            Figuritas, Sobres, Álbumes y Usuarios, asegurando que la información
+            se mantenga completa y actualizada.
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div
+          class="p-3 bg-light border rounded h-100 d-flex flex-column column-card"
+        >
+          <h5>Modificar</h5>
+          <p class="mb-0">
+            Cuenta con formularios que permiten actualizar los registros
+            existentes en la base de datos, como Figuritas, Sobres, Álbumes y
+            Usuarios, de manera rápida y segura.
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div
+          class="p-3 bg-light border rounded h-100 d-flex flex-column column-card"
+        >
+          <h5>Eliminar</h5>
+          <p class="mb-0">
+            Cuenta con formularios que permiten eliminar registros existentes en
+            la base de datos, como Figuritas, Sobres, Álbumes y Usuarios,
+            manteniendo la base de datos limpia y organizada.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
