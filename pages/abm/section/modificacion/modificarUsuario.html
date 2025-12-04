@@ -1,0 +1,120 @@
+<div class="card bg-light border rounded p-4 mb-4">
+  <h5 class="card-title mb-3">Modificar Usuario</h5>
+  <p class="card-text mb-3">Se pueden modificar usuarios.</p>
+
+  <form name="modificar_usuario" class="form_modificar">
+    <div class="mb-3">
+      <label for="inputModificarUsuarioId" class="form-label"
+        >ID del usuario</label
+      >
+      <input
+        type="number"
+        id="inputModificarUsuarioId"
+        name="id"
+        class="form-control w-100"
+        required
+        min="1"
+        value="1"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="inputModificarNombreUsuario" class="form-label"
+        >Nuevo nombre de usuario</label
+      >
+      <input
+        type="text"
+        id="inputModificarNombreUsuario"
+        name="nombreUsuario"
+        class="form-control w-100"
+        placeholder="(nombre de usuario)"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="inputModificarPassword" class="form-label"
+        >Nueva contraseña</label
+      >
+      <input
+        type="password"
+        id="inputModificarPassword"
+        name="password"
+        class="form-control w-100"
+        placeholder="*******"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="inputModificarEmail" class="form-label"
+        >Nuevo correo electrónico</label
+      >
+      <input
+        type="email"
+        id="inputModificarEmail"
+        name="email"
+        class="form-control w-100"
+        placeholder="figusApp@gmail.com"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="inputModificarTelefono" class="form-label"
+        >Nuevo número de teléfono</label
+      >
+      <input
+        type="tel"
+        id="inputModificarTelefono"
+        name="telefono"
+        class="form-control w-100"
+        placeholder="+5492983547677"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="selectModificarPais" class="form-label"
+        >Nuevo país de origen</label
+      >
+      <select
+        id="selectModificarPais"
+        name="pais"
+        class="form-select w-100 cls_pais"
+      ></select>
+    </div>
+
+    <div class="mb-3">
+      <label for="inputModificarFechaNacimiento" class="form-label"
+        >Nueva fecha de nacimiento</label
+      >
+      <input
+        type="date"
+        id="inputModificarFechaNacimiento"
+        name="fechaNacimiento"
+        class="form-control w-100"
+        required
+        min="1875-12-02"
+        max="2013-12-02"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="inputModificarFotoPerfil" class="form-label"
+        >Nueva foto de perfil</label
+      >
+      <input
+        type="file"
+        id="inputModificarFotoPerfil"
+        name="fotoPerfil"
+        accept="image/*"
+        class="form-control w-100"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Modificar</button>
+  </form>
+
+  <div id="respuesta_modificar_usuario" class="mt-2"></div>
+</div>
