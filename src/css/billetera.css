@@ -1,0 +1,129 @@
+main {
+  background: url("/assets/img/fondos/fondobille.jpg") center/cover no-repeat;
+}
+
+.billetera {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 50px;
+  margin: auto;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  max-width: 1050px;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+}
+.billetera h2 {
+  font-size: 36px;
+  color: #392603;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.billetera h3 {
+  font-size: 30px;
+  color: #392603;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+@media (max-width: 630px) {
+    .billetera h2 {
+        font-size: 30px;
+    }
+    .billetera h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 460px) {
+    .billetera h2 {
+        font-size: 22px;
+    }
+    .billetera h3 {
+        font-size: 15px;
+    }
+}
+
+.figus-repetidas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.figu-repetida {
+  position: relative;
+  width: 80px;
+  height: 100px;
+  border: 2px solid grey;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 6px 6px 0 0;
+  margin: 10px;
+  z-index: 2;
+  overflow: visible;
+  transform: translateY(-10px);
+}
+
+.figu-repetida::after {
+  content: "";
+  position: absolute;
+  bottom: -55px;
+  left: 51%;
+  transform: translateX(-50%) scale(1.4);
+  width: 80px;
+  height: 72px;
+  background-image: url(/assets/img/icons/billetera.png);
+  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.figu-repetida .contador {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+.botones-billetera {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 3;
+}
+
+.btn-eliminar,
+.btn-intercambiar {
+  font-size: 10px;
+  padding: 2px 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-eliminar {
+  background-color: #d32f2f;
+}
+
+.btn-intercambiar {
+  background-color: #1976d2;
+}

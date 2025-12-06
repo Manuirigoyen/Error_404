@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
-body {
+main {
   margin: 80px 0px 4px 0px;
   font-family: Arial, sans-serif;
   background-image: url(/assets/img/fondos/fondo.png);
@@ -12,15 +12,16 @@ body {
 }
 
 h1 {
-  font-family: "Luckiest Guy", cursive;
+  padding: 10px;
+  font-family: "Quicksand", sans-serif !important;
   font-size: 1vw;
   color: #ffd600;
   text-shadow:
-    2px 2px 0 #000,
-    4px 4px 0 #1e88e5;
-  letter-spacing: 2px;
+    4px 4px 0 #000;
+  letter-spacing: 1px;
   margin-bottom: 30px;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 .album {
@@ -175,7 +176,22 @@ header {
 @media (max-width: 768px) {
   .bandera {
     width: 150px;
+    height: 300px;
+  }
+}
+@media (max-width: 480px) {
+  .bandera {
+    margin: 10px;
+    width: 130px;
     height: 250px;
+  }
+}
+
+@media (max-width: 360px) {
+  .bandera {
+    margin: 15px;
+    width: 100px;
+    height: 200px;
   }
 }
 
@@ -192,34 +208,48 @@ header {
   font-weight: bold;
   padding: 12px 16px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 11.5px;
   font-family: "Quicksand", sans-serif;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
-@media (max-width: 993px) {
+@media (max-width: 1024px) {
   .descripcion {
-    width: 150px;
-    height: 270px;
-    font-size: 11px;
+    width: 180px;
+    height: 280px;
+    font-size: 10px;
+    padding: 10px;
   }
 }
 
 @media (max-width: 900px) {
   .descripcion {
-    width: 116px;
-    height: 219px;
-    font-size: 9px;
-    margin-right: 15px;
+    width: 130px;
+    height: 240px;
+    font-size: 8px;
+    padding: 8px;
   }
 }
 
 @media (max-width: 768px) {
-  .bandera {
-    width: 150px;
-    height: 250px;
+  .descripcion {
+    width: 110px;
+    height: 300px;
+    font-size: 7px;
+    padding: 6px;
   }
 }
+
+@media (max-width: 480px) {
+  .descripcion {
+    width: 90px;
+    height: 150px;
+    font-size: 6px;
+    padding: 4px;
+  }
+}
+
 
 .cards {
   display: grid;
@@ -422,6 +452,12 @@ header {
   }
 }
 
+@media (max-width: 500px) {
+  .promo-final p {
+    font-size: 16px;
+  }
+}
+
 .boton-viaje {
   position: absolute;
   margin-top: 3px;
@@ -604,131 +640,6 @@ header {
 .imagenes-tecnologias img:hover {
   transform: scale(1.05);
 }
-
-.billetera {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 60px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  max-width: 1050px;
-  margin: 40px auto;
-  font-family: "Quicksand", sans-serif;
-  text-align: center;
-}
-
-.billetera h2 {
-  font-size: 36px;
-  color: #392603;
-  margin-bottom: 20px;
-  text-shadow:
-    3px 3px 2px white,
-    -3px 3px 2px white,
-    -3px -3px 0 white,
-    3px -3px 0 white;
-}
-
-.billetera h3 {
-  font-size: 30px;
-  color: #392603;
-  margin-bottom: 20px;
-  text-shadow:
-    3px 3px 2px white,
-    -3px 3px 2px white,
-    -3px -3px 0 white,
-    3px -3px 0 white;
-}
-
-.figus-repetidas {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.figu-repetida {
-  position: relative;
-  width: 80px;
-  height: 100px;
-  border: 2px solid grey;
-  background-size: cover;
-  background-position: top center;
-  border-radius: 6px 6px 0 0;
-  margin: 10px;
-  z-index: 2;
-  overflow: visible;
-  transform: translateY(-10px);
-}
-
-.figu-repetida::after {
-  content: "";
-  position: absolute;
-  bottom: -55px;
-  left: 51%;
-  transform: translateX(-50%) scale(1.4);
-  width: 80px;
-  height: 72px;
-  background-image: url(/assets/img/iconos/billetera.png);
-  filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.9));
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.figu-repetida .contador {
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  font-size: 14px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  z-index: 2;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-.fondo-bille {
-  background-image: url(/assets/img/fondos/fondobille.jpg);
-  background-size: cover;
-}
-
-.botones-billetera {
-  position: absolute;
-  bottom: 4px;
-  left: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  z-index: 3;
-}
-
-.btn-eliminar,
-.btn-intercambiar {
-  font-size: 10px;
-  padding: 2px 6px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  color: #fff;
-}
-
-.btn-eliminar {
-  background-color: #d32f2f;
-}
-
-.btn-intercambiar {
-  background-color: #1976d2;
-}
-
-@media (min-width: 1200px) {
-}
-
 @media (max-width: 1199px) and (min-width: 768px) {
   .album {
     flex-direction: column;
@@ -806,23 +717,73 @@ h1 {
     transform: rotate(90deg);
   }
 
-  .bandera {
-    margin: 0;
-    width: 80%;
-    height: 400px;
-    margin: 0px;
-    padding: 0px;
-  }
-
   .contenedor-band-desc .descripcion {
+    margin: 2px;
     width: 124%;
     height: 120px;
-    font-size: 0.7rem;
     padding: 8px;
     transform: rotate(270deg);
   }
 
+  @media (max-width: 480px) {
+  .contenedor-band-desc .descripcion {
+     width: 119%;
+    height: 100px;
+  }
+}
+
+@media (max-width: 360px) {
+  .contenedor-band-desc .descripcion {
+    width: 110%;
+    height: 80px;
+    font-size: 4.8px;
+  }
+}
+
   .progress-container {
     width: 100%;
   }
+}
+.card {
+  width: 80px;
+  height: 120px;
+}
+
+@media (max-width: 1024px) {
+  .card {
+    width: 70px;
+    height: 105px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 60px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 50px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 360px) {
+  .card {
+    width: 40px;
+    height: 60px;
+  }
+}
+
+
+.mensaje-oculto{
+  width: 100%;
+  height: 400px;
+}
+.boton-viaje{
+  width: 80px;
+  height: 80px;
+  font-size: 20px;
 }

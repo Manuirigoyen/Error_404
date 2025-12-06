@@ -4,26 +4,20 @@
     "nombre": "Álbum Mundial Argentina",
     "claseAlbum": "Mundial",
     "pais": "Argentina",
-    "precio": 1500,
-    "stock": 25,
-    "imagen": "../../assets/img/fondos/Argentina/AlbumArgentina.png"
+    "imagen": "/assets/img/fondos/Argentina/Album Argentina.png"
   },
   {
     "id": 2,
     "nombre": "Álbum Mundial Brasil",
     "claseAlbum": "Mundial",
     "pais": "Brasil",
-    "precio": 1200,
-    "stock": 30,
-    "imagen": "../../assets/img/fondos/Brasil/AlbumBrasil.png"
+    "imagen": "/assets/img/fondos/Brasil/Album Brasil.png"
   },
   {
     "id": 3,
     "nombre": "Álbum Mundial Francia",
     "claseAlbum": "Mundial",
     "pais": "Francia",
-    "precio": 900,
-    "stock": 40,
-    "imagen": "../../assets/img/fondos/Francia/AlbumFrancia.png"
+    "imagen": "/assets/img/fondos/Francia/Album Francia.png"
   }
 ]
