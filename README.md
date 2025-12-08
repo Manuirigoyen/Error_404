@@ -243,78 +243,82 @@ Los resultados de las operaciones se presentan como **tablas generadas dinámica
 - Implementación de react y sistema de enrutamiento.
 
 ---
-
 ## 4. Tutorial de instalación
 
 ### Pasos de instalación
 
-# 1. Descargar o clonar el repositorio
+### 1. Descargar o clonar el repositorio  
 git clone https://github.com/Manuirigoyen/Error_404
 
-# 2. Abrir el proyecto en un IDE, por ejemplo Visual Studio Code.
+### 2. Abrir el proyecto en un IDE  
+Por ejemplo, Visual Studio Code.
 
-# 3. Acceder a la terminal (desde el IDE o desde la PC) e instalar lo necesario:
+### 3. Acceder a la terminal (desde el IDE o desde la PC) e instalar lo necesario:
 
-# Instalar dependencias del proyecto
+Instalar dependencias del proyecto  
 npm install
 
-# Instalar TypeScript de manera global
+Instalar TypeScript de manera global  
 npm install -g typescript
 
-# Compilar el proyecto
+Compilar el proyecto  
 tsc
 
-# 4. Abrir el proyecto en el navegador:
+### 4. Abrir el proyecto en el navegador
 
--  Desde Visual Studio Code
-
- 1. Abrir el archivo index.html
-
+Desde Visual Studio Code:  
+1. Abrir el archivo index.html  
 2. Hacer clic en “Go Live” (extensión Live Server)
+
+---
 
 ## 5. Documentación adicional
 
-- 📄 **Documentación general del proyecto**
-  https://drive.google.com/drive/folders/1-e5JJGMmQp8lzj8U599qJqKR_weE0CGc?usp=drive_link
+📄 **Documentación general del proyecto**  
+https://drive.google.com/drive/folders/1-e5JJGMmQp8lzj8U599qJqKR_weE0CGc?usp=drive_link
 
-- 💻 **Descargar Visual Studio Code**
-  https://code.visualstudio.com/
+💻 **Descargar Visual Studio Code**  
+https://code.visualstudio.com/
 
-- 🖼️ **Canvas del proyecto**
-  https://www.canva.com/design/DAG1V4d1z4s/rXExsORoZpl0FNAAC3b2dg/edit
+🖼️ **Canvas del proyecto**  
+https://www.canva.com/design/DAG1V4d1z4s/rXExsORoZpl0FNAAC3b2dg/edit
 
 ---
 
 ## 6. Autores
 
-### **Martín Lorenzi**
-📧 *alexmartin9c@gmail.com*
-**Tareas realizadas:**
-- Diseño de la página de administración
-- Diseño de la página de configuración del usuario
-- Diseño de la ruleta de premios
-- Diseño de los archivos `.json`
-- Diseño del home
+### Martín Lorenzi  
+📧 alexmartin9c@gmail.com
+
+**Tareas realizadas:**  
+- Diseño de la página de administración  
+- Diseño de la página de configuración del usuario  
+- Diseño de la ruleta de premios  
+- Diseño de los archivos .json  
+- Diseño del home  
 - Implementación de Bootstrap
 
 ---
 
-### **Manuel Irigoyen**
-📧 *irigoyenmanuel006@gmail.com*
-**Tareas realizadas:**
-- Diseño del header
-- Diseño del footer
-- Diseño del home
-- Diseño del álbum de figuritas
-- Diseño de la billetera del usuario
-- Diseño de los archivos `.json`
-- Diseño de canvas. 
+### Manuel Irigoyen  
+📧 irigoyenmanuel006@gmail.com
+
+**Tareas realizadas:**  
+- Diseño del header  
+- Diseño del footer  
+- Diseño del home  
+- Diseño del álbum de figuritas  
+- Diseño de la billetera del usuario  
+- Diseño de los archivos .json  
+- Diseño de canvas
 
 ---
 
-### **Lautaro Arce**
-📧 *lautaroarce26@gmail.com*
-**Tareas realizadas:**
-- Diseño de inicio de sesión y de registro
+### Lautaro Arce  
+📧 lautaroarce26@gmail.com
+
+**Tareas realizadas:**  
+- Diseño de inicio de sesión y de registro  
 - Diseño de la tienda
+
 
