@@ -1,4 +1,4 @@
-"use strict";
+import { loadSection } from "./main.js";
 const premiosCircle = document.querySelector(".premios-circle");
 const ruletaImg = document.querySelector(".ruleta");
 const girarBtn = document.getElementById("girarBtn");
@@ -124,3 +124,7 @@ function obtenerPremio(anguloFinal) {
         posicion += premios.length;
     return premios[posicion];
 }
+const tiendaBtn = document.querySelector("#btn-tienda");
+tiendaBtn?.addEventListener("click", async () => {
+    await loadSection("../pages/tienda/tienda.html", "../src/css/tienda.css", "data-tienda-css", "../js/tienda.js", "data-tienda-js");
+});

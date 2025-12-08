@@ -28,21 +28,21 @@ main {
 }
 
 @media (max-width: 630px) {
-    .billetera h2 {
-        font-size: 30px;
-    }
-    .billetera h3 {
-        font-size: 20px;
-    }
+  .billetera h2 {
+    font-size: 30px;
+  }
+  .billetera h3 {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 460px) {
-    .billetera h2 {
-        font-size: 22px;
-    }
-    .billetera h3 {
-        font-size: 15px;
-    }
+  .billetera h2 {
+    font-size: 22px;
+  }
+  .billetera h3 {
+    font-size: 15px;
+  }
 }
 
 .figus-repetidas {

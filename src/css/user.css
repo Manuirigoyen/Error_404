@@ -2,6 +2,9 @@ main {
   background-image: url("../../assets/img/fondos/fondoEstadioDesktop.png");
   background-position: center;
   background-size: cover;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 1.5rem !important;
 }
 
 .sidebar-width .btn-outline-primary,
@@ -35,6 +38,11 @@ button img:hover {
 
 .sidebar-toggle-btn {
   display: none;
+}
+
+.flex-grow-1 p {
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .card button:not(#btn-delete-account) {
@@ -87,7 +95,7 @@ button img:hover {
   }
 
   .flex-grow-1 {
-    margin-top: 15%;
+    margin-top: 20%;
   }
 
   .block {

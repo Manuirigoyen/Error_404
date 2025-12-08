@@ -1,5 +1,8 @@
 main {
   background-image: none;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 1rem !important;
 }
 
 main .container-fluid {
@@ -8,6 +11,16 @@ main .container-fluid {
   background-position: center;
   background-size: cover;
   padding: 10px;
+}
+
+.btn-reset {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font: inherit !important;
+  color: inherit !important;
+  cursor: pointer !important;
 }
 
 h2 {
@@ -61,12 +74,12 @@ main .btn {
   padding: 10px 20px !important;
 }
 
-#sinGiros a {
-  font-weight: bold;
+#sinGiros button {
+  font-weight: bold !important;
   text-decoration: none;
 }
 
-#sinGiros a:hover {
+#sinGiros button:hover {
   color: #d5006d !important;
 }
 
@@ -175,7 +188,7 @@ main button:hover {
 
 .premio-popup {
   position: fixed;
-  top: 45%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;

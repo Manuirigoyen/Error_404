@@ -1,3 +1,5 @@
+import { loadSection } from "./main.js";
+
 const premiosCircle =
   document.querySelector<HTMLDivElement>(".premios-circle")!;
 const ruletaImg = document.querySelector<HTMLImageElement>(".ruleta")!;
@@ -145,3 +147,15 @@ function obtenerPremio(anguloFinal: number) {
 
   return premios[posicion];
 }
+
+const tiendaBtn = document.querySelector<HTMLButtonElement>("#btn-tienda");
+
+tiendaBtn?.addEventListener("click", async () => {
+  await loadSection(
+    "../pages/tienda/tienda.html",
+    "../src/css/tienda.css",
+    "data-tienda-css",
+    "../js/tienda.js",
+    "data-tienda-js"
+  );
+});

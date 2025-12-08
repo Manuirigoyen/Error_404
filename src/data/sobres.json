@@ -5,7 +5,7 @@
     "claseSobre": "Gris",
     "precio": 500,
     "stock": 20,
-    "imagen": "/imagenes/sobre_gris.jpg"
+    "imagen": "../../assets/img/icons/sobre plateado.jpg"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "claseSobre": "Dorado",
     "precio": 1200,
     "stock": 15,
-    "imagen": "/imagenes/sobre_dorado.jpg"
+    "imagen": "../../assets/img/icons/sobre dorado.png"
   },
   {
     "id": 3,
@@ -21,6 +21,6 @@
     "claseSobre": "Premium",
     "precio": 2000,
     "stock": 10,
-    "imagen": "/imagenes/sobre_premium.jpg"
+    "imagen": "../../assets/img/icons/sobre dorado.png"
   }
 ]

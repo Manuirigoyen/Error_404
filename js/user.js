@@ -111,3 +111,8 @@ if (toggleBtn && sidebar) {
         sidebar.classList.toggle("sidebar-open");
     });
 }
+const btnLogout = document.querySelector("#btn-logout");
+btnLogout?.addEventListener("click", () => {
+    alert("Sesión finalizada. ¡Hasta pronto!");
+    window.location.href = "index.html";
+});

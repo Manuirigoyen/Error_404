@@ -70,14 +70,28 @@ ruletaBtn?.addEventListener("click", async () => {
 billeteraBtn?.addEventListener("click", async () => {
   await loadSection(
     "../pages/billetera/billetera.html",
-    "../src/css/album.css",
+    "../src/css/billetera.css",
     "data-billetera-css",
-    "../js/album.js",
+    "../js/billetera.js",
     "data-billetera-js"
   );
 });
 
-async function loadSection(
+const tiendaBtn = document.getElementById(
+  "tiendaBtn"
+) as HTMLButtonElement | null;
+
+tiendaBtn?.addEventListener("click", async () => {
+  await loadSection(
+    "../pages/tienda/tienda.html",
+    "../src/css/tienda.css",
+    "data-tienda-css",
+    "../js/tienda.js",
+    "data-tienda-js"
+  );
+});
+
+export async function loadSection(
   htmlPath: string,
   cssPath: string,
   cssDataAttr: string,

@@ -1,12 +1,13 @@
 main {
   background-image: none;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 1.5rem !important;
 }
 
 .flex-grow-1 {
   background-image: url("../../assets/img/fondos/fondoEstadioDesktop.png");
   background-repeat: repeat;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .sidebar-width .btn-outline-primary,
@@ -125,4 +126,3 @@ main {
     margin-top: 10%;
   }
 }
-

@@ -31,6 +31,10 @@
   font-family: "Quicksand", sans-serif !important;
 }
 
+main {
+  padding-bottom: 3rem;
+}
+
 nav img {
   max-height: 55px;
 }
@@ -97,16 +101,7 @@ input::placeholder {
 }
 
 #carruselFigus {
-  max-width: 900px;
-  margin: 0 auto;
   border-radius: 10px;
-  overflow: hidden;
-}
-
-#carruselFigus .carousel-item img {
-  height: 400px;
-  object-fit: cover;
-  object-position: center;
 }
 
 .carousel-control-prev-icon,
@@ -117,6 +112,24 @@ input::placeholder {
 .carousel-control-prev,
 .carousel-control-next {
   width: 8%;
+}
+
+.main-wrapper > section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.feature-card {
+  background: #fff;
+  border-color: #e5e5e5;
+}
+
+.col-lg-4 p {
+  text-align: justify !important;
+}
+
+main .col-lg-4 .fw-bold {
+  text-align: center !important;
 }
 
 @media (max-width: 360px) {
@@ -139,6 +152,12 @@ input::placeholder {
     width: 100%;
   }
 
+  .col-lg-4 p,
+  .col-lg-4 ul,
+  main .col-lg-4 .fw-bold {
+    text-align: center !important;
+  }
+
   .dropdown-menu {
     width: 100% !important;
   }
@@ -156,20 +175,9 @@ input::placeholder {
   #carruselFigus .carousel-item img {
     height: 250px;
   }
-}
 
- .text-center.fw-bold.mb-4{
-  font-family: "Quicksand", sans-serif !important;
-  font-size: 3vw;
-  color: #ffd600;
-  text-shadow: 3.2px 3.2px 0 #000;
-  letter-spacing: 1px;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-p.text-center{
-  font-size: 1.4vw;
-  font-weight: 600;
+  #carruselFigus {
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
+  }
 }
