@@ -322,5 +322,3 @@ https://www.canva.com/design/DAG1V4d1z4s/rXExsORoZpl0FNAAC3b2dg/edit
 **Tareas realizadas:**  
 - Diseño de inicio de sesión y de registro  
 - Diseño de la tienda
-
-
