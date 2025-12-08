@@ -317,4 +317,4 @@ tsc
 **Tareas realizadas:**
 - Diseño de inicio de sesión y de registro
 - Diseño de la tienda
-```
+
