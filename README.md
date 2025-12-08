@@ -1,6 +1,75 @@
-explicacion del home y del nav
+# 📘 FigusApp – Aplicación de Figuritas
 
+<p align="center">
+  <img src="https://img.shields.io/badge/versión-1.1-blue.svg" />
+  <img src="https://img.shields.io/badge/dependencias-Bootstrap%20%7C%20TypeScript%20%7C%20npm-yellow.svg" />
+  <img src="https://img.shields.io/badge/actualización-2025--12--08-brightgreen" />
+</p>
 
+---
+
+## 📚 Índice
+
+1. [Descripción del proyecto](#1-descripción-del-proyecto)
+2. [Características principales](#2-características-principales)
+   - [2.1 Álbum de figuritas](#21-álbum-de-figuritas)
+   - [2.2 Billetera del usuario](#22-billetera-del-usuario)
+   - [3.1 Ruleta de premios](#31-ruleta-de-premios)
+   - [4.1 Página del usuario](#41-página-del-usuario)
+3. [Mejoras futuras](#3-mejoras-futuras)
+4. [Tutorial de instalación](#4-tutorial-de-instalación)
+5. [Documentación adicional](#5-documentación-adicional)
+6. [Autores](#6-autores)
+
+---
+
+## 1. Descripción del proyecto
+
+FigusApp es una plataforma digital diseñada para revolucionar la forma en que coleccionás figuritas de fútbol.  
+A diferencia del álbum físico tradicional, esta aplicación ofrece una experiencia más económica, accesible y completa para cualquier aficionado.
+
+Con FigusApp, los usuarios pueden armar su álbum de figuritas sin depender de los sobres físicos, reduciendo significativamente el gasto asociado a su compra. Al estar digitalizadas, las figuritas y sobres están siempre disponibles, brindando una mayor variedad y eliminando las limitaciones de distribución que suelen existir en tiendas locales.
+
+La aplicación también expande las posibilidades de colección al permitir el intercambio de figuritas con usuarios de diferentes regiones, aumentando el alcance y las oportunidades para completar el álbum. Además, los coleccionistas pueden recibir recompensas especiales al completar álbumes específicos, así como obtener premios diarios a través de una ruleta de premios integrada, lo que añade un componente adicional de diversión y motivación.
+
+En resumen, FigusApp transforma la colección de figuritas en una experiencia más moderna, económica, social y llena de beneficios.
+
+---
+
+## 2. Características principales
+
+### 2.1 Álbum de figuritas
+
+# Album
+
+La página está centrada en la pantalla y comienza con un título “Mis Álbumes” de color amarillo con una sombra negra, que indica que el usuario está viendo sus colecciones. A continuación aparecen tres bloques rectangulares de color blanco con opacidad para que se pueda seguir apareciando el fonodo que es la misma imagen que el logo, un bloque para cada selección (Argentina, Brasil y Francia). Cada bloque tiene:
+. Encabezado: El nombre del país y una pequeña bandera al lado.
+. Barra de progreso: Muestra cuántas figuritas se han completado ( inicia en 0 %).
+. Grid de figuritas: 15 tarjetas por selección, la mayoría con la foto de una jugada y una “especial” con la imagen de un signo de pregunta y cuando se obtiene esa figurita se revela la leyenda (Maradona, Pelé o Zidane). Las tarjetas están en escala de grises y se colorean cuando se completan.
+. Bandera y descripcion: a la derecha del grid, esta la bandera correspondiente de manera perpendicular con una breve reseña de la selección por encima. Al completar ese album la bandera recupera el color.
+Al final de la página hay una zona promocional que invita a completar los albumes para ganar un viaje; si el usuario ya los completó, se muestra un mensaje de felicitación y un botón para reclamar el premio.
+En cuanto a la responsividad, el diseño se adapta a distintas pantallas: en móviles las tarjetas se reducen, la descripción y bandera se giran 90° y se colocan por debajo de las figus, la barra de progreso ocupa todo el ancho disponible, manteniendo la legibilidad y la funcionalidad en cualquier dispositivo.
+En esta seccion tambien se puede navegar por el nav y el footer.
+
+## Mejoras futuras:
+
+Que haya una tienda funcional relacionada a los albumes, las figus compradas se cargarian directamente en el lugar que van, y al ya tenerlas adquiridas irian a la seccion billetera (como figu repetida) para poder intercambiar o eliminar.
+
+### 2.2 Billetera del usuario
+
+# Billetera
+
+En billetera.html el usuario ve todas sus figuritas repetidas dentro de un recuadro blanco semitransparente, centrado y con sombra, que destaca sobre el fondo de la página.
+.Título y subtítulo: “ACA SE GUARDAN TUS FIGURITAS REPETIDAS” y, debajo, “Intercámbialas con amigos!” marron.
+.Contenedor de figuritas: las figus se insertan dinámicamente; cada una muestra la imagen de la figurita, un ícono de billetera abajo y, en la esquina superior derecha, un contador de cuántas repetidas hay. Al interactuar, aparecen dos botones: Eliminar (rojo) e Intercambiar (azul).
+.Responsive: los títulos y el contenedos se reducen dependiendo la medida de la pantalla, adaptando la imagen para un mejor visualizacion.
+En síntesis, la Billetera es un espacio visual y funcional donde el usuario gestiona sus figuritas duplicadas, pudiendo eliminarlas o iniciar intercambios de forma sencilla.
+
+## Mejoras futuras:
+
+Poder intercambiar las figus con demas personas.
+
+### 3.1 Ruleta de premios
 
 # Ruleta Dinámica de Premios
 
@@ -59,7 +128,7 @@ La ruleta contiene 8 secciones. Cada sección corresponde a un premio o resultad
 - Si un usuario se queda sin giros, puede adquirir más en la **Tienda** de la aplicación.
 - Los usuarios también pueden recibir giros gratis como **recompensa diaria** por iniciar sesión con frecuencia.
 
----
+### 4.1 Página del usuario
 
 # Panel de Usuario y Panel de Administración
 
@@ -141,9 +210,85 @@ Los resultados de las operaciones se presentan como **tablas generadas dinámica
 
 ---
 
-## Mejoras futuras
+## 3. Mejoras futuras
 
 - Historial de compras para el usuario.
 - Seccion de ofertas para cambio de figuritas.
 
 ---
+
+## 4. Tutorial de instalación
+
+### Pasos de instalación
+
+```bash
+# 1. Descargar o clonar el repositorio
+git clone https://github.com/Manuirigoyen/Error_404
+
+# 2. Abrir el proyecto en un IDE, por ejemplo Visual Studio Code.
+
+# 3. Acceder a la terminal (desde el IDE o desde la PC) e instalar lo necesario:
+
+# Instalar dependencias del proyecto
+npm install
+
+# Instalar TypeScript de manera global
+npm install -g typescript
+
+# Compilar el proyecto
+tsc
+
+# 4. Abrir el proyecto en el navegador:
+
+-  Desde Visual Studio Code
+
+ 1. Abrir el archivo index.html
+
+2. Hacer clic en “Go Live” (extensión Live Server)
+
+## 5. Documentación adicional
+
+- 📄 **Documentación general del proyecto**
+  https://drive.google.com/drive/folders/1-e5JJGMmQp8lzj8U599qJqKR_weE0CGc?usp=drive_link
+
+- 💻 **Descargar Visual Studio Code**
+  https://code.visualstudio.com/
+
+- 🖼️ **Canvas del proyecto**
+  https://www.canva.com/design/DAG1V4d1z4s/rXExsORoZpl0FNAAC3b2dg/edit
+
+---
+
+## 6. Autores
+
+### **Martín Lorenzi**
+📧 *alexmartin9c@gmail.com*
+**Tareas realizadas:**
+- Diseño de la página de administración
+- Diseño de la página de configuración del usuario
+- Diseño de la ruleta de premios
+- Diseño de los archivos `.json`
+- Diseño del home
+- Implementación de Bootstrap
+
+---
+
+### **Manuel Irigoyen**
+📧 *irigoyenmanuel006@gmail.com*
+**Tareas realizadas:**
+- Diseño del header
+- Diseño del footer
+- Diseño del home
+- Diseño del álbum de figuritas
+- Diseño de la billetera del usuario
+- Diseño de los archivos `.json`
+
+---
+
+### **Lautaro Arce**
+📧 *lautaroarce26@gmail.com*
+**Tareas realizadas:**
+- Diseño de inicio de sesión
+- Diseño de registro
+- Diseño de la tienda
+```
