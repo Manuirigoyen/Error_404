@@ -17,7 +17,7 @@
    - [2.2 Billetera del usuario](#22-billetera-del-usuario)
    - [3.1 Ruleta de premios](#31-ruleta-de-premios)
    - [4.1 Página del usuario](#41-página-del-usuario)
-   - [5.1 Incio de sesion](#51-incio-de-sesion)
+   - [5.1 Inicio de sesion](#51-incio-de-sesion)
    - [5.2 Formulario de registro](#52-formulario-de-registro)
    - [6.1 Tienda](#61-Tienda)
 3. [Mejoras futuras](#3-mejoras-futuras)
@@ -243,7 +243,7 @@ Los resultados de las operaciones se presentan como **tablas generadas dinámica
 
 ### 5.1 Inicio de sesion
 
-El **Incio de sesion** sirve para que el usuario pueda vincular su correo electronico (lo puede hacer con Google, Facebook, Apple o Twitter). Al inicar sesion se llevara a la pantalla de inicio de la pagina con el usuario en su sesion, en caso de no tener cuenta, se tiene la opcion de registrarse con el bonton de "Registrate Aqui" el cual llevara a un formulario de registro. Si la contraseña y/o el correo electronico son incorrectos no se iniciara sesion de ninguna manera.
+El **Inicio de sesion** sirve para que el usuario pueda vincular su correo electronico (lo puede hacer con Google, Facebook, Apple o Twitter). Al inicar sesion se llevara a la pantalla de inicio de la pagina con el usuario en su sesion, en caso de no tener cuenta, se tiene la opcion de registrarse con el bonton de "Registrate Aqui" el cual llevara a un formulario de registro. Si la contraseña y/o el correo electronico son incorrectos no se iniciara sesion de ninguna manera.
 
 ---
 
