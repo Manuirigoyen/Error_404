@@ -17,7 +17,7 @@
    - [2.2 Billetera del usuario](#22-billetera-del-usuario)
    - [3.1 Ruleta de premios](#31-ruleta-de-premios)
    - [4.1 Página del usuario](#41-página-del-usuario)
-   - [5.1 Inicio de sesion](#51-incio-de-sesion)
+   - [5.1 Inicio de sesion](#51-inicio-de-sesion)
    - [5.2 Formulario de registro](#52-formulario-de-registro)
    - [6.1 Tienda](#61-Tienda)
 3. [Mejoras futuras](#3-mejoras-futuras)
