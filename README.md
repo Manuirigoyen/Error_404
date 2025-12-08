@@ -248,7 +248,6 @@ Los resultados de las operaciones se presentan como **tablas generadas dinámica
 
 ### Pasos de instalación
 
-```bash
 # 1. Descargar o clonar el repositorio
 git clone https://github.com/Manuirigoyen/Error_404
 
