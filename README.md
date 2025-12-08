@@ -17,6 +17,9 @@
    - [2.2 Billetera del usuario](#22-billetera-del-usuario)
    - [3.1 Ruleta de premios](#31-ruleta-de-premios)
    - [4.1 Página del usuario](#41-página-del-usuario)
+   - [5.1 Incio de sesion](#51-incio-de-sesion)
+   - [5.2 Formulario de registro](#52-formulario-de-registro)
+   - [6.1 Tienda](#61-Tienda)
 3. [Mejoras futuras](#3-mejoras-futuras)
 4. [Tutorial de instalación](#4-tutorial-de-instalación)
 5. [Documentación adicional](#5-documentación-adicional)
@@ -238,6 +241,40 @@ Los resultados de las operaciones se presentan como **tablas generadas dinámica
 
 ---
 
+### 5.1 Inicio de sesion
+
+El **Incio de sesion** sirve para que el usuario pueda vincular su correo electronico (lo puede hacer con Google, Facebook, Apple o Twitter). Al inicar sesion se llevara a la pantalla de inicio de la pagina con el usuario en su sesion, en caso de no tener cuenta, se tiene la opcion de registrarse con el bonton de "Registrate Aqui" el cual llevara a un formulario de registro. Si la contraseña y/o el correo electronico son incorrectos no se iniciara sesion de ninguna manera.
+
+---
+
+### 5.2 Formulario de registro
+
+Al no tener un correo electronico vinculado para iniciar sesion el usuario debera registrarse, le aparecera un "Formulario de registro" con campos a rellenar como lo son:
+
+- Nombre de Usuario (Invencion del usuario)
+- Correo Electronico
+- Contraseña (Inventada por el usuario)
+- Confirmar contraseña
+- Imagen de Perfil (Cargada desde el dispositivo del usuario)
+- Pais de Origen
+- Fecha de Nacimiento
+
+Los campos a rellenar que lleven un (*) deben ser completados de manera obligatoria ya que estos son con los que se podra iniciar sesion cuando se cierra la sesion y/o quiera volver a ingresar del album.
+
+---
+
+### 6.1 Tienda
+
+A la tienda se podra ingresar desde la pantalla de inicio del album , en esta apareceran algunas cosas para comprar como lo son:
+
+- Sobres plateados
+- Sobres Dorados
+- Giros para la ruleta
+
+Cada una de las opciones tienen precios distintos los cuales pueden variar por la cantidad de objetos que el usuario eliga (se mostrara la cantidad de obejtos seleccionados) una vez que el usuario haya termindo de elegir se debera ir a "Finalizar compra".
+
+---
+
 ## 3. Mejoras futuras
 
 - Historial de compras para el usuario.
@@ -245,6 +282,7 @@ Los resultados de las operaciones se presentan como **tablas generadas dinámica
 - Implementación de react y sistema de enrutamiento.
 
 ---
+
 ## 4. Tutorial de instalación
 
 ### Pasos de instalación
@@ -320,5 +358,6 @@ https://www.canva.com/design/DAG1V4d1z4s/rXExsORoZpl0FNAAC3b2dg/edit
 📧 lautaroarce26@gmail.com
 
 **Tareas realizadas:**  
-- Diseño de inicio de sesión y de registro  
+- Diseño de inicio de sesión 
+- Diseño del formulario de registro
 - Diseño de la tienda
