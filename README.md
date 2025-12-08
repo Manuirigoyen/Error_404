@@ -75,6 +75,8 @@ El diseño se adapta a distintas pantallas:
 ### 🧭 Navegación
 En esta sección también se puede navegar mediante el **nav** y el **footer** del sitio.
 
+--- 
+
 ### 2.2 Billetera del usuario
 
 En **billetera.html**, el usuario ve todas sus figuritas repetidas dentro de un recuadro blanco semitransparente, centrado y con sombra, que destaca sobre el fondo de la página.
