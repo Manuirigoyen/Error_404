@@ -341,7 +341,7 @@ https://www.canva.com/design/DAG1V4d1z4s/rXExsORoZpl0FNAAC3b2dg/edit
 ---
 
 ### Manuel Irigoyen  
-📧 irigoyenmanuel006@gmail.com
+📧 manuirigoyen@hotmail.com
 
 **Tareas realizadas:**  
 - Diseño del header  
