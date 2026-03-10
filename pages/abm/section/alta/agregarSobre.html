@@ -1,0 +1,58 @@
+<div class="card bg-light border rounded p-4 mb-4">
+  <h5 class="card-title mb-3">Agregar Sobre</h5>
+  <p class="card-text mb-3">
+    Se pueden agregar sobres indicando el álbum al que pertenecen.
+  </p>
+
+  <form name="agregar_sobre" class="form_alta">
+    <div class="mb-3">
+      <label for="selectAlbum" class="form-label"
+        >Clase del álbum seleccionado</label
+      >
+      <select
+        id="selectAlbum"
+        name="idAlbum"
+        class="form-select w-100 cls_album"
+      ></select>
+    </div>
+
+    <div class="mb-3">
+      <label for="selectClaseSobre" class="form-label">Clase de sobre</label>
+      <select
+        id="selectClaseSobre"
+        name="claseSobre"
+        class="form-select w-100 cls_sobre"
+      ></select>
+    </div>
+
+    <div class="mb-3">
+      <label for="inputStockSobre" class="form-label">Stock disponible</label>
+      <input
+        type="range"
+        id="inputStockSobre"
+        name="stock"
+        class="form-range w-100"
+        min="0"
+        max="100"
+        value="5"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="inputImagenSobre" class="form-label">Imagen del sobre</label>
+      <input
+        type="file"
+        id="inputImagenSobre"
+        name="imagen"
+        accept="image/*"
+        class="form-control w-100"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2 btn-sobre">
+      Agregar
+    </button>
+  </form>
+
+  <div id="respuesta_agregar_sobre" class="mt-2"></div>
+</div>
