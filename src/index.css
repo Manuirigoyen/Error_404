@@ -1,0 +1,7 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+.main-wrapper {
+  background-image: url(../public/assets/img/fonts/fondoEstadioDesktop.png);
+  background-size: 100% auto; 
+}
