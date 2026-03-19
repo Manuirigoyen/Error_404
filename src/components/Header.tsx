@@ -11,14 +11,10 @@ export const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-dark container">
         <Link className="navbar-brand" to="/">
           <img
-            src="assets/img/icons/logo.png"
+            src="assets/img/icons/pelota.png"
             alt="Logo principal FigusApp"
-            style={{ 
-              height: '90px',   
-              width: '90px',
-              padding: 0
-            }}
           />
+          <h1 className="fw-bold mb-0">FigusApp</h1>
         </Link>
 
         {getButtonBurger()}
