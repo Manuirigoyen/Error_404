@@ -14,8 +14,7 @@
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../../public/assets/fonts/static/Quicksand-SemiBold.ttf")
-    format("truetype");
+  src: url("../../public/assets/fonts/static/Quicksand-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
@@ -118,20 +117,6 @@ input::placeholder {
   cursor: pointer;
 }
 
-#carruselFigus {
-  border-radius: 10px;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: invert(1);
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  width: 8%;
-}
-
 .main-wrapper > section {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -148,6 +133,105 @@ input::placeholder {
 
 main .col-lg-4 .fw-bold {
   text-align: center !important;
+}
+
+.header-section {
+  padding: 4rem 1rem !important;
+  text-align: center;
+}
+
+.video-hero {
+  margin: 0 1rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.video-hero video {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  display: block;
+}
+
+.ad-sidebar {
+  position: sticky;
+  top: 120px;
+  align-self: flex-start;
+  height: fit-content;
+  max-height: 80vh;
+  z-index: 10;
+}
+
+.ad-unit {
+  width: 100%;
+  height: 280px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ad-placeholder {
+  width: 100%;
+  height: 250px;
+  background: #ffc107;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.beneficios-section {
+  padding: 4rem 0;
+  margin-top: 2rem;
+}
+
+.card-beneficio {
+  border: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card-beneficio:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 1200px) {
+  .video-hero {
+    margin: 0 0.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .row.g-0 > div[class*="col-xl"] {
+    margin-bottom: 1rem;
+  }
+  
+  .ad-sidebar {
+    position: static;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    padding: 2rem 1rem !important;
+  }
+  
+  .video-hero video {
+    height: 45vh;
+  }
+  
+  .beneficios-section {
+    padding: 2rem 1rem;
+  }
 }
 
 @media (max-width: 360px) {
@@ -188,14 +272,5 @@ main .col-lg-4 .fw-bold {
   footer .d-flex,
   footer .row.g-0 {
     justify-content: center !important;
-  }
-
-  #carruselFigus .carousel-item img {
-    height: 250px;
-  }
-
-  #carruselFigus {
-    margin-bottom: 10px !important;
-    margin-top: 10px !important;
   }
 }
