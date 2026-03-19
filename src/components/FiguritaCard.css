@@ -1,0 +1,85 @@
+.card {
+  width: 80px;
+  height: 120px;
+  border: 2px solid grey;
+  border-radius: 6px;
+  filter: grayscale(100%); 
+  transition:
+    filter 0.4s,
+    transform 0.3s,
+    border-color 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  margin: 0 auto; 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: scale(1.05); 
+  border-color: gold; 
+}
+
+.card.completa {
+  filter: grayscale(0%); 
+  transform: scale(1.05); 
+  border-color: gold; 
+}
+.card.completa:hover { 
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: grayscale(100%); 
+  transition: filter 0.4s ease;
+  display: block;
+}
+
+.card.completa img {
+  filter: grayscale(0%); 
+}
+
+
+.card.especial {
+  border-color: #ffc107; 
+  background: linear-gradient(45deg, #ffd700, #ffeb3b); 
+}
+.card.completa.especial {
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.8); 
+}
+
+@media (max-width: 1024px) {
+  .card {
+    width: 70px;
+    height: 105px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 60px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 50px;
+    height: 75px;
+  }
+}
+
+@media (max-width: 360px) {
+  .card {
+    width: 40px;
+    height: 60px;
+  }
+}
