@@ -5,113 +5,94 @@
  */
 export const Home = () => {
   return (
-    <main id="mainContent" className="main-wrapper">
-      <div className="position-relative">
+    <main id="mainContent" className="main-wrapper position-relative">
+      <div className="main-content" />
+
+      <div className="main-content-content position-relative z-1">
+        <div className="ad-left">
+          {getDivAnuncio(
+            "assets/img/adds/dymatize.jpeg",
+            "https://www.dymatize.com"
+          )}
+        </div>
+
+        <div className="ad-right">
+          {getDivAnuncio(
+            "assets/img/adds/vitamin.jpeg",
+            "https://www.suweb.com.ar"
+          )}
+        </div>
+
         {getDivHeader()}
 
-        <div className="container-fluid px-0">
-          <div className="row g-0 align-items-start">
-            <div className="col-xl-2 px-0">
-              {getDivAnuncio()}
-            </div>
-
-            <div className="col-xl-8 px-0">
+        <div className="container-fluid px-4 mt-2">
+          <div className="row g-0 justify-content-center">
+            <div className="col-xl-10 col-lg-11 col-md-12 px-0">
               {getDivPresentacion()}
-            </div>
-
-            <div className="col-xl-2 px-0">
-              {getDivAnuncio()}
             </div>
           </div>
         </div>
-      </div>
 
-      {getDivPublicidad()}
+        {getDivPublicidad()}
+      </div>
     </main>
   );
 };
-
-/**
- * Renderiza el anuncio lateral fijo.
- * @returns Bloque de anuncio 300x250 con posición sticky.
- */
-const getDivAnuncio = () => (
-  <div
-    className="ad-sidebar sticky-top"
-    style={{ top: '100px', height: '100vh', maxHeight: '800px' }}
-  >
-    <div className="ad-unit bg-light border rounded-3 p-3 text-center h-100 d-flex flex-column justify-content-start">
-      <p className="small text-muted mb-2">Anuncio 300x250</p>
-      <div
-        className="bg-warning ad-placeholder flex-grow-1 rounded"
-        style={{ width: '100%', height: '250px', minHeight: '250px' }}
-      >
-        ADSENSE 300×250
-      </div>
-    </div>
-  </div>
-);
 
 /**
  * Renderiza el header principal de bienvenida.
  * @returns Sección de título y descripción inicial.
  */
 const getDivHeader = () => (
-  <section className="header-section text-center py-5 position-relative z-index-1">
-    <h1 className="fw-bold display-4 mb-4">Bienvenidos a FigusApp</h1>
-    <p className="lead">
-      Álbum oficial de las <strong>mejores selecciones del mundo</strong>!!
-    </p>
+  <section className="header-section text-white text-center py-5 position-relative z-2">
+    <div className="container">
+      <h1 className="fw-bold display-3 pb-2">
+        Bienvenidos a FigusApp
+      </h1>
+      <h2>
+        ¡Álbum oficial de las mejores selecciones del mundo!
+      </h2>
+    </div>
   </section>
 );
+
+/**
+ * Renderiza el anuncio lateral fijo.
+ * @param {string} imgPath - Ruta de la imagen del anuncio.
+ * @param {string} link - URL destino del anuncio.
+ * @returns Bloque de anuncio con imagen y enlace.
+ */
+const getDivAnuncio = (imgPath: string, link: string) => (
+  <div className="ad-sidebar">
+    <a href={link} target="_blank" rel="noopener noreferrer" className="d-block h-100">
+      <div className="ad-unit p-3 text-center h-100 d-flex flex-column justify-content-start">
+        <img
+          src={imgPath}
+          alt="Anuncio Google Ads 160x600"
+          className="ad-unit-image"
+        />
+      </div>
+    </a>
+  </div>
+);
+
 
 /**
  * Renderiza el video de presentación principal con contenido descriptivo.
  * @returns Video hero responsive con información del álbum debajo.
  */
 const getDivPresentacion = () => (
-  <>
-    <div className="video-hero shadow rounded-4 overflow-hidden position-relative z-index-1">
-      <video
-        className="w-100"
-        src="assets/vids/presentacion.mp4"
-        poster="assets/img/fonts/portada.jpeg"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-    </div>
-
-    <div className="mt-4 px-4">
-      <h3 className="fw-bold mb-2 text-center">Álbum Virtual FigusApp</h3>
-
-      <p className="lead">
-        Coleccioná figuritas digitales de <strong className="fw-bold">Argentina, Brasil y Francia</strong> en una sola app.
-      </p>
-
-      <p>
-        Intercambiá tus <strong className="fw-bold">figuritas repetidas</strong> con amigos y
-        participá por <strong className="fw-bold">viajes gratis al completar los álbumes</strong>.
-      </p>
-
-      <ul className="list-unstyled mt-3">
-        <li className="mb-2">
-          <i className="bi bi-check-circle-fill text-primary me-2" />Figuritas digitales exclusivas
-        </li>
-        <li className="mb-2">
-          <i className="bi bi-check-circle-fill text-primary me-2" />Intercambio en tiempo real con la comunidad
-        </li>
-        <li className="mb-2">
-          <i className="bi bi-check-circle-fill text-primary me-2" />Viajes gratis al completar los álbumes
-        </li>
-      </ul>
-
-      <p className="fw-bold fs-5 mt-4 text-center">
-        ¡Empezá ahora y llevá tu pasión al siguiente nivel!
-      </p>
-    </div>
-  </>
+  <div className="video-hero shadow rounded-4 overflow-hidden mx-auto mt-n5 w-75">
+    <video
+      className="w-100 video-narrow"
+      src="assets/vids/presentacion.mp4"
+      poster="assets/img/fonts/portada.jpeg"
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
+  </div>
 );
 
 /**
@@ -119,9 +100,11 @@ const getDivPresentacion = () => (
  * @returns Tres cards con ventajas principales de la aplicación.
  */
 const getDivPublicidad = () => (
-  <section className="beneficios-section text-center py-3 mt-0">
+  <section className="beneficios-section text-center py-3 mt-5">
     <div className="container">
-      <h3 className="fw-bold mb-5">¿Por qué elegir FigusApp?</h3>
+      <h3 className="mb-5 text-white">
+        ¿Por qué te conviene FigusApp?
+      </h3>
 
       <div className="row g-4 justify-content-center">
         <div className="col-md-4">
@@ -149,7 +132,7 @@ const getDivPublicidad = () => (
             <i className="bi bi-trophy-fill fs-1 text-primary mb-3 d-block mx-auto"></i>
             <h5 className="fw-bold mb-3">Premios Reales</h5>
             <p className="lead mb-0">
-              Ganá <strong>viajes y entradas a torneos</strong> completando tus álbumes.
+              Ganá <strong>viajes y entradas</strong> completando tus álbumes.
             </p>
           </div>
         </div>

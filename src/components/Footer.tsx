@@ -5,7 +5,7 @@
  */
 export const Footer = () => {
   return (
-    <footer id="footer" className="bg-primary text-white">
+    <footer id="footer" className="bg-primary text-white p-4">
       <div className="container">
         <div className="row gy-4 justify-content-between">
 
@@ -147,7 +147,6 @@ const getFormConsultas = () => (
         id="btnEnviarConsulta"
         className="btn btn-light w-100 fw-bold"
         type="submit"
-        disabled
       >
         Enviar
       </button>
@@ -160,25 +159,26 @@ const getFormConsultas = () => (
  * @returns Contenedor con enlaces a la documentación de las tecnologias utilizadas.
  */
 const getDivLenguages = () => (
-  <div className="text-end">
+  <div className="text-end pt-4">
     <div><h6 className="fw-bold">Tecnologías utilizadas</h6></div>
-    <div className="d-flex gap-3 mt-4 justify-content-center">
-      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" aria-label="Documentación HTML5">
-        <img src="assets/img/icons/html5.png" alt="HTML5" width="32" height="32" />
+    <div className="d-flex gap-3 mt-4 justify-content-end">
+      <a href="https://react.dev/reference/react" target="_blank" rel="noopener noreferrer" aria-label="Documentación React">
+        <img src="assets/img/icons/react.png" alt="React" width="32" height="32" />
       </a>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" aria-label="Documentación CSS3">
-        <img src="assets/img/icons/css3.png" alt="CSS3" width="32" height="32" />
+      <a href="https://getbootstrap.com/docs/4.1/getting-started/introduction/" target="_blank" rel="noopener noreferrer" aria-label="Documentación Bootstrap">
+        <img src="assets/img/icons/bootstrap.png" alt="CSS3" width="32" height="32" />
       </a>
-      <a href="https://www.typescriptlang.org/docs/" target="_blank" rel="noopener noreferrer" aria-label="Documentación TypeScript">
-        <img src="assets/img/icons/typescript.png" alt="TypeScript" width="32" height="32" />
+      <a href="https://docs.nestjs.com/" target="_blank" rel="noopener noreferrer" aria-label="Documentación Nest JS">
+        <img src="assets/img/icons/nestJS.png" alt="Nest JS" width="32" height="32" />
       </a>
-      <a href="https://getbootstrap.com/docs/" target="_blank" rel="noopener noreferrer" aria-label="Documentación Bootstrap">
-        <img src="assets/img/icons/bootstrap.png" alt="Bootstrap" width="32" height="32" />
+      <a href="https://docs.cloud.google.com/recaptcha/docs?hl=es-419" target="_blank" rel="noopener noreferrer" aria-label="Documentación google reCaptcha">
+        <img src="assets/img/icons/reCaptcha.png" alt="reCaptcha" width="32" height="32" />
       </a>
     </div>
-    <div><p className="small mt-2">© 2025 - Actualidad | FigusApp</p></div>
-    </div>
+    <p className="small mt-4 text-end">© 2025 - Actualidad | FigusApp</p>
+  </div>
 );
+
 
 /**
  * Genera los iconos de redes sociales.
@@ -209,11 +209,11 @@ const getDivRedesSociales = () => (
  * @returns Sección con logos de métodos de pago.
  */
 const getMetodosDePago = () => (
-  <div className="text-end">
+  <div className="text-end mt-4">
     <h6 className="fw-bold">Métodos de Pago</h6>
-    <div className="row g-0 justify-content-end">
+    <div className="row g-0 justify-content-end mt-4">
       {getPagoItem("https://www.visa.com", "assets/img/icons/visa.jpeg", "Visa")}
-      {getPagoItem("https://www.mastercard.com", "assets/img/icons/mastercard.jpeg", "Mastercard")}
+      {getPagoItem("https://www.mastercard.com", "assets/img/icons/master.jpeg", "Mastercard")}
       {getPagoItem("https://www.pagofacil.com.ar/", "assets/img/icons/pagoFacil.jpeg", "Pago Fácil")}
       {getPagoItem("https://www.rapipago.com.ar", "assets/img/icons/rapiPago.jpeg", "Rapi Pago")}
     </div>
