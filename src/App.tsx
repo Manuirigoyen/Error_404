@@ -3,8 +3,10 @@ import { Header } from './components/Header';
 import { Home } from './components/Home';
 import { Footer } from './components/Footer';
 import { Ruleta } from './components/Ruleta';
+import { Album } from './components/Album';
 
 import './App.css';
+
 
 
 //perfil, album, y billetera no es un action, solo es para pruebas, el resto lo maneja el router del backend no del frontend
@@ -49,7 +51,9 @@ function App() {
               </p>
             </div>
           } />
+           <Route path="/album" element={<Album />} />
         </Routes>
+        
       </main>
       <Footer />
     </>
