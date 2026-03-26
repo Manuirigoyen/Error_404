@@ -1,25 +1,16 @@
+// src/components/Album.tsx
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import FiguritaCard from './FiguritaCard';
-import './Album.css'; 
-import './FiguritaCard.css'; 
+import './Album.css';
+import './FiguritaCard.css';
+import { ALL_FIGURITAS, Figurita } from '../data/figuritasData'; // <-- Importamos Figurita y ALL_FIGURITAS
 
-
-interface Figurita {
-  id: string; 
-  teamId: string; 
-  isSpecial: boolean;
-  isComplete: boolean; 
-  backgroundImageUrl: string; 
-  specialImageUrl?: string; 
-  specialImageAlt?: string; 
-  dataJugador?: string; 
-}
-
-interface BilleteraItem {
+// Elimina las interfaces Figurita, BilleteraItem y Billetera de aquí.
+// interface Figurita {... }
+interface BilleteraItem { // La interfaz de BilleteraItem sí es exclusiva de Album/Billetera
   count: number;
 }
-
-interface Billetera {
+interface Billetera { // La interfaz de Billetera sí es exclusiva de Album/Billetera
   [figuritaId: string]: BilleteraItem;
 }
 
@@ -29,58 +20,8 @@ function Album() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-
-  const initialFiguritasData = useMemo<Figurita[]>(() => ([
-    // Argentina
-    { id: 'figu01', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/1.jpg' },
-    { id: 'figu02', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/2.jpg' },
-    { id: 'figu03', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/3.jpg' },
-    { id: 'figu04', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/4.jpg' },
-    { id: 'figu05', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/5.jpg' },
-    { id: 'figu06', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/6.jpg' },
-    { id: 'figu07', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/7.jpg' },
-    { id: 'figu08', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/8.jpg' },
-    { id: 'figu09', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/9.jpg' },
-    { id: 'figu10', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/10.jpg' },
-    { id: 'figu11', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/11.jpg' },
-    { id: 'figu12', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/pelota.jpg' },
-    { id: 'figu13', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/hinchada.jpg' },
-    { id: 'figu14', teamId: 'argentina', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Argentina/copa.jpg' },
-    { id: 'figu15', teamId: 'argentina', isSpecial: true, isComplete: false, backgroundImageUrl: '/assets/img/fonts/jugadorsorpresa.jpeg', specialImageUrl: '/assets/img/fonts/Argentina/15.jpg', specialImageAlt: 'Maradona', dataJugador: 'Maradona' },
-    // Brasil
-    { id: 'figu16', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/1.jpg' },
-    { id: 'figu17', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/2.jpg' },
-    { id: 'figu18', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/3.jpg' },
-    { id: 'figu19', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/4.jpg' },
-    { id: 'figu20', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/5.jpg' },
-    { id: 'figu21', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/6.jpg' },
-    { id: 'figu22', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/7.jpg' },
-    { id: 'figu23', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/8.jpg' },
-    { id: 'figu24', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/9.jpg' },
-    { id: 'figu25', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/10.png' },
-    { id: 'figu26', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/11.jpg' },
-    { id: 'figu27', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/escudo.jpg' },
-    { id: 'figu28', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/hinchada.jpg' },
-    { id: 'figu29', teamId: 'brasil', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Brasil/copa.jpg' },
-    { id: 'figu30', teamId: 'brasil', isSpecial: true, isComplete: false, backgroundImageUrl: '/assets/img/fonts/jugadorsorpresa.jpeg', specialImageUrl: '/assets/img/fonts/Brasil/15.jpg', specialImageAlt: 'Pelé', dataJugador: 'Pele' },
-    // Francia
-    { id: 'figu31', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/1.jpg' },
-    { id: 'figu32', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/2.jpg' },
-    { id: 'figu33', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/3.jpg' },
-    { id: 'figu34', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/4.jpg' },
-    { id: 'figu35', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/5.jpg' },
-    { id: 'figu36', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/6.jpg' },
-    { id: 'figu37', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/7.jpg' },
-    { id: 'figu38', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/8.jpg' },
-    { id: 'figu39', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/9.jpg' },
-    { id: 'figu40', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/10.jpg' },
-    { id: 'figu41', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/11.jpg' },
-    { id: 'figu42', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/Camiseta.jpg' },
-    { id: 'figu43', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/hinchada.jpg' },
-    { id: 'figu44', teamId: 'francia', isSpecial: false, isComplete: false, backgroundImageUrl: '/assets/img/fonts/Francia/copa.jpg' },
-    { id: 'figu45', teamId: 'francia', isSpecial: true, isComplete: false, backgroundImageUrl: '/assets/img/fonts/jugadorsorpresa.jpeg', specialImageUrl: '/assets/img/fonts/Francia/15.jpg', specialImageAlt: 'Zidane', dataJugador: 'Zidane' },
-   
-  ]), []);
+  // ¡Elimina initialFiguritasData de aquí! Ahora usaremos ALL_FIGURITAS importada.
+  // const initialFiguritasData = useMemo<Figurita[]>(() => ([...]));
 
   useEffect(() => {
     let loadedBilletera: Billetera = {};
@@ -95,13 +36,14 @@ function Album() {
       setError("No se pudo cargar la billetera del localStorage.");
     }
 
-    const figuritasWithInitialState = initialFiguritasData.map(fig => ({
-    ...fig,
-      isComplete:!!loadedBilletera[fig.id] 
+    // Usamos ALL_FIGURITAS en lugar de initialFiguritasData
+    const figuritasWithInitialState = ALL_FIGURITAS.map(fig => ({
+     ...fig,
+      isComplete:!!loadedBilletera[fig.id] // Comprueba si ya está en la billetera
     }));
     setFiguritas(figuritasWithInitialState);
     setIsLoading(false);
-  }, [initialFiguritasData]); 
+  }, []); // <-- ¡MUY IMPORTANTE! Cambiar la dependencia de initialFiguritasData a un array vacío []
 
   useEffect(() => {
     localStorage.setItem("billetera", JSON.stringify(billetera));
@@ -119,17 +61,17 @@ function Album() {
             setBilletera(prevBilletera => {
               const newCount = (prevBilletera[fig.id]?.count || 0) + 1;
               return {
-              ...prevBilletera,
+               ...prevBilletera,
                 [fig.id]: { count: newCount },
               };
             });
-            return fig; 
+            return fig;
           }
         }
         return fig;
       })
     );
-  }, []); 
+  }, []);
 
   const equiposAgrupados = useMemo(() => {
     const teamMap = new Map<string, {
@@ -168,8 +110,8 @@ function Album() {
       }
       teamMap.get(fig.teamId)?.figuritas.push(fig);
     });
-    return Array.from(teamMap.values()); 
-  }, [figuritas]); 
+    return Array.from(teamMap.values());
+  }, [figuritas]);
 
   const allFiguritasComplete = useMemo(() => {
     return figuritas.length > 0 && figuritas.every(fig => fig.isComplete);
@@ -193,12 +135,11 @@ function Album() {
   }
 
   return (
-    <div className="album" id="album-react"> {}
+    <div className="album" id="album-react">
       <h1 className="main-title">
-        Bienvenidos a Figusapp album oficial de las mejores selecciones del mundo!!
+        MIS ALBUMES
       </h1>
 
-      {}
       {equiposAgrupados.map(team => {
         const totalCards = team.figuritas.length;
         const completadas = team.figuritas.filter(fig => fig.isComplete).length;
@@ -230,7 +171,7 @@ function Album() {
                   ></div>
                   <span className="progress-text">Progreso: {porcentaje}%</span>
                 </div>
-                <div className="cards"> {}
+                <div className="cards">
                   {team.figuritas.map(fig => (
                     <FiguritaCard
                       key={fig.id}
@@ -245,7 +186,7 @@ function Album() {
                 <img
                   src={team.banderaPrincipal}
                   alt={`Bandera ${team.name}`}
-                  className={`bandera ${isTeamComplete? 'color' : ''}`} 
+                  className={`bandera ${isTeamComplete? 'color' : ''}`}
                 />
               </div>
             </div>
@@ -253,7 +194,6 @@ function Album() {
         );
       })}
 
-      {}
       <div id="promo-final" className="promo-final">
         <div id="mensaje-incompleto" className={`mensaje ${allFiguritasComplete? 'oculto' : ''}`}>
           <h4>Completa el álbum</h4>
@@ -265,7 +205,6 @@ function Album() {
           <h2>FELICIDADES!!</h2>
           <h3>Completaste el álbum!</h3>
           <a href="#" className="boton-viaje">CLICK <br />AQUÍ</a>
-          {}
           <svg className="svg-curvo" viewBox="0 0 400 200">
             <path id="curva" d="M10 10 Q 95 45 180 10 T 350 10" />
             <text>
@@ -274,41 +213,6 @@ function Album() {
           </svg>
         </div>
       </div>
-
-      {}
-      <section className="billetera-section">
-        <h2>Mi Billetera de Figuritas Repetidas</h2>
-        <div className="billetera-grid">
-          {Object.entries(billetera).length === 0? (
-            <p className="empty-billetera">Tu billetera está vacía. ¡Consigue más figuritas para repetir!</p>
-          ) : (
-            Object.entries(billetera).map(([figuritaId, item]) => {
-              const originalFigurita = figuritas.find(f => f.id === figuritaId);
-              let imgSource = '';
-              let imgAlt = figuritaId;
-
-              if (originalFigurita) {
-                if (originalFigurita.isSpecial && originalFigurita.specialImageUrl) {
-                  imgSource = originalFigurita.specialImageUrl; 
-                  imgAlt = originalFigurita.specialImageAlt || figuritaId;
-                } else {
-                  imgSource = originalFigurita.backgroundImageUrl; 
-                  imgAlt = figuritaId;
-                }
-              }
-
-              return (
-                <div key={figuritaId} className="billetera-item">
-                  {imgSource && <img src={imgSource} alt={imgAlt} className="billetera-img" />}
-                  <span>Figurita {figuritaId}: </span>
-                  <strong>x{item.count}</strong>
-                </div>
-              );
-            })
-          )}
-        </div>
-      </section>
-
     </div>
   );
 }

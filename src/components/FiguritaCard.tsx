@@ -1,16 +1,10 @@
+// src/components/FiguritaCard.tsx
 import React from 'react';
 import './FiguritaCard.css';
+import { Figurita } from '../data/figuritasData'; // <-- Importamos la interfaz Figurita centralizada
 
-interface Figurita {
-  id: string;
-  teamId: string;
-  isSpecial: boolean;
-  isComplete: boolean;
-  backgroundImageUrl: string; 
-  coverImageUrl?: string;
-  specialImageAlt?: string;
-  dataJugador?: string;
-}
+// Ya no necesitas definir la interfaz Figurita aquí.
+// interface Figurita {... }
 
 interface FiguritaCardProps {
   figurita: Figurita;
@@ -22,9 +16,10 @@ function FiguritaCard({ figurita, onFiguritaClick }: FiguritaCardProps) {
     onFiguritaClick(figurita.id);
   };
 
-  let imageSrc = figurita.backgroundImageUrl; 
+  let imageSrc = figurita.backgroundImageUrl;
   let altText = figurita.isSpecial? figurita.specialImageAlt || `Figurita especial ${figurita.dataJugador}` : `Figurita ${figurita.id} de ${figurita.teamId}`;
 
+  // Nota: figurita.isComplete aquí se refiere al estado en el álbum, no si está en la billetera
   if (!figurita.isComplete && figurita.isSpecial && figurita.coverImageUrl) {
     imageSrc = figurita.coverImageUrl;
     altText = 'Figurita especial oculta';

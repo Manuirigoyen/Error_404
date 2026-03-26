@@ -37,7 +37,7 @@ export const Header = () => {
                 className="nav-link text-white btn btn-link"
                 id="negociacionesBtn"
               >
-                Mi album 📚
+                Negociaciones ⚖️
               </Link>
             </li>
 
